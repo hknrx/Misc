@@ -1,0 +1,7 @@
+# Empty folder .gitignore file
+
+# Everything in this directory shall be ignored...
+*
+
+# ...except this file
+!.gitignore

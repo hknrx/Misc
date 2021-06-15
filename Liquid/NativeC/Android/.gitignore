@@ -1,0 +1,4 @@
+# Android .gitignore file
+
+libs/
+obj/

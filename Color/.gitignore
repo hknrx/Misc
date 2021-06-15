@@ -1,0 +1,17 @@
+# Unity .gitignore file
+
+# All this can be ignored:
+Library/*
+Builds/*
+Temp
+
+*.csproj
+*.pidb
+*.sln
+*.pidb
+*.userprefs
+
+.DS_Store
+
+# Metafiles (.meta) are needed, even though the .gitignore file in the root folder wants to exclude them:
+!*.meta

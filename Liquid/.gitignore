@@ -1,0 +1,16 @@
+# Unity .gitignore file
+
+Library/
+Builds/
+Temp
+
+*.csproj
+*.pidb
+*.sln
+*.pidb
+*.userprefs
+
+.DS_Store
+
+# Metafiles (.meta) are needed, even though another .gitignore file would like to exclude them:
+!*.meta

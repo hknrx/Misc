@@ -1,0 +1,49 @@
+<exporter version="1.0">
+    <!-- identifier of the exporter -->
+    <name>nrx</name>
+
+    <!-- display name of the exporter for the combo box -->
+    <displayName>Nrx (Unity/C#)</displayName>
+
+    <!-- description of the exporter -->
+    <description>Export for Unity (C#).</description>
+
+    <!-- exporter version -->
+    <version>0.1</version>
+
+    <!-- currently only one file allowed - more to come with update -->
+    <files>
+        <file>
+            <!-- name of this file variable -->
+            <name>nrx</name>
+
+            <!-- human readable name (for GUI) -->
+            <displayName>Nrx file</displayName>
+
+            <!-- file extension for the file -->
+            <fileExtension>cs</fileExtension>
+
+            <!-- name of the template file -->
+            <template>nrx.cs</template>
+        </file>
+    </files>
+
+    <!-- target framework supports trimming -->
+    <supportsTrimming>true</supportsTrimming>
+
+    <!-- target framework supports rotated sprites -->
+    <supportsRotation>false</supportsRotation>
+
+    <!-- rotated sprites direction (cw/ccw) -->
+    <rotationDirection>cw</rotationDirection>
+
+    <!-- supports npot sizes -->
+    <supportsNPOT>false</supportsNPOT>
+
+    <!-- supports file name stripping (remove .png etc) -->
+    <supportsTrimSpriteNames>yes</supportsTrimSpriteNames>
+
+    <!-- supports texure subpath -->
+    <supportsTextureSubPath>no</supportsTextureSubPath>
+
+</exporter>
