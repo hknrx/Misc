@@ -1,0 +1,20 @@
+############
+# Keywords #
+############
+
+paper,globe-trotter,draw,inn,travel
+
+###############
+# Description #
+###############
+
+Welcome to Paper Globe-Trotter!
+
+Do you feel like an artist today? Take a paper sheet and a few colored pencils to create your own little character, your "Paper Globe-Trotter"! Also draw your moving inn to welcome guests from all around the world, and follow your globe-trotter while he's travelling far away from home, visiting others' inns!
+ • Receive post cards from your globe-trotter;
+ • Look at your guests and give them an appreciation;
+ • Check your globe-trotter history with his passport;
+ • Check your inn's history (guest book);
+ • Publish feeds and screenshots to Facebook!
+
+Have fun with Paper Globe-Trotter!

@@ -1,0 +1,1437 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* FlaminMaze */ = {
+		activeExec = 0;
+		executables = (
+			73AE7BF51130CD5700422E00 /* FlaminMaze */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 73AE7BF51130CD5700422E00 /* FlaminMaze */;
+		activeSDKPreference = iphonesimulator4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* FlaminMaze */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* FlaminMaze */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 73AE83F51130CD8000422E00 /* Code sense */;
+		executables = (
+			73AE7BF51130CD5700422E00 /* FlaminMaze */,
+			73F003B512EF257E00DF89DC /* FlaminMazeGiant */,
+		);
+		perUserDictionary = {
+			"PBXConfiguration.PBXBreakpointsDataSource.v1:1CA1AED706398EBD00589147" = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBreakpointsDataSource_BreakpointID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					198,
+					20,
+					99,
+					99,
+					29,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBreakpointsDataSource_ActionID,
+					PBXBreakpointsDataSource_TypeID,
+					PBXBreakpointsDataSource_BreakpointID,
+					PBXBreakpointsDataSource_UseID,
+					PBXBreakpointsDataSource_LocationID,
+					PBXBreakpointsDataSource_ConditionID,
+					PBXBreakpointsDataSource_IgnoreCountID,
+					PBXBreakpointsDataSource_ContinueID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					805,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					765,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 318759775;
+			PBXWorkspaceStateSaveDate = 318759775;
+		};
+		perUserProjectItems = {
+			73025A5F12694AF7008171A3 /* PBXTextBookmark */ = 73025A5F12694AF7008171A3 /* PBXTextBookmark */;
+			7328606D128308FE0094C489 /* PBXTextBookmark */ = 7328606D128308FE0094C489 /* PBXTextBookmark */;
+			734995FC12FFF99A00B2A419 /* PBXTextBookmark */ = 734995FC12FFF99A00B2A419 /* PBXTextBookmark */;
+			7349966913001AF800B2A419 /* PBXTextBookmark */ = 7349966913001AF800B2A419 /* PBXTextBookmark */;
+			7349966A13001AF800B2A419 /* PBXTextBookmark */ = 7349966A13001AF800B2A419 /* PBXTextBookmark */;
+			7349966B13001AF800B2A419 /* PBXTextBookmark */ = 7349966B13001AF800B2A419 /* PBXTextBookmark */;
+			7349966C13001AF800B2A419 /* PBXTextBookmark */ = 7349966C13001AF800B2A419 /* PBXTextBookmark */;
+			7349967013001B7300B2A419 /* PBXTextBookmark */ = 7349967013001B7300B2A419 /* PBXTextBookmark */;
+			735E2E25129D69DF00513F8D /* PBXTextBookmark */ = 735E2E25129D69DF00513F8D /* PBXTextBookmark */;
+			73722CCF127093D6003ED318 /* PBXTextBookmark */ = 73722CCF127093D6003ED318 /* PBXTextBookmark */;
+			7377843412F31DD30078E4B7 /* PBXTextBookmark */ = 7377843412F31DD30078E4B7 /* PBXTextBookmark */;
+			7382A21212F070AE002F172B /* PBXBookmark */ = 7382A21212F070AE002F172B /* PBXBookmark */;
+			7382A21612F070AE002F172B /* PBXTextBookmark */ = 7382A21612F070AE002F172B /* PBXTextBookmark */;
+			7382A25412F07E3E002F172B /* PlistBookmark */ = 7382A25412F07E3E002F172B /* PlistBookmark */;
+			7382A25512F07E3E002F172B /* PBXBookmark */ = 7382A25512F07E3E002F172B /* PBXBookmark */;
+			7382A25912F07F10002F172B /* PlistBookmark */ = 7382A25912F07F10002F172B /* PlistBookmark */;
+			7382A27A12F0812B002F172B /* PBXBookmark */ = 7382A27A12F0812B002F172B /* PBXBookmark */;
+			7382A28112F082A0002F172B /* PBXBookmark */ = 7382A28112F082A0002F172B /* PBXBookmark */;
+			7382A28912F08328002F172B /* PBXBookmark */ = 7382A28912F08328002F172B /* PBXBookmark */;
+			7382A2CC12F0A852002F172B /* PBXTextBookmark */ = 7382A2CC12F0A852002F172B /* PBXTextBookmark */;
+			7382A2CE12F0A852002F172B /* PBXTextBookmark */ = 7382A2CE12F0A852002F172B /* PBXTextBookmark */;
+			738C7B9312883F6900FB2597 /* PBXTextBookmark */ = 738C7B9312883F6900FB2597 /* PBXTextBookmark */;
+			738C7B9412883F6900FB2597 /* PBXTextBookmark */ = 738C7B9412883F6900FB2597 /* PBXTextBookmark */;
+			73BCB4FF129D7C0F007B3E57 /* PBXTextBookmark */ = 73BCB4FF129D7C0F007B3E57 /* PBXTextBookmark */;
+			73D09D331136D23600C6E90C /* PBXBookmark */ = 73D09D331136D23600C6E90C /* PBXBookmark */;
+			73D1D442129962660091CD06 /* PBXTextBookmark */ = 73D1D442129962660091CD06 /* PBXTextBookmark */;
+			73D1D443129962660091CD06 /* PBXTextBookmark */ = 73D1D443129962660091CD06 /* PBXTextBookmark */;
+			73D1D445129962660091CD06 /* PBXTextBookmark */ = 73D1D445129962660091CD06 /* PBXTextBookmark */;
+			73D1D446129962660091CD06 /* PBXTextBookmark */ = 73D1D446129962660091CD06 /* PBXTextBookmark */;
+			73D1D4AA12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AA12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4AB12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AB12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4AC12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AC12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4AD12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AD12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4AE12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AE12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4AF12996F860091CD06 /* PBXTextBookmark */ = 73D1D4AF12996F860091CD06 /* PBXTextBookmark */;
+			73D1D4B012996F860091CD06 /* PBXTextBookmark */ = 73D1D4B012996F860091CD06 /* PBXTextBookmark */;
+			73D1D4B112996F860091CD06 /* PBXTextBookmark */ = 73D1D4B112996F860091CD06 /* PBXTextBookmark */;
+			73D1D4E01299843D0091CD06 /* PBXTextBookmark */ = 73D1D4E01299843D0091CD06 /* PBXTextBookmark */;
+			73D1D4E11299843D0091CD06 /* PBXTextBookmark */ = 73D1D4E11299843D0091CD06 /* PBXTextBookmark */;
+			73D1D4E21299843D0091CD06 /* PBXTextBookmark */ = 73D1D4E21299843D0091CD06 /* PBXTextBookmark */;
+			73DE0D2012F92152005A3453 /* PBXTextBookmark */ = 73DE0D2012F92152005A3453 /* PBXTextBookmark */;
+			73DF1680120C2980000705AA /* PBXTextBookmark */ = 73DF1680120C2980000705AA /* PBXTextBookmark */;
+			73DF1694120C2AF7000705AA /* PBXTextBookmark */ = 73DF1694120C2AF7000705AA /* PBXTextBookmark */;
+			73F0050412EF288A00DF89DC /* PBXBookmark */ = 73F0050412EF288A00DF89DC /* PBXBookmark */;
+			73F007C312EF38BA00DF89DC /* PBXTextBookmark */ = 73F007C312EF38BA00DF89DC /* PBXTextBookmark */;
+			73F007C512EF38BA00DF89DC /* PBXTextBookmark */ = 73F007C512EF38BA00DF89DC /* PBXTextBookmark */;
+			73F007C612EF38BA00DF89DC /* PBXTextBookmark */ = 73F007C612EF38BA00DF89DC /* PBXTextBookmark */;
+			73F007DA12EF3B6100DF89DC /* PBXTextBookmark */ = 73F007DA12EF3B6100DF89DC /* PBXTextBookmark */;
+			73F007DB12EF3B6100DF89DC /* PBXTextBookmark */ = 73F007DB12EF3B6100DF89DC /* PBXTextBookmark */;
+			73F007DD12EF3B6100DF89DC /* PBXTextBookmark */ = 73F007DD12EF3B6100DF89DC /* PBXTextBookmark */;
+			73F0082E12EF430C00DF89DC /* PBXTextBookmark */ = 73F0082E12EF430C00DF89DC /* PBXTextBookmark */;
+			73F0082F12EF430C00DF89DC /* PBXTextBookmark */ = 73F0082F12EF430C00DF89DC /* PBXTextBookmark */;
+			73F0083112EF430C00DF89DC /* PBXTextBookmark */ = 73F0083112EF430C00DF89DC /* PBXTextBookmark */;
+			73F0083212EF430C00DF89DC /* PBXTextBookmark */ = 73F0083212EF430C00DF89DC /* PBXTextBookmark */;
+			73F0083712EF437A00DF89DC /* PBXTextBookmark */ = 73F0083712EF437A00DF89DC /* PBXTextBookmark */;
+			73F0084312EF462C00DF89DC /* PBXTextBookmark */ = 73F0084312EF462C00DF89DC /* PBXTextBookmark */;
+			73FCBDC31133EAA600059979 /* PBXTextBookmark */ = 73FCBDC31133EAA600059979 /* PBXTextBookmark */;
+			73FCBDDA1133EF2800059979 /* PBXTextBookmark */ = 73FCBDDA1133EF2800059979 /* PBXTextBookmark */;
+			73FCBEA4113424BB00059979 /* PBXTextBookmark */ = 73FCBEA4113424BB00059979 /* PBXTextBookmark */;
+			73FCBEA7113424BB00059979 /* PBXTextBookmark */ = 73FCBEA7113424BB00059979 /* PBXTextBookmark */;
+			73FCBEA9113424BB00059979 /* PBXTextBookmark */ = 73FCBEA9113424BB00059979 /* PBXTextBookmark */;
+			73FCBF09113432CA00059979 /* PBXTextBookmark */ = 73FCBF09113432CA00059979 /* PBXTextBookmark */;
+			73FCBF0B113432CA00059979 /* PBXTextBookmark */ = 73FCBF0B113432CA00059979 /* PBXTextBookmark */;
+			73FCBFD4113451C000059979 /* PBXTextBookmark */ = 73FCBFD4113451C000059979 /* PBXTextBookmark */;
+			73FCBFD5113451C000059979 /* PBXTextBookmark */ = 73FCBFD5113451C000059979 /* PBXTextBookmark */;
+			73FCBFD6113451C000059979 /* PBXTextBookmark */ = 73FCBFD6113451C000059979 /* PBXTextBookmark */;
+			73FCBFD7113451C000059979 /* PBXTextBookmark */ = 73FCBFD7113451C000059979 /* PBXTextBookmark */;
+			73FCC004113455BE00059979 /* PBXTextBookmark */ = 73FCC004113455BE00059979 /* PBXTextBookmark */;
+			73FEF0EB1269B47300D2A58C /* PBXTextBookmark */ = 73FEF0EB1269B47300D2A58C /* PBXTextBookmark */;
+			73FEF0EC1269B47300D2A58C /* PBXTextBookmark */ = 73FEF0EC1269B47300D2A58C /* PBXTextBookmark */;
+		};
+		sourceControlManager = 73AE83F41130CD8000422E00 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	7302512912694265008171A3 /* OFHighScoreService.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OFHighScoreService.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/HighScore/OFHighScoreService.mm;
+		sourceTree = "<absolute>";
+	};
+	7302515212694265008171A3 /* OpenFeint+Dashboard.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = "OpenFeint+Dashboard.h";
+		path = "/Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/OpenFeint+Dashboard.h";
+		sourceTree = "<absolute>";
+	};
+	7302515312694265008171A3 /* OpenFeint+Dashboard.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = "OpenFeint+Dashboard.mm";
+		path = "/Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/OpenFeint+Dashboard.mm";
+		sourceTree = "<absolute>";
+	};
+	7302516012694265008171A3 /* OpenFeint.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OpenFeint.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/OpenFeint.mm;
+		sourceTree = "<absolute>";
+	};
+	7302516A12694265008171A3 /* OFAsyncSocket.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = OFAsyncSocket.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/Presence/OFAsyncSocket.m;
+		sourceTree = "<absolute>";
+	};
+	730251AB12694266008171A3 /* OFHighScoreService+Private.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = "OFHighScoreService+Private.mm";
+		path = "/Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/Services/HighScore/OFHighScoreService+Private.mm";
+		sourceTree = "<absolute>";
+	};
+	730251D812694266008171A3 /* OFBase.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFBase.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Systems/AuroraLib/Common/OFBase.h;
+		sourceTree = "<absolute>";
+	};
+	730252F012694266008171A3 /* FBNativeStringUploader.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = FBNativeStringUploader.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/FBconnect/FBNativeStringUploader.m;
+		sourceTree = "<absolute>";
+	};
+	7302532612694266008171A3 /* bistream.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = bistream.c;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/bistream.c;
+		sourceTree = "<absolute>";
+	};
+	7302532E12694266008171A3 /* parsifal.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = parsifal.c;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/parsifal.c;
+		sourceTree = "<absolute>";
+	};
+	7302533512694266008171A3 /* xmlhash.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = xmlhash.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlhash.h;
+		sourceTree = "<absolute>";
+	};
+	7302533612694266008171A3 /* xmlpool.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = xmlpool.c;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlpool.c;
+		sourceTree = "<absolute>";
+	};
+	7302533712694266008171A3 /* xmlpool.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = xmlpool.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlpool.h;
+		sourceTree = "<absolute>";
+	};
+	7302533812694266008171A3 /* xmlsbuf.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = xmlsbuf.c;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlsbuf.c;
+		sourceTree = "<absolute>";
+	};
+	7302533912694266008171A3 /* xmlsbuf.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = xmlsbuf.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlsbuf.h;
+		sourceTree = "<absolute>";
+	};
+	7302533A12694266008171A3 /* xmlvect.c */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.c;
+		name = xmlvect.c;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/Vendor/parsifal/xmlvect.c;
+		sourceTree = "<absolute>";
+	};
+	7302538412694266008171A3 /* OFHighScore.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFHighScore.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/include/OFHighScore.h;
+		sourceTree = "<absolute>";
+	};
+	7302538D12694266008171A3 /* OpenFeint.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OpenFeint.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/OpenFeint.h;
+		sourceTree = "<absolute>";
+	};
+	7302538F12694266008171A3 /* OpenFeintSettings.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OpenFeintSettings.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/OpenFeintSettings.h;
+		sourceTree = "<absolute>";
+	};
+	7302554112694266008171A3 /* OFHighScore.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OFHighScore.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/source/OFHighScore.mm;
+		sourceTree = "<absolute>";
+	};
+	73025A0C126943C7008171A3 /* CGPDFContext.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CGPDFContext.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGPDFContext.h;
+		sourceTree = "<absolute>";
+	};
+	73025A5F12694AF7008171A3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302538F12694266008171A3 /* OpenFeintSettings.h */;
+		name = "OpenFeintSettings.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1326;
+		vrLoc = 0;
+	};
+	732493E41274297500CB4EAB /* ApplicationDelegate.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = ApplicationDelegate.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/ApplicationDelegate.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 3198}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 595}";
+		};
+	};
+	7328606D128308FE0094C489 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 730252F012694266008171A3 /* FBNativeStringUploader.m */;
+		name = "FBNativeStringUploader.m: 49";
+		rLen = 0;
+		rLoc = 1711;
+		rType = 0;
+		vrLen = 1098;
+		vrLoc = 706;
+	};
+	7330983F112870F900E4AF2C /* Label.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 477}}";
+			sepNavSelRange = "{44, 7}";
+			sepNavVisRange = "{0, 203}";
+		};
+	};
+	73309840112870F900E4AF2C /* Label.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 624}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 759}";
+		};
+	};
+	7330994A11295E8300E4AF2C /* Button.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1209, 477}}";
+			sepNavSelRange = "{276, 0}";
+			sepNavVisRange = "{0, 399}";
+			sepNavWindowFrame = "{{157, 25}, {1070, 622}}";
+		};
+	};
+	7330994B11295E8300E4AF2C /* Button.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1202, 1456}}";
+			sepNavSelRange = "{176, 7}";
+			sepNavVisRange = "{0, 618}";
+		};
+	};
+	733099E51129C07E00E4AF2C /* Sound.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 481}}";
+			sepNavSelRange = "{565, 0}";
+			sepNavVisRange = "{95, 791}";
+		};
+	};
+	733099E61129C07E00E4AF2C /* Sound.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 5993}}";
+			sepNavSelRange = "{2924, 0}";
+			sepNavVisRange = "{2614, 573}";
+		};
+	};
+	73309BFF112B05AC00E4AF2C /* Menu.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 702}}";
+			sepNavSelRange = "{158, 0}";
+			sepNavVisRange = "{24, 695}";
+		};
+	};
+	734995FC12FFF99A00B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 734995FD12FFF99A00B2A419 /* UIViewController.h */;
+		name = "UIViewController.h: 45";
+		rLen = 82;
+		rLoc = 1327;
+		rType = 0;
+		vrLen = 3427;
+		vrLoc = 3346;
+	};
+	734995FD12FFF99A00B2A419 /* UIViewController.h */ = {
+		isa = PBXFileReference;
+		name = UIViewController.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h;
+		sourceTree = "<absolute>";
+	};
+	7349966913001AF800B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738FAF921068E27C003A97CD /* ApplicationDelegate.h */;
+		name = "ApplicationDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 267;
+		vrLoc = 0;
+	};
+	7349966A13001AF800B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73FEF17E1269EDF400D2A58C /* Maze.h */;
+		name = "Maze.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1020;
+		vrLoc = 0;
+	};
+	7349966B13001AF800B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 732493E41274297500CB4EAB /* ApplicationDelegate.mm */;
+		name = "ApplicationDelegate.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 595;
+		vrLoc = 0;
+	};
+	7349966C13001AF800B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7382A28512F08322002F172B /* Maze.mm */;
+		name = "Maze.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 745;
+		vrLoc = 0;
+	};
+	7349967013001B7300B2A419 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73CEDDE51125D2EA00093DC1 /* Maze.mm */;
+		name = "Maze.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 726;
+		vrLoc = 35;
+	};
+	735E2E25129D69DF00513F8D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73976F35111B28940045BEFA /* main.m */;
+		name = "main.m: 5";
+		rLen = 0;
+		rLoc = 60;
+		rType = 0;
+		vrLen = 230;
+		vrLoc = 0;
+	};
+	73722CCF127093D6003ED318 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302516A12694265008171A3 /* OFAsyncSocket.m */;
+		name = "OFAsyncSocket.m: 2915";
+		rLen = 0;
+		rLoc = 23;
+		rType = 0;
+		vrLen = 1020;
+		vrLoc = 87262;
+	};
+	7377843412F31DD30078E4B7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73FCBE6311341B4200059979 /* OpenFeintLocalSettings.h */;
+		name = "OpenFeintLocalSettings.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 945;
+		vrLoc = 0;
+	};
+	73828762112C0116003A95F3 /* MenuMain.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 477}}";
+			sepNavSelRange = "{18, 0}";
+			sepNavVisRange = "{0, 55}";
+		};
+	};
+	738287A3112C05EF003A95F3 /* MenuPause.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 477}}";
+			sepNavSelRange = "{56, 0}";
+			sepNavVisRange = "{0, 56}";
+		};
+	};
+	7382A21212F070AE002F172B /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 73F004FF12EF286B00DF89DC /* Icon72x72.png */;
+	};
+	7382A21612F070AE002F172B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73FEF17A1269EDEE00D2A58C /* MenuMain.m */;
+		name = "MenuMain.m: 32";
+		rLen = 46;
+		rLoc = 1232;
+		rType = 0;
+		vrLen = 2328;
+		vrLoc = 237;
+	};
+	7382A25412F07E3E002F172B /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 73F004F612EF275800DF89DC /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = /Users/nrx/Projects/Local/Work/FlaminMaze/Resources/Giant/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	7382A25512F07E3E002F172B /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7382A24A12F07CD3002F172B /* Icon57x57@2x.png */;
+	};
+	7382A25912F07F10002F172B /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 73F004EF12EF274500DF89DC /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = /Users/nrx/Projects/Local/Work/FlaminMaze/Resources/Classic/Info.plist;
+		rLen = 0;
+		rLoc = 9223372036854775808;
+	};
+	7382A27A12F0812B002F172B /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7382A25C12F07FD3002F172B /* OpenFeint@2x.png */;
+	};
+	7382A28112F082A0002F172B /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 7382A27C12F08287002F172B /* Default@2x.png */;
+	};
+	7382A28512F08322002F172B /* Maze.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = Maze.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/Maze.mm;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 17823}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{35, 726}";
+		};
+	};
+	7382A28912F08328002F172B /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 73F004EE12EF274500DF89DC /* Default.png */;
+	};
+	7382A2CC12F0A852002F172B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73E03CEF12EF22A700553C2F /* README.html */;
+		name = "README.html: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1180;
+		vrLoc = 2505;
+	};
+	7382A2CE12F0A852002F172B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE83F61130CDB100422E00 /* openfeint_offline_config.xml */;
+		name = "openfeint_offline_config.xml: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1360;
+		vrLoc = 0;
+	};
+	738C7B9312883F6900FB2597 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 733099E51129C07E00E4AF2C /* Sound.h */;
+		name = "Sound.h: 27";
+		rLen = 0;
+		rLoc = 565;
+		rType = 0;
+		vrLen = 791;
+		vrLoc = 95;
+	};
+	738C7B9412883F6900FB2597 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 733099E61129C07E00E4AF2C /* Sound.m */;
+		name = "Sound.m: 144";
+		rLen = 0;
+		rLoc = 2924;
+		rType = 0;
+		vrLen = 573;
+		vrLoc = 2614;
+	};
+	738FAF921068E27C003A97CD /* ApplicationDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 430}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 267}";
+		};
+	};
+	738FAF931068E27C003A97CD /* ApplicationDelegate.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 2782}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 907}";
+		};
+	};
+	73976F35111B28940045BEFA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 358}}";
+			sepNavSelRange = "{60, 0}";
+			sepNavVisRange = "{0, 230}";
+		};
+	};
+	73AE7BF51130CD5700422E00 /* FlaminMaze */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = FlaminMaze;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	73AE7C1C1130CD7F00422E00 /* OFAchievementService.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OFAchievementService.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/Achievement/OFAchievementService.mm;
+		sourceTree = "<absolute>";
+	};
+	73AE7C691130CD7F00422E00 /* OFHighScoreBatchEntry.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFHighScoreBatchEntry.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/HighScore/OFHighScoreBatchEntry.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7C6B1130CD7F00422E00 /* OFHighScoreService.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFHighScoreService.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/HighScore/OFHighScoreService.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7CED1130CD7F00422E00 /* OFPaginatedSeries.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OFPaginatedSeries.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/internal/OpenFeint/Services/Pagination/OFPaginatedSeries.mm;
+		sourceTree = "<absolute>";
+	};
+	73AE7E581130CD7F00422E00 /* OFLeaderboardService.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFLeaderboardService.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/api/Leaderboard/OFLeaderboardService.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7E901130CD7F00422E00 /* OFChallengeDelegate.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFChallengeDelegate.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/delegates/OFChallengeDelegate.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7E911130CD7F00422E00 /* OFDelegatesContainer.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFDelegatesContainer.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/delegates/OFDelegatesContainer.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7E921130CD7F00422E00 /* OFDelegatesContainer.mm */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = OFDelegatesContainer.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/delegates/OFDelegatesContainer.mm;
+		sourceTree = "<absolute>";
+	};
+	73AE7E931130CD7F00422E00 /* OFNotificationDelegate.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFNotificationDelegate.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/delegates/OFNotificationDelegate.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7E941130CD7F00422E00 /* OpenFeintDelegate.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OpenFeintDelegate.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/delegates/OpenFeintDelegate.h;
+		sourceTree = "<absolute>";
+	};
+	73AE7E961130CD7F00422E00 /* OpenFeintPrefix.pch */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OpenFeintPrefix.pch;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/OpenFeintPrefix.pch;
+		sourceTree = "<absolute>";
+	};
+	73AE80EE1130CD8000422E00 /* OFHighScoreController.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = OFHighScoreController.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Libraries/OpenFeint/ui/Controllers/PageControllers/HighScoreController/OFHighScoreController.h;
+		sourceTree = "<absolute>";
+	};
+	73AE83F41130CD8000422E00 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = Local;
+			repositoryNamesForRoots = {
+				"" = Local;
+			};
+		};
+	};
+	73AE83F51130CD8000422E00 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	73AE83F61130CDB100422E00 /* openfeint_offline_config.xml */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 1014}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1360}";
+		};
+	};
+	73BCB4FF129D7C0F007B3E57 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73025A0C126943C7008171A3 /* CGPDFContext.h */;
+		name = "CGPDFContext.h: 60";
+		rLen = 0;
+		rLoc = 2459;
+		rType = 0;
+		vrLen = 1187;
+		vrLoc = 1842;
+	};
+	73CEDDE41125D2EA00093DC1 /* Maze.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1839, 767}}";
+			sepNavSelRange = "{945, 0}";
+			sepNavVisRange = "{334, 1150}";
+		};
+	};
+	73CEDDE51125D2EA00093DC1 /* Maze.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 17823}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{35, 726}";
+		};
+	};
+	73D09D331136D23600C6E90C /* PBXBookmark */ = {
+		isa = PBXBookmark;
+	};
+	73D09D681136D64400C6E90C /* MenuLoading.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 477}}";
+			sepNavSelRange = "{58, 0}";
+			sepNavVisRange = "{0, 58}";
+		};
+	};
+	73D09D691136D64400C6E90C /* MenuLoading.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1363, 481}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1202}";
+		};
+	};
+	73D1D442129962660091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302512912694265008171A3 /* OFHighScoreService.mm */;
+		name = "OFHighScoreService.mm: 193";
+		rLen = 18;
+		rLoc = 6689;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 5978;
+	};
+	73D1D443129962660091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 730251AB12694266008171A3 /* OFHighScoreService+Private.mm */;
+		name = "OFHighScoreService+Private.mm: 556";
+		rLen = 16;
+		rLoc = 19781;
+		rType = 0;
+		vrLen = 1354;
+		vrLoc = 18913;
+	};
+	73D1D445129962660091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 730251D812694266008171A3 /* OFBase.h */;
+		name = "OFBase.h: 111";
+		rLen = 54;
+		rLoc = 4273;
+		rType = 0;
+		vrLen = 969;
+		vrLoc = 3389;
+	};
+	73D1D446129962660091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302538412694266008171A3 /* OFHighScore.h */;
+		name = "OFHighScore.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 885;
+		vrLoc = 1207;
+	};
+	73D1D4AA12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302554112694266008171A3 /* OFHighScore.mm */;
+		name = "OFHighScore.mm: 379";
+		rLen = 0;
+		rLoc = 8443;
+		rType = 0;
+		vrLen = 484;
+		vrLoc = 8255;
+	};
+	73D1D4AB12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302532612694266008171A3 /* bistream.c */;
+		name = "bistream.c: 148";
+		rLen = 0;
+		rLoc = 4487;
+		rType = 0;
+		vrLen = 798;
+		vrLoc = 4069;
+	};
+	73D1D4AC12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302532E12694266008171A3 /* parsifal.c */;
+		name = "parsifal.c: 2128";
+		rLen = 0;
+		rLoc = 61341;
+		rType = 0;
+		vrLen = 750;
+		vrLoc = 60960;
+	};
+	73D1D4AD12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533512694266008171A3 /* xmlhash.h */;
+		name = "xmlhash.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 746;
+		vrLoc = 0;
+	};
+	73D1D4AE12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533612694266008171A3 /* xmlpool.c */;
+		name = "xmlpool.c: 94";
+		rLen = 0;
+		rLoc = 2331;
+		rType = 0;
+		vrLen = 667;
+		vrLoc = 1737;
+	};
+	73D1D4AF12996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533712694266008171A3 /* xmlpool.h */;
+		name = "xmlpool.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 679;
+		vrLoc = 0;
+	};
+	73D1D4B012996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533812694266008171A3 /* xmlsbuf.c */;
+		name = "xmlsbuf.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1190;
+		vrLoc = 0;
+	};
+	73D1D4B112996F860091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533912694266008171A3 /* xmlsbuf.h */;
+		name = "xmlsbuf.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 670;
+		vrLoc = 0;
+	};
+	73D1D4E01299843D0091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302533A12694266008171A3 /* xmlvect.c */;
+		name = "xmlvect.c: 162";
+		rLen = 0;
+		rLoc = 4878;
+		rType = 0;
+		vrLen = 726;
+		vrLoc = 4461;
+	};
+	73D1D4E11299843D0091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302516012694265008171A3 /* OpenFeint.mm */;
+		name = "OpenFeint.mm: 502";
+		rLen = 73;
+		rLoc = 16137;
+		rType = 0;
+		vrLen = 780;
+		vrLoc = 15724;
+	};
+	73D1D4E21299843D0091CD06 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302538D12694266008171A3 /* OpenFeint.h */;
+		name = "OpenFeint.h: 2";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 1114;
+		vrLoc = 10217;
+	};
+	73DE0D2012F92152005A3453 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73F007CF12EF39EF00DF89DC /* Menu.mm */;
+		name = "Menu.mm: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1057;
+		vrLoc = 0;
+	};
+	73DF1677120C2806000705AA /* CGAffineTransform.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CGAffineTransform.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGAffineTransform.h;
+		sourceTree = "<absolute>";
+	};
+	73DF1680120C2980000705AA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73DF1677120C2806000705AA /* CGAffineTransform.h */;
+		name = "CGAffineTransform.h: 13";
+		rLen = 27;
+		rLoc = 287;
+		rType = 0;
+		vrLen = 1008;
+		vrLoc = 3998;
+	};
+	73DF1694120C2AF7000705AA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73DF1695120C2AF7000705AA /* CGGeometry.h */;
+		name = "CGGeometry.h: 291";
+		rLen = 0;
+		rLoc = 8944;
+		rType = 0;
+		vrLen = 734;
+		vrLoc = 8210;
+	};
+	73DF1695120C2AF7000705AA /* CGGeometry.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CGGeometry.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.0.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGGeometry.h;
+		sourceTree = "<absolute>";
+	};
+	73E03CEF12EF22A700553C2F /* README.html */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1062, 12857}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{2505, 1180}";
+		};
+	};
+	73E2CCBE1271E8A000BB9AAA /* MenuLoading.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = MenuLoading.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/MenuLoading.m;
+		sourceTree = "<absolute>";
+	};
+	73F0005212EF257E00DF89DC /* FlaminMazeGiant */ = {
+		activeExec = 0;
+		executables = (
+			73F003B512EF257E00DF89DC /* FlaminMazeGiant */,
+		);
+	};
+	73F003B512EF257E00DF89DC /* FlaminMazeGiant */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = FlaminMazeGiant;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	73F0050412EF288A00DF89DC /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 73F004FD12EF284A00DF89DC /* Icon57x57.png */;
+	};
+	73F007BA12EF385100DF89DC /* Button.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = Button.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/Button.m;
+		sourceTree = "<absolute>";
+	};
+	73F007C312EF38BA00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73828762112C0116003A95F3 /* MenuMain.h */;
+		name = "MenuMain.h: 3";
+		rLen = 0;
+		rLoc = 18;
+		rType = 0;
+		vrLen = 55;
+		vrLoc = 0;
+	};
+	73F007C512EF38BA00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73FEEFF112698A6100D2A58C /* MenuStart.h */;
+		name = "MenuStart.h: 8";
+		rLen = 0;
+		rLoc = 56;
+		rType = 0;
+		vrLen = 56;
+		vrLoc = 0;
+	};
+	73F007C612EF38BA00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738287A3112C05EF003A95F3 /* MenuPause.h */;
+		name = "MenuPause.h: 8";
+		rLen = 0;
+		rLoc = 56;
+		rType = 0;
+		vrLen = 56;
+		vrLoc = 0;
+	};
+	73F007CF12EF39EF00DF89DC /* Menu.mm */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.objcpp;
+		name = Menu.mm;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/Menu.mm;
+		sourceTree = "<absolute>";
+	};
+	73F007DA12EF3B6100DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7330983F112870F900E4AF2C /* Label.h */;
+		name = "Label.h: 3";
+		rLen = 7;
+		rLoc = 44;
+		rType = 0;
+		vrLen = 203;
+		vrLoc = 0;
+	};
+	73F007DB12EF3B6100DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73309840112870F900E4AF2C /* Label.m */;
+		name = "Label.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 759;
+		vrLoc = 0;
+	};
+	73F007DD12EF3B6100DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7330994A11295E8300E4AF2C /* Button.h */;
+		name = "Button.h: 17";
+		rLen = 0;
+		rLoc = 276;
+		rType = 0;
+		vrLen = 399;
+		vrLoc = 0;
+	};
+	73F007EA12EF3BFC00DF89DC /* MenuStart.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = MenuStart.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/MenuStart.m;
+		sourceTree = "<absolute>";
+	};
+	73F0082E12EF430C00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73D09D681136D64400C6E90C /* MenuLoading.h */;
+		name = "MenuLoading.h: 8";
+		rLen = 0;
+		rLoc = 58;
+		rType = 0;
+		vrLen = 58;
+		vrLoc = 0;
+	};
+	73F0082F12EF430C00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73E2CCBE1271E8A000BB9AAA /* MenuLoading.m */;
+		name = "MenuLoading.m: 9";
+		rLen = 0;
+		rLoc = 179;
+		rType = 0;
+		vrLen = 1293;
+		vrLoc = 0;
+	};
+	73F0083112EF430C00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73F007EA12EF3BFC00DF89DC /* MenuStart.m */;
+		name = "MenuStart.m: 14";
+		rLen = 0;
+		rLoc = 382;
+		rType = 0;
+		vrLen = 1422;
+		vrLoc = 0;
+	};
+	73F0083212EF430C00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73FEF0B11269AD2800D2A58C /* MenuPause.m */;
+		name = "MenuPause.m: 10";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 1503;
+		vrLoc = 0;
+	};
+	73F0083712EF437A00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73309BFF112B05AC00E4AF2C /* Menu.h */;
+		name = "Menu.h: 8";
+		rLen = 0;
+		rLoc = 158;
+		rType = 0;
+		vrLen = 695;
+		vrLoc = 24;
+	};
+	73F0084312EF462C00DF89DC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73F007BA12EF385100DF89DC /* Button.m */;
+		name = "Button.m: 5";
+		rLen = 0;
+		rLoc = 87;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 0;
+	};
+	73FCBDC31133EAA600059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E581130CD7F00422E00 /* OFLeaderboardService.h */;
+		name = "OFLeaderboardService.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1310;
+		vrLoc = 0;
+	};
+	73FCBDDA1133EF2800059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7C1C1130CD7F00422E00 /* OFAchievementService.mm */;
+		name = "OFAchievementService.mm: 185";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 1552;
+		vrLoc = 6403;
+	};
+	73FCBE6311341B4200059979 /* OpenFeintLocalSettings.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 493}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 945}";
+		};
+	};
+	73FCBEA4113424BB00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7C691130CD7F00422E00 /* OFHighScoreBatchEntry.h */;
+		name = "OFHighScoreBatchEntry.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1272;
+		vrLoc = 0;
+	};
+	73FCBEA7113424BB00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7C6B1130CD7F00422E00 /* OFHighScoreService.h */;
+		name = "OFHighScoreService.h: 35";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 4231;
+		vrLoc = 1077;
+	};
+	73FCBEA9113424BB00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E961130CD7F00422E00 /* OpenFeintPrefix.pch */;
+		name = "OpenFeintPrefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1076;
+		vrLoc = 0;
+	};
+	73FCBF09113432CA00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE80EE1130CD8000422E00 /* OFHighScoreController.h */;
+		name = "OFHighScoreController.h: 32";
+		rLen = 29;
+		rLoc = 1259;
+		rType = 0;
+		vrLen = 778;
+		vrLoc = 866;
+	};
+	73FCBF0B113432CA00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7CED1130CD7F00422E00 /* OFPaginatedSeries.mm */;
+		name = "OFPaginatedSeries.mm: 23";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 544;
+		vrLoc = 2527;
+	};
+	73FCBFD4113451C000059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E911130CD7F00422E00 /* OFDelegatesContainer.h */;
+		name = "OFDelegatesContainer.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1186;
+		vrLoc = 1227;
+	};
+	73FCBFD5113451C000059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E901130CD7F00422E00 /* OFChallengeDelegate.h */;
+		name = "OFChallengeDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1254;
+		vrLoc = 2203;
+	};
+	73FCBFD6113451C000059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E921130CD7F00422E00 /* OFDelegatesContainer.mm */;
+		name = "OFDelegatesContainer.mm: 25";
+		rLen = 17;
+		rLoc = 1051;
+		rType = 0;
+		vrLen = 1369;
+		vrLoc = 405;
+	};
+	73FCBFD7113451C000059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E931130CD7F00422E00 /* OFNotificationDelegate.h */;
+		name = "OFNotificationDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1580;
+		vrLoc = 0;
+	};
+	73FCC004113455BE00059979 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73AE7E941130CD7F00422E00 /* OpenFeintDelegate.h */;
+		name = "OpenFeintDelegate.h: 70";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 1581;
+		vrLoc = 1707;
+	};
+	73FEEFF112698A6100D2A58C /* MenuStart.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {983, 477}}";
+			sepNavSelRange = "{56, 0}";
+			sepNavVisRange = "{0, 56}";
+		};
+	};
+	73FEF07B1269A68B00D2A58C /* Menu.mm */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1461, 3094}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 661}";
+		};
+	};
+	73FEF09E1269AC1A00D2A58C /* MenuMain.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {6130, 611}}";
+			sepNavSelRange = "{2235, 0}";
+			sepNavVisRange = "{114, 2181}";
+		};
+	};
+	73FEF09F1269AC1A00D2A58C /* MenuStart.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {2105, 845}}";
+			sepNavSelRange = "{1901, 11}";
+			sepNavVisRange = "{703, 1502}";
+		};
+	};
+	73FEF0B11269AD2800D2A58C /* MenuPause.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 715}}";
+			sepNavSelRange = "{197, 0}";
+			sepNavVisRange = "{0, 1503}";
+		};
+	};
+	73FEF0EB1269B47300D2A58C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302515212694265008171A3 /* OpenFeint+Dashboard.h */;
+		name = "OpenFeint+Dashboard.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1392;
+		vrLoc = 0;
+	};
+	73FEF0EC1269B47300D2A58C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7302515312694265008171A3 /* OpenFeint+Dashboard.mm */;
+		name = "OpenFeint+Dashboard.mm: 51";
+		rLen = 0;
+		rLoc = 45;
+		rType = 0;
+		vrLen = 1324;
+		vrLoc = 1474;
+	};
+	73FEF17A1269EDEE00D2A58C /* MenuMain.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = MenuMain.m;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/MenuMain.m;
+		sourceTree = "<absolute>";
+	};
+	73FEF17E1269EDF400D2A58C /* Maze.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = Maze.h;
+		path = /Users/nrx/Projects/Local/Work/FlaminMaze/Classes/Maze.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1839, 715}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1020}";
+		};
+	};
+}

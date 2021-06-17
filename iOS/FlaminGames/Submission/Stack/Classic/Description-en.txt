@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Stacker,Coin,Prize,Redemption,OpenFeint
+
+###############
+# Description #
+###############
+
+Flamin Stack brings you a classic arcade game on your iPhone or iPod touch: stack blocks to the top and try filling your coin bucket! Compare your performances with others online and unlock many achievements! Simple and damn addicting!
+
+* You like Flamin Stack? Make sure to also have a look to Flamin Timer and Flamin Maze! *

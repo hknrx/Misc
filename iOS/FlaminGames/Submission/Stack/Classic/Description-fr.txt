@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Stacker,Pièce,Prix,Lot,OpenFeint
+
+###############
+# Description #
+###############
+
+Avec Flamin Stack, retrouvez un jeu d'arcade classique sur votre iPhone ou iPod touch : empilez les blocs jusqu'au sommet et essayez de remplir votre seau de pièces ! Comparez vos performances avec d'autres en ligne et débloquez de nombreux exploits ! Simple et sacrément addictif !
+
+* Vous aimez Flamin Stack ? Alors jetez un coup d'oeil à Flamin Timer et Flamin Maze ! *

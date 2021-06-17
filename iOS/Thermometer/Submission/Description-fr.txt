@@ -1,0 +1,12 @@
+Thermic est un thermomètre qui utilise l'électronique de l'iPhone 3GS pour mesurer la température environnante. Celle-ci est représentée par un thermomètre et les mesures affichées sous forme digitale en degrés Celsius et Fahrenheit.
+
+L'application mesure la température interne de l'appareil en utilisant son magnétomètre, puis estime la température ambiante. La valeur de la température interne est affichée dans le coin en bas à gauche de l'écran.
+
+Notes :
+- Thermic n'utilise pas le GPS de l'iPhone (ce n'est pas un autre de ces "faux" thermomètres qui se contentent de chercher sur Internet la température de la ville dans laquelle vous vous trouvez) ; néanmoins, afin que l'application puisse lire les informations du magnétomètre, vous devez lui permettre d'accéder à vos "données de localisation".
+- Thermic, comme la plupart des thermomètres usuels, à besoin de temps pour atteindre la température ambiante courante et afficher une valeur stable ; ne vous attendez pas à ce que l'application rapporte instantanément des variations importantes de température.
+- La température de l'iPhone varie selon son utilisation (ce qui est tout à fait normal) ; l'application a été calibrée pour fournir des valeurs cohérentes après une utilisation "classique". Au lancement de l'application, prenez plutôt en compte la température interne si votre iPhone n'a pas été utilisé depuis un long moment, ou attendez quelques minutes que les valeurs se stabilisent si vous l'avez utilisé de façon intensive dans les 10 dernières minutes. Il est normal que les valeurs affichées initialement soient différentes selon que l'iPhone était stocké dans un endroit chaud (poche de pantalon, etc.) ou qu'il était simplement posé sur une table.
+
+Avertissement :
+- L'approximation de la température externe n'a pour objet que de donner une idée de la température ambiante réelle, aussi Thermic ne peut en aucun cas être utilisé comme référence pour des mesures précises.
+- N'oubliez pas que votre iPhone ne doit jamais être placé dans des endroits très frais ni très chauds ; les spécifications données par Apple pour l'iPhone 3GS fixent la plage de fonctionnement à 0°C - 35°C (32°F - 95°).

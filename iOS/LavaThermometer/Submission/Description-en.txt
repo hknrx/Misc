@@ -1,0 +1,7 @@
+Perfect mix of a traditional lava lamp and a simple thermometer, Lava Thermometer turns your iPhone into a beautiful animated temperature display station.
+
+Notes:
+- Lava Thermometer needs to access your "location data" to acquire the temperature.
+- Temperature is shown alternately in °C and °F.
+
+Disclaimer: The temperature displayed by Lava Thermometer only gives a rough idea of the real ambient temperature, so do not use this application for precise measurements.

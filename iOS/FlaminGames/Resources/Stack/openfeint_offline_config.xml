@@ -1,0 +1,61 @@
+<resources>
+<game_profile_page_info>
+  <has_chat_rooms>true</has_chat_rooms>
+  <short_name>Flamin Stack</short_name>
+  <has_challenges>false</has_challenges>
+  <suggestions_topic_id>498252</suggestions_topic_id>
+  <has_achievements>true</has_achievements>
+  <icon_url>/uploads/application_descriptions/h_icons/c5/1c/2e/7c/34722/Icon100x100.png</icon_url>
+  <has_leaderboards>true</has_leaderboards>
+  <has_featured_application>false</has_featured_application>
+  <has_ipurchase>true</has_ipurchase>
+  <name>Flamin Stack</name>
+  <timestamp>2010-11-04 16:16:48</timestamp>
+  <id>186212</id>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+</game_profile_page_info>
+<offline>
+<timestamp>2010-11-04 16:16:48</timestamp>
+<leaderboards>
+<leaderboard>
+<id>528634</id>
+<name>Played games</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>186212</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-10-23 06:27:26 UTC</created_at>
+<updated_at>2010-10-23 06:27:26 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-11-04 16:16:48</timestamp>
+</leaderboard>
+<leaderboard>
+<id>528624</id>
+<name>Coin buckets</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>186212</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-10-23 06:25:54 UTC</created_at>
+<updated_at>2010-10-23 06:30:18 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-11-04 16:16:48</timestamp>
+</leaderboard>
+</leaderboards>
+</offline>
+
+</resources>

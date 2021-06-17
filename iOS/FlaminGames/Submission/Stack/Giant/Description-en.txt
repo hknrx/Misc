@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Stacker,Coin,Prize,Redemption,OpenFeint
+
+###############
+# Description #
+###############
+
+Flamin Stack Giant brings you a classic arcade game on your iPad: stack blocks to the top and try filling your coin bucket! Compare your performances with others online and unlock many achievements! Simple and damn addicting!
+
+* You like Flamin Stack Giant? Make sure to also have a look to Flamin Timer Giant and Flamin Maze Giant! *

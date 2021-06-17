@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Labyrinthe,Course,OpenFeint
+
+###############
+# Description #
+###############
+
+De diaboliques labyrinthes, un chronomètre, votre dextérité : bienvenue dans Flamin Maze Giant ! Adapté d'une célèbre machine d'arcade, vous pouvez maintenant profiter de 2 modes de jeu sur votre iPad : Echappez-vous d'autant de niveaux que possible avant la fin du temps imparti en traçant un chemin de l'entrée du labyrinthe à l'endroit le plus éloigné, ou explorez chaque niveau le plus rapidement possible en allumant chacun des carrés - facile à comprendre, mais difficile à maîtriser ! Comparez vos performances en ligne avec les autres joueurs et essayez de déverrouiller tous les exploits... si vous l'osez !
+
+* Vous aimez Flamin Maze Giant ? Alors jetez un coup d'oeil à Flamin Stack Giant et Flamin Timer Giant ! *

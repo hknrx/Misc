@@ -1,0 +1,80 @@
+<resources>
+<game_profile_page_info>
+  <has_featured_application>false</has_featured_application>
+  <has_ipurchase>true</has_ipurchase>
+  <icon_url>/uploads/application_descriptions/h_icons/13/a7/67/4d/10624/Icon100x100.png</icon_url>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+  <has_chat_rooms>true</has_chat_rooms>
+  <timestamp>2010-10-16 14:29:10</timestamp>
+  <has_challenges>false</has_challenges>
+  <suggestions_topic_id>153044</suggestions_topic_id>
+  <has_achievements>true</has_achievements>
+  <name>Flamin Maze</name>
+  <short_name>Flamin Maze</short_name>
+  <id>65484</id>
+  <has_leaderboards>true</has_leaderboards>
+</game_profile_page_info>
+<offline>
+<timestamp>2010-10-16 14:29:10</timestamp>
+<leaderboards>
+<leaderboard>
+<id>204584</id>
+<name>Time Trial Mode</name>
+<active>false</active>
+<visible>false</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>65484</client_application_id>
+<descending_sort_order>false</descending_sort_order>
+<created_at>2010-02-20 22:10:50 UTC</created_at>
+<updated_at>2010-02-20 22:45:06 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-10-16 14:29:10</timestamp>
+</leaderboard>
+<leaderboard>
+<id>520524</id>
+<name>Explore</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>65484</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-10-16 08:28:11 UTC</created_at>
+<updated_at>2010-10-16 08:28:11 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-10-16 14:29:10</timestamp>
+</leaderboard>
+<leaderboard>
+<id>204574</id>
+<name>Escape</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>65484</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-02-20 22:10:50 UTC</created_at>
+<updated_at>2010-10-16 14:28:43 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-10-16 14:29:10</timestamp>
+</leaderboard>
+</leaderboards>
+</offline>
+
+</resources>

@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Stacker,Pièce,Prix,Lot,OpenFeint
+
+###############
+# Description #
+###############
+
+Avec Flamin Stack Giant, retrouvez un jeu d'arcade classique sur votre iPad : empilez les blocs jusqu'au sommet et essayez de remplir votre seau de pièces ! Comparez vos performances avec d'autres en ligne et débloquez de nombreux exploits ! Simple et sacrément addictif !
+
+* Vous aimez Flamin Stack Giant ? Alors jetez un coup d'oeil à Flamin Timer Giant et Flamin Maze Giant ! *

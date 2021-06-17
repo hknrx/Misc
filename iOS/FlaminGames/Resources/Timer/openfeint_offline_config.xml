@@ -1,0 +1,61 @@
+<resources>
+<game_profile_page_info>
+  <has_chat_rooms>true</has_chat_rooms>
+  <short_name>Flamin Timer</short_name>
+  <has_challenges>false</has_challenges>
+  <suggestions_topic_id>514192</suggestions_topic_id>
+  <has_achievements>true</has_achievements>
+  <icon_url>/uploads/application_descriptions/h_icons/d9/98/57/02/35772/Icon100x100.png</icon_url>
+  <has_leaderboards>true</has_leaderboards>
+  <has_featured_application>false</has_featured_application>
+  <has_ipurchase>true</has_ipurchase>
+  <name>Flamin Timer</name>
+  <timestamp>2010-11-04 16:06:56</timestamp>
+  <id>191942</id>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+</game_profile_page_info>
+<offline>
+<timestamp>2010-11-04 16:06:56</timestamp>
+<leaderboards>
+<leaderboard>
+<id>542814</id>
+<name>Coin buckets</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>191942</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-11-04 15:47:52 UTC</created_at>
+<updated_at>2010-11-04 15:47:52 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-11-04 16:06:56</timestamp>
+</leaderboard>
+<leaderboard>
+<id>542834</id>
+<name>Played games</name>
+<active>true</active>
+<visible>true</visible>
+<allow_posting_lower_scores>false</allow_posting_lower_scores>
+<client_application_id>191942</client_application_id>
+<descending_sort_order>true</descending_sort_order>
+<created_at>2010-11-04 15:48:11 UTC</created_at>
+<updated_at>2010-11-04 15:48:11 UTC</updated_at>
+<start_version>0000.00.00</start_version>
+<end_version>9999.99.99</end_version>
+<position>0</position>
+<reached_at></reached_at>
+<display_text></display_text>
+<custom_data></custom_data>
+<score></score>
+<timestamp>2010-11-04 16:06:56</timestamp>
+</leaderboard>
+</leaderboards>
+</offline>
+
+</resources>

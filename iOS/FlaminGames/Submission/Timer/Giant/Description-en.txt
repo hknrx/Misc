@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Time,Buster,Coin,Prize,Redemption,OpenFeint
+
+###############
+# Description #
+###############
+
+Here comes yet another game in the "Flamin" serie: Flamin Timer Giant! No need to visit a mall, enjoy this classic arcade machine at any time and try to get as many coins as possible! A single and simple rule: attempt to stop the timer on 1000! Sounds easy, no?! Compare your score online with other players and try to unlock all the achievements!
+
+* You like Flamin Timer Giant? Make sure to also have a look to Flamin Stack Giant and Flamin Maze Giant! *

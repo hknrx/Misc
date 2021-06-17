@@ -1,0 +1,29 @@
+############
+# Keywords #
+############
+
+photo,bulle,blob,déformation,cadre,flipper,labyrinthe,torture
+Q : image,camera,amour,laver
+
+###############
+# Description #
+###############
+
+Bienvenue dans Photo Bubble, le cadre photo numérique innovant et amusant !
+
+Photo Bubble vous permet de mettre vos photos favorites dans des bulles et les voir évoluer dans différents environnements ! Avez-vous déjà rêvé de jouer au flipper avec la tête de vos amis ? Ou de mettre votre voisin dans une machine à laver ? Ou de jeter votre ex-meilleur(e) ami(e) dans une salle des tortures ? Photo Bubble réalise tous ces rêves ! Les incroyables déformations d'images en temps réel de Photo Bubble en font le plus fun des cadres photos numériques disponibles sur iPhone et iPod touch !
+
+A partir du menu principal, vous pouvez sélectionner l'un des 7 environnements suivants :
+- Cadre de l'amour : une belle bulle pour admirer votre bien aimé(e) !
+- Espace : une énorme bulle perdue dans l'espace intersidéral !
+- Flipper : deux balles-bulles pour un mini-flipper !
+- Labyrinthe : trois minuscules bulles essayent de trouver leur chemin dans un labyrinthe !
+- Machine à laver : trois bulles molles enfermées dans le tambour d'une machine à laver !
+- Rochers : trois blocs qui aiment s'écraser les uns sur les autres !
+- Salle des tortures : trois pauvres bulles innocentes... malmenées par des lames tournantes et un mécanisme d'ascenseur !
+
+Une fois dans l'environnement choisi, tapez simplement sur une bulle pour la modifier ! Vous pouvez prendre une photo (iPhone uniquement), choisir une image de votre bibliothèque de photos, ou appliquer un filtre de couleur. Notez que vous pouvez librement modifier une photo durant sa sélection pour ne retenir qu'une partie de l'image (par exemple le visage d'un ami !). Et pas d'inquiétude : les images extraites de votre bibliothèque de photos sont copiées dans un répertoire de l'application, les images originales ne sont pas modifiées !
+
+Pour finir, sachez que Photo Bubble vous permet aussi de prendre des captures d'écran et de les publier sur votre compte Facebook !
+
+Amusez-vous bien avec Photo Bubble !

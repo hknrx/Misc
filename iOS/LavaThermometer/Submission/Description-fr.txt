@@ -1,0 +1,7 @@
+Parfait mariage entre une lampe à lave traditionnelle et un simple thermomètre, Lava Thermometer transforme votre iPhone en une belle station d'affichage de la température.
+
+Notes : 
+- Lava Thermometer a besoin d'accéder à vos "données de localisation" afin d'acquérir la température. 
+- La température est affichée alternativement en Celsius et Fahrenheit.
+
+Avertissement : La température affichée par Lava Thermometer ne donne qu'une idée approximative de la température ambiante réelle ; n'utilisez pas cette application pour des mesures précises.

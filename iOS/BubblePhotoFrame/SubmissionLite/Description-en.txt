@@ -1,0 +1,29 @@
+############
+# Keywords #
+############
+
+photo,bubble,blob,deformation,frame,pinball,maze,torture
+Q: image,camera,love,washing
+
+###############
+# Description #
+###############
+
+Interested in Photo Bubble but not sure whether it deserves to spend the money? Try Photo Bubble Lite!
+
+Photo Bubble is an innovative and fun dynamic photo frame which lets you put your favorite pictures into bubbles and watch them evolve in different environments! Have you ever dreamed of playing pinball with your friends' faces? Or putting your neighbor into a washing machine? Or throwing your ex-best friend into a torture room? Photo Bubble makes these dreams come true! Astonishing real-time picture deformations of Photo Bubble just make it the coolest photo frame available on iPhone and iPod touch!
+
+From the main menu, you can choose among 7 environments:
+- Rocks: three boulders that like to crash into each other!
+- Torture Room: three gentle bubbles... bullied by rotating blades and a lift mechanism!
+- Love Frame: a single big bubble for you to look at your beloved one! (Full version only)
+- Maze: three tiny bubbles try to find their way in a maze! (Full version only)
+- Outer Space: a huge bubble lost in outer space! (Full version only)
+- Pinball: two bubbles for a mini-pinball party! (Full version only)
+- Washing Machine: three soft bubbles enclosed in a washing machine! (Full version only)
+
+Once in an environment, simply tap a photo bubble to modify it! You can take a new photo using the camera (iPhone only), choose an existing picture from your photo library, or apply a color filter. Note that you can freely modify a picture during the selection process to only retain part of the image (e.g. a friend's face!). And don't worry: pictures taken from the photo library are copied to the application folder, original pictures aren't modified!
+
+Last but not least, Photo Bubble also lets you take screenshots and publish them to your Facebook account!
+
+Have fun with Photo Bubble!

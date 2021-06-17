@@ -1,0 +1,434 @@
+﻿A) Introduction
+   ############
+
+Le blob est modélisé par un maillage de masses reliées entre elles par des ressorts ; il possède une enveloppe externe, supportée par les éléments situés sur ses bords, et est rempli d'un gaz sous pression.
+
+Chaque élément est donc soumis à des forces qui le contraignent à bouger :
+- La pesanteur,
+- La force élastique des ressorts auxquels est relié l'élément,
+- La force d'amortissement de ces ressorts,
+- La pression exercée par le gaz (pour les éléments du bord uniquement).
+
+Note : les réactions induites par les collisions entre les blobs sont directement intégrées au vecteur vitesse (impulsion et friction) et au vecteur position de chaque élément (repositionnement).
+
+B) Accélération, vitesse et position
+   #################################
+
+A chaque itération, on recalcule la position de chacun des éléments constituant le blob. La position d'un élément dépend de sa vitesse, sa vitesse dépend de son accélération, et son accélération dépend de la force totale à laquelle est soumise l'élément. On utilise le schéma d'intégration d'Euler :
+
+Soit t le temps à un instant de la simulation, et h la durée (très courte) d'un pas de la simulation ; le déplacement de chaque élément au pas "t + h" est approximé par :
+
+accélération(t + h) = force(t + h) / masse
+vitesse(t + h) = vitesse(t) + h * accélération(t + h)
+position(t + h) = position(t) + h * vitesse(t + h)
+
+Afin d'être plus précis, on effectue plusieurs itérations entre 2 affichages ; si ce nombre d'itérations est N, on a alors : h = 1 / N
+
+Concrètement on fait donc :
+pour(n = 0; n < N; ++n)
+{
+	force = CalculForce()
+	vitesse += force / (masse * N)
+	position += vitesse / N
+}
+
+C) Calcul des forces
+   #################
+
+Les calculs de chacune des forces sont réalisés comme suit :
+
+	1) Pesanteur
+	   #########
+
+force.x = masse * gravité.x
+force.y = masse * gravité.y
+
+	2) Ressorts
+	   ########
+
+		a) Elasticité des ressorts
+		   #######################
+
+On considère le ressort entre les éléments A et B :
+vecteur_force = constante_raideur * allongement_AB * vecteur_normalisé_AB
+
+On a :
+allongement_AB = distance_AB - longueur_repos
+vecteur_normalisé_AB = vecteur_AB / distance_AB
+
+Soit :
+vecteur_force = (constante_raideur * (distance_AB - longueur_repos) / distance_AB) * vecteur_AB
+
+		b) Amortissement des ressorts
+		   ##########################
+
+On considère le ressort entre les éléments A et B :
+vecteur_force = constante_viscosité * vitesse_allongement_AB * vecteur_normalisé_AB
+
+On a :
+vitesse_allongement_AB = vecteur_vitesse_AB . vecteur_normalisé_AB
+vecteur_normalisé_AB = vecteur_AB / distance_AB
+
+Soit :
+vecteur_force = (constante_viscosité * (vecteur_vitesse_AB . vecteur_AB) / distance_AB2) * vecteur_AB
+
+		c) Force totale exercée par un ressort sur les éléments A et B qu'il relie
+		   #######################################################################
+
+delta_position.x = position_B.x - position_A.x
+delta_position.y = position_B.y - position_A.y
+
+distance_AB = sqrt(delta_position.x * delta_position.x + delta_position.y * delta_position.y)
+
+delta_vitesse.x = vitesse_B.x - vitesse_A.x
+delta_vitesse.y = vitesse_B.y - vitesse_A.y
+
+force = (delta_vitesse.x * delta_position.x + delta_vitesse.y * delta_position.y) / distance_AB
+force = (force * constante_viscosité + (distance_AB - longueur_repos) * constante_raideur) / distance_AB
+
+force_A.x += force * delta_position.x
+force_A.y += force * delta_position.y
+
+force_B.x -= force * delta_position.x
+force_B.y -= force * delta_position.y
+
+	3) Pression du gaz
+	   ###############
+
+On part de la formule de base :
+P * V = n * R * T
+
+...et on simplifie en considérant que la température est constante :
+P * V = K
+
+Soit encore :
+P = K / V
+
+D'autre part on a une formule qui relie la pression à la force exercée sur une surface :
+P = F / S
+
+On en déduit :
+F = P * S = K * S / V
+
+Pour appliquer la force résultante de la pression du gaz, il faut donc d'abord calculer le volume du blob. Puisque nous sommes en 2D, ce volume correspond en réalité à la surface (et la surface à la longueur de l'arrête concernée). On décompose donc le blob en triangles ; la surface totale du blob est la somme des surfaces de chacun des triangles :
+V = somme(surface_triangle_ABC) = somme(|vecteur_AB ^ vecteur_AC| / 2)
+
+Si on définit le blob de telle façon que toutes les surfaces ABC sont orientées dans le sens direct, alors le produit vectoriel des vecteurs AB et AC est forcément positif et on peut s'affranchir de la valeur absolue. D'autre part, si on prend comme postulat que les surfaces sont correctement orientées lors de la conception du blob, alors un produit vectoriel négatif indiquera une surface "retournée", surface dont l'aire devrait être soustraite à l'aire totale : là encore, inutile de prendre en compte la valeur absolue, il suffit d'ajouter le résultat de ce produit vectoriel négatif.
+
+On a donc :
+V = somme(delta_position_AB.x * delta_position_AC.y - delta_position_AB.y * delta_position_AC.x) / 2
+
+La force est appliquée perpendiculairement à la surface. Si on définit le blob de façon à ce que toutes les arrêtes externes AB sont telles que l'extérieur du blob est sur la droite du vecteur AB, on a alors pour chacune de ces arrêtes :
+vecteur_force = (K * distance_AB / V) * perpendiculaire_vecteur_normalisé_AB
+vecteur_force = (K * distance_AB / V) * (perpendiculaire_vecteur_AB / distance_AB)
+vecteur_force = (K / V) * perpendiculaire_vecteur_AB
+
+Note : on repartit la force exercée sur l'arrête équitablement sur chacun des 2 éléments qui la composent. On a donc, pour un élément donné :
+force = (K / (2 * V)) * perpendiculaire_vecteur_AB
+
+La norme de la force est donc simplement :
+force = K / somme(delta_position_AB.x * delta_position_AC.y - delta_position_AB.y * delta_position_AC.x)
+
+Concrètement, on fait donc les calculs suivants :
+
+		a) Calcul de la norme de la force
+		   ##############################
+
+V = 0
+pour(triangle = 0; triangle < nombre_triangles; ++triangle)
+{
+	delta_position_AB.x = position_B.x - position_A.x
+	delta_position_AB.y = position_B.y - position_A.y
+
+	delta_position_AC.x = position_C.x - position_A.x
+	delta_position_AC.y = position_C.y - position_A.y
+
+	V += delta_position_AB.x * delta_position_AC.y - delta_position_AB.y * delta_position_AC.x)
+}
+force = K / V
+
+		b) Application de la force aux 2 éléments de l'arrête externe AB
+		   #############################################################
+
+delta_position.x = position_B.x - position_A.x
+delta_position.y = position_B.y - position_A.y
+
+force_A.x += force * delta_position.y
+force_A.y -= force * delta_position.x
+
+force_B.x += force * delta_position.y
+force_B.y -= force * delta_position.x
+
+D) Collisions
+   ##########
+
+	1) Détection des collisions
+	   ########################
+
+La détection de la collision de 2 blobs consiste à vérifier pour chacun des éléments externes de chacun des blobs si oui ou non il se trouve à l'intérieur de l'enveloppe de l'autre blob (l'enveloppe étant le polygone, potentiellement concave, formé par l'ensemble des arrêtes externes du blob).
+
+Note : le container dans lequel se trouvent les blobs (typiquement les bords de l'écran) peut lui-même être formé d'un ou plusieurs blobs, ce qui permet d'homogénéiser la détection et la réaction des collisions.
+
+		a) Bounding boxes
+		   ##############
+
+Pour éviter de faire trop de calculs, on optimise la recherche des collisions potentielles en utilisant des bounding boxes :
+- La première étape de la détection de la collision entre 2 blobs consiste à vérifier si leurs bounding boxes se chevauchent ou non : si elles ne sont pas en contact, il n'y a pas de collision.
+- On va ensuite prendre chacun des éléments un par un et vérifier si oui ou non il se trouve dans la bounding box de l'autre blob : s'il ne s'y trouve pas, alors l'élément en question n'est pas en collision.
+- Enfin, on va réellement vérifier l'appartenance de l'élément considéré à l'enveloppe de l'autre blob en utilisant l'algorithme donné ci-dessous.
+
+Note : cette optimisation nécessite que l'on mette à jour les coordonnées de la boite englobante de chaque blob lorsqu'il se déplace, ou lors de sa création s'il s'agit d'un blob statique.
+
+		b) Appartenance d'un point à un polygone
+		   #####################################
+
+Un point M appartient à un polygone si le nombre d'intersections entre ce polygone et une demie droite partant de M est impair.
+
+Pour simplifier les calculs, on choisit comme demie droite celle qui part de M horizontalement vers la gauche ; il suffit alors d'initialiser un booléen à "faux" puis de prendre chacune des arrêtes externes AB du polygone :
+- Si M est à droite de AB alors on inverse la valeur du booléen à condition que position_A.y <= position_M.y et position_M.y < position_B.y ;
+- Si M est à gauche de AB alors on inverse la valeur du booléen à condition que position_B.y <= position_M.y et position_M.y < position_A.y.
+Au final, la valeur du booléen nous indique l'appartenance ou pas du point M au polygone.
+
+Pour connaître la position de M par rapport à AB, il suffit de calculer le produit vectoriel vecteur_AB ^ vecteur_AM :
+produit_vectoriel_AB_AM = delta_position_AB.x * delta_position_AM.y - delta_position_AB.y * delta_position_AM.x
+
+On a alors :
+- Si produit_vectoriel_AB_AM < 0 alors M est à droite de AB,
+- Sinon M est à gauche de AB.
+
+		c) Recherche de l'arrête responsable de la collision
+		   #################################################
+
+Savoir que le point M d'un blob est en collision avec le polygone formé par l'enveloppe d'un autre blob ne suffit pas : il faut également déterminer où la collision a réellement eu lieu. Une méthode serait de remonter dans le temps pour retrouver l'instant précis où le point M est entré en contact avec le polygone pour la première fois, mais c'est relativement fastidieux...
+
+Considérant qu'un pas de la simulation est suffisamment court pour que les déplacements entre 2 pas soient faibles, on choisit donc l'approximation suivante :
+- La collision a eu lieu avec l'arrête externe AB la plus proche du point M à l'instant où on évalue la situation ;
+- Le point de collision est donné par la projection Q de M sur le segment AB.
+
+L'arrête AB doit néanmoins satisfaire les contraintes suivantes pour être prise en compte :
+- M doit être à gauche de AB : l'intérieur du blob est sur la gauche de chaque arrête ;
+- Q doit appartenir au segment AB : on ne peut pas simplement considérer la droite AB (le point M peut être très proche de la droite mais être très éloigné de AB : il serait alors étrange de prendre cette arrête comme référence pour la collision).
+
+Note : cette dernière règle pose néanmoins problème lorsque le polygone est concave et que le point M se situe précisément sous la partie infléchie (à un endroit du polygone où les 2 arrêtes forment un "V" tel que les projections Q de M sur ces droites ne sont pas sur les arrêtes). Il faudra essayer de palier à ce soucis.
+
+On a les formules suivantes :
+distance_QM = produit_vectoriel_AB_AM / distance_AB
+distance_AQ = produit_scalaire_AB_AM / distance_AB
+
+On veut :
+0 <= distance_AQ <= distance_AB
+
+Soit encore :
+0 <=  produit_scalaire_AB_AM <= distance_AB2
+
+Pour améliorer la gestion des collisions lorsqu'elles ont précisément lieu dans la partie infléchie des polygones concaves, il est néanmoins nécessaire de modifier notre algorithme. Une solution est de simplement transformer la contrainte "Q doit appartenir au segment AB" en "Q doit se trouver sur le segment AB ou à moins de QM de l'une de ses extrémités" (ce qui correspond à avoir le point M dans l'aire définit par le segment AB et les 2 demies droites partant de A et B à 45° par rapport à AB).
+
+On écrit alors :
+-distance_QM <= distance_AQ <= distance_AB + distance_QM
+
+Soit encore :
+-produit_vectoriel_AB_AM <= produit_scalaire_AB_AM <= distance_AB2 + produit_vectoriel_AB_AM
+
+Une solution plus coûteuse mais néanmoins encore meilleure est de ne pas juste s'attacher à la distance QM mais de réellement calculer la distance de M à l'arrête AB :
+si(produit_scalaire_AB_AM < 0)
+{
+	distance = distance_AM
+}
+sinon si(produit_scalaire_AB_AM > distance_AB2)
+{
+	distance = distance_BM
+}
+sinon
+{
+	distance = produit_vectoriel_AB_AM / distance_AB
+}
+
+		d) Résumé des opérations
+		   #####################
+
+Après s'être assuré que les bounding boxes de 2 blobs se chevauchent, on lance donc 2 tests :
+- Vérification de la collision de chaque élément externe du premier blob avec l'enveloppe du second blob ;
+- Vérification de la collision de chaque élément externe du second blob avec l'enveloppe du premier blob.
+
+La première étape de la vérification de la collision d'un élément donné M d'un blob avec l'enveloppe d'un autre blob consiste simplement à vérifier que ce point M est à l'intérieur de la bounding box de cet autre blob ; si tel est le cas, alors on réalise le test suivant :
+
+collision_statut = faux
+collision_distance = infini
+collision_arrête = rien
+
+pour(AB = 0; AB < nombre_arrêtes_autre_blob; ++AB)
+{
+	si(!Externe(AB))
+	{
+		continue
+	}
+
+	delta_position_AB.x = position_B.x - position_A.x
+	delta_position_AB.y = position_B.y - position_A.y
+
+	delta_position_AM.x = position_M.x - position_A.x
+	delta_position_AM.y = position_M.y - position_A.y
+
+	produit_vectoriel_AB_AM = delta_position_AB.x * delta_position_AM.y - delta_position_AB.y * delta_position_AM.x
+	si(produit_vectoriel_AB_AM < 0)
+	{
+		si(position_A.y <= position_M.y et position_M.y < position_B.y)
+		{
+			collision_statut = !collision_statut
+		}
+	}
+	sinon
+	{
+		si(position_B.y <= position_M.y et position_M.y < position_A.y)
+		{
+			collision_statut = !collision_statut
+		}
+
+		distance_AB2 = delta_position_AB.x * delta_position_AB.x + delta_position_AB.y * delta_position_AB.y
+
+		produit_scalaire_AB_AM = delta_position_AB.x * delta_position_AM.x + delta_position_AB.y * delta_position_AM.y
+		si(produit_scalaire_AB_AM < 0)
+		{
+			distance = sqrt(delta_position_AM.x * delta_position_AM.x + delta_position_AM.y * delta_position_AM.y)
+		}
+		sinon si(produit_scalaire_AB_AM > distance_AB2)
+		{
+			delta_position_BM.x = position_M.x - position_B.x
+			delta_position_BM.y = position_M.y - position_B.y
+			distance = sqrt(delta_position_BM.x * delta_position_BM.x + delta_position_BM.y * delta_position_BM.y)
+		}
+		sinon
+		{
+			distance = produit_vectoriel_AB_AM / sqrt(distance_AB2)
+		}
+		si(distance < collision_distance)
+		{
+			collision_distance = distance
+			collision_arrête = AB
+		}
+	}
+}
+
+Si la variable "collision_statut" est "vraie", alors il y a effectivement collision de M avec l'autre blob et on peut considérer que l'arrête en cause est "collision_arrête".
+
+	2) Calcul de la réaction
+	   #####################
+
+La réaction à une collision consiste à :
+- Modifier la vitesse des éléments impliqués dans la collisions pour refléter l'impulsion et la friction au point d'impact,
+- Modifier la position des éléments impliqués pour éviter qu'ils ne se chevauchent.
+
+En l'occurrence une collision implique 2 acteurs :
+- Un élément M,
+- Et une arrête AB représentée par les 2 éléments A et B qui la constituent.
+
+Pour simplifier le problème à l'extrême, l'arrête AB est vue comme un solide à part entière et on considère que la collision de l'élément M avec ce solide a lieu précisément sur le centre de gravité de AB, ce qui nous affranchit du calcul de la rotation de ce solide (cette simplification est acceptable si l'arrête est courte) :
+- La masse de ce solide est la somme des masses de A et B ;
+- La vitesse de ce solide (tout du moins de son barycentre) est la moyenne des vitesses de A et B.
+
+On a donc :
+masse_AB = masse_A + masse_B
+vitesse_AB.x = (vitesse_A.x + vitesse_B.x) / 2
+vitesse_AB.y = (vitesse_A.y + vitesse_B.y) / 2
+
+Note : les effets de la collision sur l'arrête AB devront être appliqués à la fois sur les éléments A et B.
+
+		a) Impulsion
+		   #########
+
+On calcule tout d'abord la différence de vitesse entre les 2 acteurs de la collision :
+delta_vitesse.x = vitesse_M.x - vitesse_AB.x
+delta_vitesse.y = vitesse_M.y - vitesse_AB.y
+
+On prend ensuite comme référence le vecteur AB :
+delta_position_AB.x = position_B.x - position_A.x
+delta_position_AB.y = position_B.y - position_A.y
+
+On définit ensuite l'élasticité de la collision à partir de l'élasticité de chacun des acteurs :
+élasticité = élasticité_blob1 * élasticité_blob2
+
+La modification de la vitesse due à l'élasticité lors de la collision est alors donnée par :
+vitesse_M += j * perpendiculaire_vecteur_normalisé_AB / masse_M
+vitesse_AB -= j * perpendiculaire_vecteur_normalisé_AB / masse_AB
+
+avec :
+j = -(1 + élasticité) * (delta_vitesse . perpendiculaire_vecteur_normalisé_AB) / ((1 / masse_M) + (1 / masse_AB))
+
+En simplifiant on obtient :
+j = -(1 + élasticité) * (delta_position_AB ^ delta_vitesse) / (distance_AB * ((1 / masse_M) + (1 / masse_AB)))
+
+Au final, on peut simplement écrire :
+force = (1 + élasticité) * (delta_position_AB.x * delta_vitesse.y - delta_position_AB.y * delta_vitesse.x) / ((distance_AB2 / masse_M) + (distance_AB2 / masse_AB))
+vitesse_M.x += force * delta_position_AB.y / masse_M
+vitesse_M.y -= force * delta_position_AB.x / masse_M
+vitesse_A.x -= force * delta_position_AB.y / masse_AB
+vitesse_A.y += force * delta_position_AB.x / masse_AB
+vitesse_B.x -= force * delta_position_AB.y / masse_AB
+vitesse_B.y += force * delta_position_AB.x / masse_AB
+
+		b) Friction
+		   ########
+
+On définit la friction de la collision de la même façon que son élasticité, à partir des coefficients de friction de chacun des acteurs :
+friction = friction_blob1 * friction_blob2
+
+La modification de la vitesse due à la friction lors de la collision est donnée par :
+vitesse_M += j * vecteur_normalisé_AB / masse_M
+vitesse_AB -= j * vecteur_normalisé_AB / masse_AB
+
+avec :
+j = -friction * (delta_vitesse . vecteur_normalisé_AB) / ((1 / masse_M) + (1 / masse_AB))
+
+Au final on peut écrire :
+force = friction * (delta_position_AB.x * delta_vitesse.x + delta_position_AB.y * delta_vitesse.y) / ((distance_AB2 / masse_M) + (distance_AB2 / masse_AB))
+vitesse_M.x -= force * delta_position_AB.x / masse_M
+vitesse_M.y -= force * delta_position_AB.y / masse_M
+vitesse_A.x += force * delta_position_AB.x / masse_AB
+vitesse_A.y += force * delta_position_AB.y / masse_AB
+vitesse_B.x += force * delta_position_AB.x / masse_AB
+vitesse_B.y += force * delta_position_AB.y / masse_AB
+
+		c) Repositionnement
+		   ################
+
+La dernière opération à mener est le repositionnement immédiat des éléments M, A et B de telle sorte qu'ils ne soient plus en collision. On utilise ici le même principe que pour l'impulsion, mais en utilisant la distance QM comme référence :
+j = -distance_QM / ((1 / masse_M) + (1 / masse_AB))
+
+Après simplification on obtient :
+
+delta_position_AM.x = position_M.x - position_A.x
+delta_position_AM.y = position_M.y - position_A.y
+force = (delta_position_AB.x * delta_position_AM.y - delta_position_AB.y * delta_position_AM.x) / ((distance_AB2 / masse_M) + (distance_AB2 / masse_AB))
+position_M.x += force * delta_position_AB.y / masse_M
+position_M.y -= force * delta_position_AB.x / masse_M
+position_A.x -= force * delta_position_AB.y / masse_AB
+position_A.y += force * delta_position_AB.x / masse_AB
+position_B.x -= force * delta_position_AB.y / masse_AB
+position_B.y += force * delta_position_AB.x / masse_AB
+
+E) Problèmes
+   #########
+
+L'implémentation proposée ci-dessus n'est pas exempte de défauts, et certaines configurations peuvent conduire à des problèmes relativement graves. On notera en particulier les 2 cas suivants :
+- Blob de type "ballon" (blob constitué exclusivement d'éléments externes, dont la forme n'est due qu'à la pression du gaz à l'intérieur du blob) ;
+- Blob présentant deux arrêtes formant un angle aigu (inférieur à 90°).
+
+	1) Blob de type "ballon"
+	   #####################
+
+Le problème posé par un blob de type "ballon" est que son enveloppe peut parfois être concave (lorsque par exemple un autre blob applique une pression localement), ce qui rend son affichage plus difficile : il faut que le moteur de rendu soit capable de gérer cette surface concave.
+
+Par nature, un blob est triangulé, i.e. constitué d'un ensemble de triangles qui permettent de calculer son aire et d'appliquer la force de pression (cf. le paragraphe C-3). Néanmoins, rien n'assure que  ces triangles resteront orientées dans le sens direct lorsque le blob se déforme : le produit vectoriel des vecteurs AB et AC du triangle ABC peut devenir négatif... Cela ne remet pas en cause le calcul de l'aire du blob (la somme de tous les produits vectoriels correspond bien à 2 fois l'aire totale, les triangles "retournés" compensants ceux dont une partie est en réalité en dehors du blob) ; il n'en reste pas moins qu'utiliser ces triangles pour effectuer le rendu pose problème : quand bien même les triangles retournés ne seraient pas affichés (back-face culling), certains des autres triangles couvriraient une partie de l'écran en dehors du blob.
+
+Une technique simple permet, sinon de résoudre le problème, de minimiser son impact : utiliser le barycentre de ces blobs de type "ballon".
+
+L'idée est que plutôt que d'effectuer la triangulation en se contentant de prendre les éléments existants du blob (qui par définition sont tous sur son enveloppe externe), on ajoute au blob un nouvel élément qui permet d'éviter que les triangles ne se retournent. Afin de ne pas modifier la dynamique du blob, il ne faut pas que ce nouvel élément soit relié aux autres par des ressorts mais plutôt que sa position soit calculée à partir de la position des autres éléments. Le barycentre semble donc être un bon candidat : sa position peut facilement être calculée, et ce nouvel élément se trouvera en général à l'intérieur de l'enveloppe du blob, rendant la triangulation simple et la plupart du temps correcte (pas de triangle retourné dans les situations "normales").
+
+	2) Blob ayant un angle aigu
+	   ########################
+
+Le problème posé par un blob possédant deux arrêtes formant un angle aigu est que notre algorithme de détection des collisions peut parfois prendre comme référence une arrête sur laquelle il n'y avait pas de collision, conduisant à la superposition des blobs.
+
+Si on prend par exemple 2 blobs carrés reposant horizontalement sur le sol, et que l'on pousse l'un de ces blobs vers l'autre, il est probable qu'ils finissent par se superposer : le déplacement relatif des 2 blobs sur l'axe X effectué durant un pas de la simulation sera plus grand que la différence de leur positions verticales ; l'arrête choisie par l'algorithme ne sera alors pas la bonne. Concrètement, l'élément détecté comme étant en collision sera perçu comme plus près de l'arrête du bas que de l'arrête du coté... alors que cet élément était pourtant arrivé par le coté. Au final, l'algorithme de gestion de la collision va positionner cet élément et l'arrête du bas de telle sorte qu'ils ne soient plus en collision (modification de leurs coordonnées Y), mais n'aura pas agit sur l'axe X, laissant les 2 blobs s'interpénétrer...
+
+Un moyen simple de palier à ce problème est de tenir compte de la position globale des blobs dans notre algorithme de gestion des collisions : pour qu'une arrête soit prise en compte, on impose que le barycentre de l'autre blob soit à droite de l'arrête. Attention toutefois, car cette solution n'est malheureusement pas toujours viable : si elle permet d'éviter que des blobs carrés ne se superposent, elle cause par contre des problèmes lorsqu'un blob est fortement concave (la collision d'un des éléments de ce blob concave peut survenir avec une arrête d'un autre blob pour laquelle le barycentre est sur la gauche : l'arrête en question n'est alors pas retenue et l'élément est expulsé par une autre arrête, rendant le système instable).

@@ -1,0 +1,108 @@
+// !$*UTF8*$!
+{
+	1D6058900D05DD3D006BFB54 /* ChaudFroid */ = {
+		activeExec = 0;
+		executables = (
+			73D605501139F29900B45888 /* ChaudFroid */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 73D605501139F29900B45888 /* ChaudFroid */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* ChaudFroid */;
+		codeSenseManager = 73D6055D1139F2B900B45888 /* Code sense */;
+		executables = (
+			73D605501139F29900B45888 /* ChaudFroid */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					829,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 289010329;
+			PBXWorkspaceStateSaveDate = 289010329;
+		};
+		perUserProjectItems = {
+			73D605571139F2B900B45888 /* PBXBookmark */ = 73D605571139F2B900B45888 /* PBXBookmark */;
+			73D6056C1139F46300B45888 /* PBXTextBookmark */ = 73D6056C1139F46300B45888 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 73D6055C1139F2B900B45888 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	73D602E61139825700B45888 /* Thermometer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1266, 3696}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1718}";
+		};
+	};
+	73D605501139F29900B45888 /* ChaudFroid */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = ChaudFroid;
+		sourceDirectories = (
+		);
+	};
+	73D605571139F2B900B45888 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 73D602E61139825700B45888 /* Thermometer.m */;
+	};
+	73D6055C1139F2B900B45888 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = Local;
+		};
+	};
+	73D6055D1139F2B900B45888 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	73D6056C1139F46300B45888 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 73D602E61139825700B45888 /* Thermometer.m */;
+		name = "Thermometer.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1718;
+		vrLoc = 0;
+	};
+}

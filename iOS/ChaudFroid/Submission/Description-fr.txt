@@ -1,0 +1,10 @@
+"Chaud Froid" est un petit thermomètre qui vous donne une estimation de la température à l'endroit où vous vous trouvez : simple, pratique, et gratuit ! N'hésitez pas à le tester !
+
+Notes :
+- Afin que l'application puisse estimer la température, vous devez lui permettre d'accéder à vos "données de localisation".
+- L'application ne fonctionne que sur iPhone 3GS.
+- Chaud Froid, comme la plupart des thermomètres usuels, à besoin de temps pour afficher une valeur stable ; ne vous attendez pas à ce que l'application rapporte instantanément des variations importantes de température.  Sachez aussi que la température de l'iPhone varie selon son utilisation, il peut donc être nécessaire d'attendre quelques minutes que les valeurs se stabilisent si vous l'avez utilisé de façon intensive dans le quart d'heure précédent, et il est normal que les valeurs affichées au lancement soient différentes selon que l'iPhone était stocké dans un endroit chaud (poche de pantalon, etc.) ou qu'il était simplement posé sur une table.
+
+Avertissement :
+- La température affichée par Chaud Froid n'est qu'une estimation de la température ambiante réelle, aussi cette application ne peut en aucun cas être utilisée comme référence pour des mesures précises.
+- N'oubliez pas que votre iPhone ne doit jamais être placé dans des endroits très frais ni très chauds ; les spécifications données par Apple pour l'iPhone 3GS fixent la plage de fonctionnement à 0°C - 35°C.

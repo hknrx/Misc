@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* ThermometerAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 449}}";
+			sepNavSelRange = "{24, 0}";
+			sepNavVisRange = "{0, 405}";
+		};
+	};
+	1D3623250D0F684500981E51 /* ThermometerAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 518}}";
+			sepNavSelRange = "{705, 0}";
+			sepNavVisRange = "{139, 785}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* Thermometer */ = {
+		activeExec = 0;
+		executables = (
+			737F9AE21044A1D300418C50 /* Thermometer */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* ThermometerViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 504}}";
+			sepNavSelRange = "{352, 0}";
+			sepNavVisRange = "{0, 897}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* ThermometerViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3726, 2086}}";
+			sepNavSelRange = "{26, 0}";
+			sepNavVisRange = "{0, 1445}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeExecutable = 737F9AE21044A1D300418C50 /* Thermometer */;
+		activeSDKPreference = iphonesimulator3.0;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Thermometer */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* Thermometer */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 737F9AEF1044A1D700418C50 /* Code sense */;
+		executables = (
+			737F9AE21044A1D300418C50 /* Thermometer */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					717,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					740,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					769,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					789,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 274976052;
+			PBXWorkspaceStateSaveDate = 274976052;
+		};
+		perUserProjectItems = {
+			7377BE86106109DA0000B7C4 /* PBXTextBookmark */ = 7377BE86106109DA0000B7C4 /* PBXTextBookmark */;
+			7377BE87106109DA0000B7C4 /* PBXTextBookmark */ = 7377BE87106109DA0000B7C4 /* PBXTextBookmark */;
+			7377BE88106109DA0000B7C4 /* PBXTextBookmark */ = 7377BE88106109DA0000B7C4 /* PBXTextBookmark */;
+			7377BE89106109DA0000B7C4 /* PBXTextBookmark */ = 7377BE89106109DA0000B7C4 /* PBXTextBookmark */;
+			7377BE8B106109DA0000B7C4 /* PBXTextBookmark */ = 7377BE8B106109DA0000B7C4 /* PBXTextBookmark */;
+			737B92B81045DD21004203B4 /* PBXTextBookmark */ = 737B92B81045DD21004203B4 /* PBXTextBookmark */;
+			737B92B91045DD21004203B4 /* PBXTextBookmark */ = 737B92B91045DD21004203B4 /* PBXTextBookmark */;
+			737F9B4B1044B13200418C50 /* PBXTextBookmark */ = 737F9B4B1044B13200418C50 /* PBXTextBookmark */;
+			737F9B4C1044B13200418C50 /* PBXTextBookmark */ = 737F9B4C1044B13200418C50 /* PBXTextBookmark */;
+			737F9B521044B13200418C50 /* PBXTextBookmark */ = 737F9B521044B13200418C50 /* PBXTextBookmark */;
+			737F9B531044B13200418C50 /* PBXTextBookmark */ = 737F9B531044B13200418C50 /* PBXTextBookmark */;
+			7381191A1063C96A00CE198D /* PBXTextBookmark */ = 7381191A1063C96A00CE198D /* PBXTextBookmark */;
+			738119251063CA0300CE198D /* PlistBookmark */ = 738119251063CA0300CE198D /* PlistBookmark */;
+			738119261063CA0300CE198D /* PlistBookmark */ = 738119261063CA0300CE198D /* PlistBookmark */;
+			738119341063CB3A00CE198D /* PBXTextBookmark */ = 738119341063CB3A00CE198D /* PBXTextBookmark */;
+			7382E1B31049AEE9001E0637 /* PBXTextBookmark */ = 7382E1B31049AEE9001E0637 /* PBXTextBookmark */;
+			7382E1B41049AEE9001E0637 /* PBXTextBookmark */ = 7382E1B41049AEE9001E0637 /* PBXTextBookmark */;
+			738395721060034300E17C20 /* PBXTextBookmark */ = 738395721060034300E17C20 /* PBXTextBookmark */;
+			738395731060034300E17C20 /* PBXTextBookmark */ = 738395731060034300E17C20 /* PBXTextBookmark */;
+			73AE08B4104AB6B900519E87 /* PBXTextBookmark */ = 73AE08B4104AB6B900519E87 /* PBXTextBookmark */;
+			73E8E87D10603ED100E14764 /* PBXTextBookmark */ = 73E8E87D10603ED100E14764 /* PBXTextBookmark */;
+			73E8E87E10603ED100E14764 /* PBXTextBookmark */ = 73E8E87E10603ED100E14764 /* PBXTextBookmark */;
+			73E8E87F10603ED100E14764 /* PBXTextBookmark */ = 73E8E87F10603ED100E14764 /* PBXTextBookmark */;
+			73E8E88010603ED100E14764 /* PBXTextBookmark */ = 73E8E88010603ED100E14764 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 737F9AEE1044A1D700418C50 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 449}}";
+			sepNavSelRange = "{211, 0}";
+			sepNavVisRange = "{0, 211}";
+		};
+	};
+	7377BE86106109DA0000B7C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* ThermometerAppDelegate.h */;
+		name = "ThermometerAppDelegate.h: 2";
+		rLen = 0;
+		rLoc = 24;
+		rType = 0;
+		vrLen = 405;
+		vrLoc = 0;
+	};
+	7377BE87106109DA0000B7C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* ThermometerAppDelegate.m */;
+		name = "ThermometerAppDelegate.m: 24";
+		rLen = 0;
+		rLoc = 705;
+		rType = 0;
+		vrLen = 785;
+		vrLoc = 139;
+	};
+	7377BE88106109DA0000B7C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* ThermometerViewController.h */;
+		name = "ThermometerViewController.h: 14";
+		rLen = 0;
+		rLoc = 352;
+		rType = 0;
+		vrLen = 897;
+		vrLoc = 0;
+	};
+	7377BE89106109DA0000B7C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 737B92A81045DBD0004203B4 /* ThermometerView.h */;
+		name = "ThermometerView.h: 6";
+		rLen = 6;
+		rLoc = 96;
+		rType = 0;
+		vrLen = 446;
+		vrLoc = 0;
+	};
+	7377BE8B106109DA0000B7C4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 737B92A91045DBD0004203B4 /* ThermometerView.m */;
+		name = "ThermometerView.m: 255";
+		rLen = 0;
+		rLoc = 8050;
+		rType = 0;
+		vrLen = 1401;
+		vrLoc = 168;
+	};
+	737B92A81045DBD0004203B4 /* ThermometerView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavSelRange = "{96, 6}";
+			sepNavVisRange = "{0, 446}";
+		};
+	};
+	737B92A91045DBD0004203B4 /* ThermometerView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1194, 3808}}";
+			sepNavSelRange = "{8053, 0}";
+			sepNavVisRange = "{7975, 218}";
+		};
+	};
+	737B92B81045DD21004203B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 737B92A81045DBD0004203B4 /* ThermometerView.h */;
+		name = "ThermometerView.h: 5";
+		rLen = 0;
+		rLoc = 260;
+		rType = 0;
+		vrLen = 71;
+		vrLoc = 0;
+	};
+	737B92B91045DD21004203B4 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 737B92A91045DBD0004203B4 /* ThermometerView.m */;
+		name = "ThermometerView.m: 24";
+		rLen = 0;
+		rLoc = 8374;
+		rType = 0;
+		vrLen = 241;
+		vrLoc = 0;
+	};
+	737F9AE21044A1D300418C50 /* Thermometer */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Thermometer;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	737F9AEE1044A1D700418C50 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryName = Local;
+		};
+	};
+	737F9AEF1044A1D700418C50 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	737F9B4B1044B13200418C50 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* ThermometerViewController.m */;
+		name = "ThermometerViewController.m: 4";
+		rLen = 0;
+		rLoc = 1521;
+		rType = 0;
+		vrLen = 530;
+		vrLoc = 0;
+	};
+	737F9B4C1044B13200418C50 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* ThermometerViewController.h */;
+		name = "ThermometerViewController.h: 17";
+		rLen = 0;
+		rLoc = 776;
+		rType = 0;
+		vrLen = 533;
+		vrLoc = 0;
+	};
+	737F9B521044B13200418C50 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* ThermometerAppDelegate.m */;
+		name = "ThermometerAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 38;
+		rType = 0;
+		vrLen = 404;
+		vrLoc = 0;
+	};
+	737F9B531044B13200418C50 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* ThermometerAppDelegate.h */;
+		name = "ThermometerAppDelegate.h: 15";
+		rLen = 0;
+		rLoc = 405;
+		rType = 0;
+		vrLen = 342;
+		vrLoc = 0;
+	};
+	7381191A1063C96A00CE198D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 10";
+		rLen = 0;
+		rLoc = 211;
+		rType = 0;
+		vrLen = 211;
+		vrLoc = 0;
+	};
+	738119251063CA0300CE198D /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 738118D81063C77400CE198D /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nrx/Projects/Local/Work/Thermometer/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	738119261063CA0300CE198D /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 738118D81063C77400CE198D /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = /Users/nrx/Projects/Local/Work/Thermometer/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	738119341063CB3A00CE198D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* ThermometerViewController.m */;
+		name = "ThermometerViewController.m: 3";
+		rLen = 0;
+		rLoc = 26;
+		rType = 0;
+		vrLen = 1460;
+		vrLoc = 0;
+	};
+	7382E1A01049ACD6001E0637 /* TemperatureView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavSelRange = "{63, 0}";
+			sepNavVisRange = "{0, 71}";
+			sepNavWindowFrame = "{{19, 215}, {750, 558}}";
+		};
+	};
+	7382E1A11049ACD6001E0637 /* TemperatureView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavSelRange = "{122, 0}";
+			sepNavVisRange = "{0, 227}";
+		};
+	};
+	7382E1B31049AEE9001E0637 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7382E1A01049ACD6001E0637 /* TemperatureView.h */;
+		name = "TemperatureView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 71;
+		vrLoc = 0;
+	};
+	7382E1B41049AEE9001E0637 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7382E1A11049ACD6001E0637 /* TemperatureView.m */;
+		name = "TemperatureView.m: 21";
+		rLen = 0;
+		rLoc = 221;
+		rType = 0;
+		vrLen = 240;
+		vrLoc = 0;
+	};
+	738395661060025600E17C20 /* GearView.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavSelRange = "{56, 0}";
+			sepNavVisRange = "{0, 64}";
+		};
+	};
+	738395671060025600E17C20 /* GearView.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 472}}";
+			sepNavSelRange = "{108, 0}";
+			sepNavVisRange = "{0, 204}";
+		};
+	};
+	738395721060034300E17C20 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738395661060025600E17C20 /* GearView.h */;
+		name = "GearView.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 64;
+		vrLoc = 0;
+	};
+	738395731060034300E17C20 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738395671060025600E17C20 /* GearView.m */;
+		name = "GearView.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 277;
+		vrLoc = 0;
+	};
+	73AE08B4104AB6B900519E87 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 10";
+		rLen = 0;
+		rLoc = 211;
+		rType = 0;
+		vrLen = 212;
+		vrLoc = 0;
+	};
+	73E8E87D10603ED100E14764 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738395671060025600E17C20 /* GearView.m */;
+		name = "GearView.m: 8";
+		rLen = 0;
+		rLoc = 108;
+		rType = 0;
+		vrLen = 204;
+		vrLoc = 0;
+	};
+	73E8E87E10603ED100E14764 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 738395661060025600E17C20 /* GearView.h */;
+		name = "GearView.h: 5";
+		rLen = 0;
+		rLoc = 56;
+		rType = 0;
+		vrLen = 64;
+		vrLoc = 0;
+	};
+	73E8E87F10603ED100E14764 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7382E1A11049ACD6001E0637 /* TemperatureView.m */;
+		name = "TemperatureView.m: 8";
+		rLen = 0;
+		rLoc = 122;
+		rType = 0;
+		vrLen = 227;
+		vrLoc = 0;
+	};
+	73E8E88010603ED100E14764 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 7382E1A01049ACD6001E0637 /* TemperatureView.h */;
+		name = "TemperatureView.h: 5";
+		rLen = 0;
+		rLoc = 63;
+		rType = 0;
+		vrLen = 71;
+		vrLoc = 0;
+	};
+}

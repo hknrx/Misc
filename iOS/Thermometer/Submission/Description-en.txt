@@ -1,0 +1,12 @@
+Thermic is a thermometer that makes use of the iPhone 3GS's great hardware to measure the actual temperature of its environment. Temperature is shown on a thermometer and figures are displayed both in °C and °F.
+
+The application acquires the internal temperature of the device using its magnetometer, then computes an estimation of the ambient temperature. Measurement of the internal temperature is displayed in the bottom-left corner of the screen.
+
+Notes:
+- Thermic does not make use of the GPS at all (it isn't another fake thermometer that gets the temperature for your current location from an on-line database), however, for the application to have access to the magnetometer data, you need to grant it access to your "location data".
+- Thermic, like most of the usual thermometers, needs some time to reach stability and display the actual ambient temperature; do not expect it to instantly report important variations of the temperature.
+- Be aware that the iPhone's heat varies when it is used or being charged (which is totally normal); the application is calibrated to provide significant values after a classic usage of the device. At application launch, one should read the internal temperature if the iPhone has been on rest for a long period, or wait for a few minutes if it ran heavy CPU consuming applications during the past 10 minutes. It is normal that initial figures are different whether the iPhone was stored in a warm place (e.g. pants pocket) or simply rested on a table.
+
+Disclaimer:
+- The approximation of the external temperature only gives a rough idea of the real ambient temperature, so do not use Thermic for precise measurements.
+- Be reminded that your iPhone shall never be placed in very cold nor very warm areas; Apple specifications for the iPhone 3GS set the operating temperature range to 32°F - 95°F (0°C - 35°C).

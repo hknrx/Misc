@@ -1,0 +1,18 @@
+############
+# Keywords #
+############
+
+Bilderrahmen,Blase,Flipper,Folterkammer,Waschmaschine,Labyrinth
+
+###############
+# Description #
+###############
+
+Willkommen bei Photo Bubble, dem innovativen und dynamischen Bilderrahmen!
+
+In Photo Bubble kannst Du Deine Fotos in Seifen-Blasen platzieren und in unterschiedlichen Umwelten einsetzen. Wolltest Du schon immer einmal Flipper mit den Porträts deiner Freunde spielen? Oder Deinen Nachbar in einer Waschmaschine rotieren sehen? Oder wie wäre es mit Deiner Ex-Freundin in einer Folterkammer? Dann kannst Du das mit Photo-Bubble tun! Mit seiner atemberaubenden Echtzeit-Modulierung ist Photo-Bubble der coolste Bilderrahmen auf dem iPhone!
+
+Anleitung:
+Nachdem Du Einen der 7 rahmen ausgewählt hast tippst Du einfach auf eine der Blasen um diese zu bearbeiten fertige dazu ein neues Bild an oder wähle ein bereits vorhandenes Bild aus deiner Sammlung. Du kannst dabei den Bildausschnitt, der verwendet wird, frei wählen (z.b. den Kopf). Die Bilder selbst werden dabei nicht verändert, Photo Bubble speichert eigenen Kopien deiner Bilder.
+
+Viel Spass mit Photo Bubble!

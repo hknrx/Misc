@@ -1,0 +1,17 @@
+svn export file:///Users/nrx/Projects/Local/SVN/FlaminGames/Libraries/OpenFeint OLD/OpenFeint
+
+diff -rwq OpenFeint OLD/OpenFeint | grep -v .DS_Store > NRX.txt
+egrep "^Only in OpenFeint" NRX.txt | sed "s/Only in \([^:]*\): \(.*\)/\1\/\2/" > NRX_add.txt
+egrep "^Files" NRX.txt | sed "s/^Files \(.*\) and .*$/\1/" > NRX_modify.txt
+egrep "^Only in OLD/OpenFeint" NRX.txt  | sed "s/Only in OLD\/\([^:]*\): \(.*\)/\1\/\2/" > NRX_delete.txt
+
+for file in $(cat NRX_delete.txt);do rm -r OLD/$file;done
+for file in $(cat NRX_modify.txt);do cp $file OLD/$file;done
+for file in $(cat NRX_add.txt);do cp -r $file OLD/$file;done
+
+diff -rwq OpenFeint OLD/OpenFeint | grep -v .DS_Store
+
+for file in $(cat NRX_delete.txt);do svn delete ~/Projects/Local/Work/FlaminGames/Libraries/$file;done
+for file in $(cat NRX_modify.txt);do cp $file ~/Projects/Local/Work/FlaminGames/Libraries/$file;done
+for file in $(cat NRX_add.txt);do cp -r $file ~/Projects/Local/Work/FlaminGames/Libraries/$file;done
+for file in $(cat NRX_add.txt);do svn add ~/Projects/Local/Work/FlaminGames/Libraries/$file;done

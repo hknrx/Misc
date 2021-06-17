@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Maze,Labyrinth,Race,OpenFeint
+
+###############
+# Description #
+###############
+
+Evil mazes, a timer, your skills: welcome to Flamin Maze Giant! Adapted from a famous arcade machine, you can now enjoy 2 game modes on your iPad: Escape from as many levels as possible before the time runs out, drawing a path from the entrance to the farther spot of the labyrinth, or explore each level as quickly as possible by lighting up each single square - easy to understand, but hard to master! Go compare your performances with other players online and try unlock all the achievements... if you dare!
+
+* You like Flamin Maze Giant? Make sure to also have a look to Flamin Stack Giant and Flamin Timer Giant! *

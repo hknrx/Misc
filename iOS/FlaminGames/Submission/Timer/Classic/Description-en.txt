@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Time,Buster,Coin,Prize,Redemption,OpenFeint
+
+###############
+# Description #
+###############
+
+Here comes yet another game in the "Flamin" serie: Flamin Timer! No need to visit a mall, enjoy this classic arcade machine at any time and try to get as many coins as possible! A single and simple rule: attempt to stop the timer on 1000! Sounds easy, no?! Compare your score online with other players and try to unlock all the achievements!
+
+* You like Flamin Timer? Make sure to also have a look to Flamin Stack and Flamin Maze! *

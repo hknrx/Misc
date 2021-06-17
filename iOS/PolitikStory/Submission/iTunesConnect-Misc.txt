@@ -1,0 +1,18 @@
+SKU: 15
+Bundle ID: hknrx.PolitikStory
+Apple ID: 505853865
+Type: iOS App
+Default Language: French
+Link: http://itunes.apple.com/us/app/politik-story/id505853865?l=fr&ls=1&mt=8
+Version: 1.0
+Primary Category: Entertainment
+Secondary Category:
+Copyright: 2012 Nicolas Robert
+Review Notes: Results shown in the app will evolve with the number of users (and so, it is normal that they aren't very meaningful during testing, as the database on server side will still be quite empty).
+Rating: 12+ (Frequent/Intense "Cartoon or Fantasy Violence" + "Profanity or Crude Humor")
+App Name: Politik Story
+Keywords: élection,présidentielle,2012,sondage,vote,politique
+Support Email Address: apple.hknrx@gmail.com
+Support URL: http://hknrx.free.fr
+Marketing URL:
+Privacy Policy URL:

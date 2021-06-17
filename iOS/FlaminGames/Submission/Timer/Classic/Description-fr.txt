@@ -1,0 +1,13 @@
+############
+# Keywords #
+############
+
+Arcade,Time,Buster,Pièce,Prix,Lot,OpenFeint
+
+###############
+# Description #
+###############
+
+Voici un nouveau venu dans votre collection des jeux "Flamin" : Flamin Timer ! Plus besoin d'arpenter les fêtes foraines, profitez de cette machine d'arcade à tout moment et tentez d'obtenir autant de pièces que possible ! Une règle ultra simple : essayez d'arrêter le compteur sur 1000 ! Cela semble facile, non ?! Comparez vos performances en ligne avec les autres joueurs et débloquez tous les exploits !
+
+* Vous aimez Flamin Timer ? Alors jetez un coup d'oeil à Flamin Stack et Flamin Maze ! *
