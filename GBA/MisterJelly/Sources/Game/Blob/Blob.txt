@@ -1,0 +1,181 @@
+##
+## Mister Jelly - Sources\Game\Blob\Blob.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+A) Introduction
+   ############
+
+Le blob est en realite un maillage de masses reliees entre elles par des ressorts ; il possede une
+enveloppe externe, supportee par les elements situes sur ses bords, et est rempli d'un gaz sous
+pression.
+
+Chaque element est donc soumis a des forces qui le contraignent a bouger :
+- La pesanteur,
+- La force elastique du ressort,
+- La force d'amortissement du ressort,
+- La pression exercee par le gaz (pour les elements du bord uniquement).
+
+Note : La force de reaction du decor (lors des collisions entre le blob et le decor) est simplement
+integree a la force initiale donnee a chaque element (force nulle lorsqu'il n'y a pas de collision).
+
+
+B) Acceleration, vitesse et position
+   #################################
+
+A chaque iteration, on recalcule la position de chacun des elements constituant le blob. La position
+d'un element depend de sa vitesse, qui elle depend de l'acceleration, qui elle depend de la force
+totale a laquelle est soumise l'element ; on utilise le schema d'integration d'Euler :
+
+acceleration(t+h) = force(t+h) / masse
+vitesse(t+h) = vitesse(t) + h * acceleration(t+h)
+position(t+h) = position(t) + h * vitesse(t+h)
+
+Afin d'etre plus precis, on effectue plusieurs iterations entre 2 affichages ; si ce nombre
+d'iterations est N, alors on a : h = 1 / N
+
+Concretement on fait donc :
+for(n=0;n<N;++n)
+{
+   force = CalculForce();
+   vitesse += force/(masse*N)
+   position += vitesse/N
+}
+
+
+C) Calcul des forces
+   #################
+
+Les calculs de chacune des forces sont realises comme suit :
+
+   1) Pesanteur
+      #########
+
+force.x = masse * gravite.x
+force.y = masse * gravite.y
+
+   2) Ressort
+      #######
+
+      a) Elasticite des ressorts
+         #######################
+
+On considere le ressort entre les elements A et B :
+vecteur_force = constante_raideur * allongement_AB * vecteur_normalise_AB
+
+On a :
+allongement_AB = distance_AB - longeur_repos
+vecteur_normalise_AB = vecteur_AB / distance_AB
+
+Soit :
+vecteur_force = (constante_raideur * (distance_AB - longeur_repos) / distance_AB) * vecteur_AB
+
+      b) Amortissement des ressorts
+         ##########################
+
+On considere le ressort entre les elements A et B :
+vecteur_force = constante_viscosite * vitesse_allongement_AB * vecteur_normalise_AB
+
+On a :
+vitesse_allongement_AB = vecteur_vitesse_AB . vecteur_normalise_AB
+vecteur_normalise_AB = vecteur_AB / distance_AB
+
+Soit :
+vecteur_force = (constante_viscosite * (vecteur_vitesse_AB . vecteur_AB) / distance_AB2) * vecteur_AB
+
+      c) Force totale exercee par un ressort sur les elements A et B qu'il relie
+         #######################################################################
+
+delta_position.x = position_B.x - position_A.x
+delta_position.y = position_B.y - position_A.y
+
+distance_AB = sqrt(delta_position.x * delta_position.x + delta_position.y * delta_position.y)
+
+delta_vitesse.x = vitesse_B.x - vitesse_A.x
+delta_vitesse.y = vitesse_B.y - vitesse_A.y
+
+force = (delta_vitesse.x * delta_position.x + delta_vitesse.y * delta_position.y) / distance_AB
+force = (force * constante_viscosite + (distance_AB - longeur_repos) * constante_raideur) / distance_AB
+
+force_A.x += force * delta_position.x
+force_A.y += force * delta_position.y
+
+force_B.x -= force * delta_position.x
+force_B.y -= force * delta_position.y
+
+   3) Pression du gaz
+      ###############
+
+On part de la formule de base :
+P * V = n * R * T
+
+...et on simplifie en considerant que la temperature est constante :
+P * V = K
+
+Soit encore :
+P = K / V
+
+D'autre part on a une formule qui relie la pression a la force exercee sur une surface :
+P = F / S
+
+On en deduit :
+F = P * S = K * S / V
+
+Pour appliquer la force resultante de la pression du gaz, il faut donc d'abord calculer le volume du
+blob. Puisque nous sommes en 2D, ce volume correspond en realite la surface (et la surface a la
+longueur de l'arrete concernee). On decompose donc le blob en triangles ; la surface totale du blob
+est la somme des surfaces de chacun des triangles :
+
+V = somme(surface_triangle_ABC) = somme((vecteur_AC ^ vecteur_AB) / 2)
+V = somme(delta_position_AC.x * delta_position_AB.y - delta_position_AC.y * delta_position_AB.x) / 2
+
+La force est appliquee perpendiculairement a la surface, on a donc sur chaque arrete AB :
+vecteur_force = (K * distance_AB / V) * perpendiculaire_vecteur_normalise_AB
+vecteur_force = (K * distance_AB / V) * (perpendiculaire_vecteur_AB / distance_AB)
+vecteur_force = (K / V) * perpendiculaire_vecteur_AB
+
+Note : on repartit la force exercee sur l'arrete equitablement sur chacun des 2 elements qui la
+supportent. On a donc, pour un element donne :
+force = (K / (2 * V)) * perpendiculaire_vecteur_AB
+
+La norme de la force est donc simplement :
+force = K / somme(delta_position_AC.x * delta_position_AB.y - delta_position_AC.y * delta_position_AB.x)
+
+Concretement, on fait donc les calculs suivants :
+
+      a) Calcul de la norme de la force
+         ##############################
+
+V = 0
+for(triangle=0;triangle<nombre_triangle;++triangle)
+{
+   delta_position_AB.x = position_B.x - position_A.x
+   delta_position_AB.y = position_B.y - position_A.y
+
+   delta_position_AC.x = position_C.x - position_A.x
+   delta_position_AC.y = position_C.y - position_A.y
+
+   V += delta_position_AC.x * delta_position_AB.y + delta_position_AC.y * delta_position_AB.x
+}
+force = K / V
+
+      b) Application de la force aux 2 elements de l'arrete AB
+         #####################################################
+
+delta_position.x = position_B.x - position_A.x
+delta_position.y = position_B.y - position_A.y
+
+force_A.x -= force * delta_position.y;
+force_A.y += force * delta_position.x;
+
+force_B.x -= force * delta_position.y;
+force_B.y += force * delta_position.x;
+
+   4) Collisions contre le decor
+      ##########################
+
+      a) Reaction du decor
+         #################
+
+      b) Viscosite du decor
+         ##################

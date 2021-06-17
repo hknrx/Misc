@@ -1,0 +1,10 @@
+##
+## Adpcm - LisezMoi\ToDo.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+1) Decouper le "Decoder" en 2 parties (= 2 repertoires) :
+   - GBA (decodeur actuel),
+   - PC (=> creation d'un fichier wave a partir du ".s" - il fonctionnerait comme l'encodeur en
+     prenant le nom du son et 2 noms de repertoires ; il faudra egalement un ".bat" pour le
+     compiler).

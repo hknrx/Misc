@@ -1,0 +1,11 @@
+##
+## God - Graphics\Intro\Voxel\GOD.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP 256 couleurs.
+
+Contrainte sur la palette : les 2 dernieres couleurs de la palette sont reservees a l'affichage des
+textes ("Police.bmp") :
+- #254 = blanc,
+- #255 = noir.

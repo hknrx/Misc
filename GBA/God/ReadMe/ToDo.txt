@@ -1,0 +1,95 @@
+##
+## God - ReadMe\ToDo.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+1) Importer toutes les idees implementees dans Bomb Jack !
+
+###
+
+1) Voir le probleme de compression des textures !!! ("CommonUncompressInVRAM" a mettre "inline"
+   plutot qu'en normal... ?!)
+2) Mettre toutes les fonctions non-publiques en "static" !!
+3) Il faut absolument caster toutes les constantes qui utilisent un flottant !!
+   e.g. : "0.025*FIXED_POINT" => "(signed short)(0.025*FIXED_POINT)"
+4) Refaire completement le makefile (= comme BJ) ; essayer d'utiliser "-O3" au lieu de "-O2"
+   (meilleure optimisation => gain de vitesse ?).
+5) Refaire le fichier html de presentation (= comme Bomb Jack).
+
+###
+
+1) Essayer de supprimer les portes : les remplacer par des "trous" (i.e. pas de mur mais un sol & un
+   plafond). On pourrait garder le sol pave pour ces "trous", et utiliser le sol normal partout
+   ailleurs (cf. la note ci-dessous...).
+2) Ne mettre qu'un seul type de sol ? Ou donner une utilite au sol "pave" par rapport au sol de
+   base ?
+
+###
+
+1) Faire un plasma pour le menu de choix de niveau (cf. WinAmp). Les niveaux seront repartis dans
+   les "chapitres" de differents "livres".
+2) Revoir l'ergonomie :
+   - On utilise toujours les fleches sur la carte pour deplacer le pointeur ecran et faire scroller
+     la carte lorsqu'on touche les bords,
+   - On utilise toujours [A] sur la carte pour poser/enlever un bloc (= action directe),
+   - On utilisera [B] sur la carte pour acceder aux menus contextuels : creation d'un batiment,
+     destruction d'un batiment, reglage du stock, voir les stats d'un perso, etc.,
+   - On utilise toujours [L] et/ou [R] avec les fleches pour controler la camera,
+   - On utilise toujours [start] pour faire apparaitre le 1er menu,
+   - On utilise un nouveau pointeur ecran "(menu)" lorsqu'un menu est affiche (attention, on parle
+     bien des "menus",  pas des "tips") ; les touches sont alors toutes affectees au menu,
+   - On navigue dans les menus avec les fleches, sauf si on appuie sur [L] ou [R] (mouvement de la
+     camera) ; [select] permet egalement de naviguer dans les menus,
+   - On utilise [start] ou [A] pour valider un choix dans un menu deja ouvert,
+   - On considere que [B] equivaut a "cancel" dans les menus : fermeture immediate du menu affiche.
+   Notes :
+   - Il faudra revoir la gestion de touches dans la sequence d'intro (camera qui tourne autour du
+     chateau) : ce n'est pas [A] mais [B] qui devrait permettre de fermer les fenetres...
+   - Il faudra mettre des "tips" pour expliquer tout ca !
+3) Modifier le AStar pour permettre la synchronisation sur le VBL (comme l'initialisation de
+   SINE_TABLE : on calcule autant qu'on peut mais on rend la main lorsque le VBL arrive) ; le AStar
+   devra donc signaler si oui ou non il a termine la recherche du chemin, et etre capable lors de
+   l'appel suivant de poursuivre une recherche deja entamee...
+4) Reflechir aux tips : il ne faudrait pas les afficher a chaque fois => memoriser en SRAM le numero
+   de celles qu'on a vues pour eviter de les afficher a nouveau ?
+5) Voir comment mettre une option de compilation qui permette de supprimer les sons (dans les
+   sources et le makefile).
+
+###
+
+Divers (prochaines modifications) :
+1) N'utiliser le pointeur ecran "batiment" que lorsqu'on se trouve sur un bloc permettant la
+   creation d'un batiment (on doit pointer la porte - une empreinte de batiment est une forme close
+   constituee de murs MAP_WALL_SOFT_B sans aucun bloc a l'interieur ; la porte ne doit pas etre dans
+   un angle).
+   => Faire la fonction permettant de savoir si un building est constructible (et une autre pour le
+   construire effectivement).
+2) Faire 2 fonctions supplementaires dans World.c pour clarifier le code : WorldIsBuildable et
+   WorldIsSoftMaterial...
+
+###
+
+Divers (developpement a long terme) :
+1) Mettre en place un systeme d'agent simplifie s'appuyant sur le AStar.
+2) Faire la gestion de la liste d'evenements.
+3) Faire la gestion des statistiques (cf. Monopoly Tycoon).
+4) Mentionner la taille des images et eventuellement la disposition des elements dans les fichiers
+   ".txt" de Graphismes...
+5) Tout mettre en anglais (verifier tout le code) et re-faire une passe de correction orthographique
+   sur tous les textes du jeu.
+6) Faire une sequence "Nrx" avec des bulles de lumieres blanches et noires (cf. Black & White) ?
+7) Revoir et integrer le moteur de ray casting ?
+8) Modifier les musiques ou en ajouter de nouvelles ? (e.g. Depeche Mode, etc.)
+
+###
+
+3dIso :
+1) Utilisation de sprites 16 couleurs avec des palettes adaptees (e.g. normale, surbrillance,
+   positionnement ok, positionnement bad) ?
+
+###
+
+Voxel :
+1) Revoir le Voxel.txt (et eventuellement le Voxel.c) : la matrice de rotation est a l'envers ?
+   (peut-etre pas : on part du repere ecran pour aller dans celui de la carte... mais l'explication
+   du .txt n'est pas tres claire)

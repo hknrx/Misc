@@ -1,0 +1,4 @@
+##
+## Adpcm - Sources\Commun\Commun.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##

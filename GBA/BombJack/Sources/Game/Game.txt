@@ -1,0 +1,93 @@
+##
+## Bomb Jack - Sources\Game\Game.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005 / France 2006
+##
+
+Reflexion sur les bombes
+########################
+
+A) Design initial
+   ##############
+
+=> 1 liste ordonnee par "niveau",
+=> N "niveaux" differents,
+=> 24 bombes au total par niveau dans une matrice de 9x9.
+
+Les sprites des bombes font 12x9 pixels (12x12 pixels si on inclut la meche) ; le sprite est dans un
+bloc de 16x16, la bombe est dessinee en haut, a 2 pixels du bord gauche (=centree horizontalement).
+
+On peut considerer que les sprites de BJ font 12x16 pixels (meme si parfois ils font 14x16 pixels).
+
+Les bombes sont reparties sur l'aire de jeu ainsi :
+- x=4+X*(12+10) // la 1ere et la derniere bombe sont a 6 pixels des bords.
+- y=Y*(9+9) // La 1ere bombe est a 3 pixels du haut (sans la meche), la derniere a 4 pixels du bas.
+
+On utilise 2 tableaux pour stocker les informations relatives aux bombes :
+- Le tableau des "positions" stocke la position de chacune des 24 bombes du niveau N ; la position
+  est sur 8 bits (=9*Y+X).
+- Le tableau des "ids" stocke l'id des bombes de chacune des 9x9 positions possibles.
+Chacun des 2 tableaux pointe vers l'autre ; le second est construit dynamiquement lors de la mise en
+place du niveau .
+
+A partir de la position de BJ on peut retrouver la position de l'eventuelle bombe :
+
+Les bombes sont reparties uniformement sur le plan de jeu (sauf pour les bords, ou l'espace est
+different) ; on va donc decouper ce plan en 81 regions (1 par bombe) et simplement regarder dans
+quelle region se trouve BJ.
+
+Note : l'espace entre 2 bombes voisines etant plus petit que BJ (tant en largeur qu'en hauteur), BJ
+est forcement en contact avec la bombe de la region dans laquelle il se trouve (il est possible
+qu'il soit egalement en contact avec une autre bombe, mais on considere celle de la region courante,
+i.e. la plus pres).
+
+- Le centre de BJ est en (x+6,y+8) car le sprite fait 12x16 pixels (ici on considere que l'origine
+  du sprite est le coin en haut a gauche, afin d'avoir x=0 et y=0 lorsque le sprite est en haut a
+  gauche de l'ecran : c'est plus pratique car les tableaux de conversion commencent forcement a 0).
+- L'ecart horizontal entre 2 bombes est de 10 pixels, qu'on peut repartir de chaque cote des bombes
+  => les regions font 5+(12)+5 pixels en largeur ;
+- L'ecart vertical entre 2 bombes est de 9 pixels, qu'on peut repartir de chaque cote des bombes
+  => les regions font 4+(9)+5 pixels en hauteur.
+- Il faut donc decouper l'aire de jeu en 81 regions de 22x18 pixels.
+- On fait d'abord un changement de repere car la 1ere bombe n'est pas a la position (5,4) mais
+  (6,3) => le centre de BJ est deplace en (x+5,y+9).
+
+On a donc : region(X,Y) = ((x+5)/22,(y+9)/18)
+
+B) Amelioration
+   ############
+
+Les bombes font 12x16 pixels ; elles sont au milieu des regions (qui font elles 22x18 pixels) :
+- Il y a 5 pixels a droite et a gauche des bombes : 22 = 5+(12)+5
+- Il y a 4 pixels au dessus et 5 pixels au dessous des bombes ; 18 = 4+(9)+5
+
+Note : la meche de la bombe fait 3 pixels de haut, le sprite est donc en realite a 1 pixel du bord
+superieur de la region.
+
+BJ fait 12x16 pixels, et on considere son centre comme etant a (x+6,y+8) ; il y a donc :
+- 6 pixels a gauche du centre (x), et 5 pixels a droite : 12 = 6+1+5
+- 8 pixels au dessus du centre (y), et 7 pixels en dessous : 16 = 8+1+7
+
+Lorsque BJ rentre dans une region, i.e. lorsque (x,y) est dans la region, il depasse donc :
+- de 6 pixels en largeur s'il vient de la gauche (5 pixels a droite du centre + 1 pour le centre)
+  => il touche la bombe de 1 pixel (6-5 = 1),
+- de 7 pixels en largeur s'il vient de la droite (6 pixels a gauche du centre + 1 pour le centre)
+  => il touche la bombe de 2 pixels (7-5 = 2),
+- de 8 pixels en hauteur s'il vient du haut (7 pixels en dessous du centre + 1 pour le centre)
+  => il touche la bombe de 4 pixels (8-4 = 4),
+- de 9 pixels en hauteur s'il vient du bas (8 pixels au dessus du centre + 1 pour le centre)
+  => il touche la bombe de 4 pixels (9-5 = 4).
+
+On voit que la collision se fait bien de la meme facon lorsque BJ arrive par le haut et lorsqu'il
+arrive par le bas (4 pixels dans les 2 cas), mais le systeme n'est pas genial car le contact ne se
+fait pas de la meme maniere sur X et sur Y... Il faut donc modifier la largeur des regions !
+
+Si on essaie d'avoir la meme zone de collision sur X et Y (en l'occurence 4 pixels) alors il faut
+des regions de 17x18 pixels : on aurait alors 2 pixels vides a gauche, et 3 a droite (17 = 2+(12)+3)
+=> BJ toucherait la bombe de 4 pixels en venant de la gauche (6-2 = 4), et egalement de 4 pixels en
+venant de la droite (7-3 = 4), ce qui est bien equivalent a la collision en Y.
+
+Par rapport aux regions prevues a l'origine, il faut donc supprimer 3 pixels a gauche et 2 a droite
+(22 = 3+17+2) ; soit encore mettre 5 pixels de vide entre les regions voisines. Il suffit de
+modifier notre tableau de conversion de la position !
+
+Note : il faut evidemment penser a verifier que la position est valide avant de l'utiliser !

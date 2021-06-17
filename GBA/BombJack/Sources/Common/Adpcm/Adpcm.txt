@@ -1,0 +1,52 @@
+##
+## Bomb Jack - Sources\Common\Adpcm\Adpcm.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005 / France 2006
+##
+
+A) Credits
+   #######
+
+Inspired of Damian Yerrick's decoder (http://www.pineight.com).
+
+B) Algorithms
+   ##########
+
+- http://www.code-source.org/showcode.php?id=35   (IMA ADPCM Compression)
+- http://www.code-source.org/showcode.php?id=36   (IMA ADPCM Decompression)
+
+C) Description of the wave file format
+   ###################################
+
+- http://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+- http://www.borg.com/~jglatt/tech/wave.htm
+
+D) Misc. information about the ADPCM
+   #################################
+
+- http://developer.apple.com/technotes/tn/tn1081.html
+The IMA-ADPCM algorithm takes a word (16 bits), and produces a nibble (4 bits), which is then placed
+sequentially into a buffer for later storage. This has several important advantages. For one thing,
+it means that while the uncompressed data is endian dependent (being either big-endian or
+little-endian), the resulting compressed data is endian-independent, which is a big plus when making
+a cross-platform sound standard.
+
+- http://www.xentec.be/products/vox_studio/help/ima_adpcm_format.htm
+ADPCM stands for Adaptive Differential Pulse Code Modulation. ADPCM is a lossy compression
+mechanism. There are various flavors of ADPCM. This particular algorithm was suggested by the
+International Multimedia Association (IMA). IMA ADPCM compresses data recorded at various sampling
+rates. Sound is encoded as a succession of 4-bit or 3-bit data packets. Each data packet represents
+the difference between the current sampled signal value and the previous value.
+
+- http://www.audiocoding.com/modules/wiki/?page=IMA+ADPCM
+The International Multimedia Association (IMA) flavor of ADPCM compresses 16-bit data to
+4-bits/sample (4:1) using a different (faster) method than Microsoft ADPCM, and has different
+distortion characteristics, which can produce either better or worse results, depending on the
+sample being compressed. As with Microsoft ADPCM, it’s best to save to this format from 16-bit
+rather than from 8-bit. This compression scheme can be a good alternative to MPEG; it provides
+reasonably fast decoding of 4:1 compression, and it degrades sample quality only slightly.
+
+- http://www.ateme.com/products/audio_algo.php
+IMA-ADPCM is the most suited codec when CPU resources are already used by video and when audio is
+more an additional than a primary feature. It’s a low cost solution for simple audio compression
+that requires low CPU load. IMA-ADPCM is independent of sound type (not a speech or psychoacoustic
+codec).

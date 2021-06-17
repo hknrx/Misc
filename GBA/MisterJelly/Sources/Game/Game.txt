@@ -1,0 +1,15 @@
+##
+## Mister Jelly - Sources\Game\Game.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+Repartition en memoire video :
+
+    0 - 16383 = BG0/CHAR(0)    - tiles
+16384 - 32767 = BG1/CHAR(1)    - tiles
+32768 - 49151 = BG2/CHAR(2)    - tiles
+49152 - 57343 = BG3/CHAR(3)    - tiles
+57344 - 59391 = BG0/SCREEN(28) - map
+59392 - 61439 = BG1/SCREEN(29) - map
+61440 - 63487 = BG2/SCREEN(30) - map
+63488 - 65535 = BG3/SCREEN(31) - map

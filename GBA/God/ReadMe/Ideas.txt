@@ -1,0 +1,112 @@
+##
+## God - ReadMe\Ideas.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Le monde sera peuple d'habitants autonomes (fantomes / esprits / on_verra_bien) ; ces personnages
+vivront en suivant quelques regles simples : besoins primaires a satisfaire pour survivre, besoins
+secondaires a satisfaire pour etre efficace, "travail" pour le dieu lorsque tous les autres besoins
+sont satisfaits... Le joueur n'agira pas directement sur les persos mais par le biais de
+modifications de la carte : creation de batiments utiles (auberges, maisons, cimetieres, hopitaux,
+etc.) ; je mettrai en place un sorte d'economie du style "les personnages travaillent/prient => le
+dieu gagne du mana => le dieu depense son mana pour creer des batiments et permettre le bon
+developpement de la population". Ensuite il suffira de creer des objectifs varies avec differentes
+situations de depart, par exemple : "avoir 30 habitants en moins de 10mn", ou encore "garder au
+moins un habitant en vie pendant 15mn", ou encore "avoir 3000 points de mana", etc.
+
+Note : Donner les noms des membres de PA aux differents personnages du jeu  (on aura donc droit a
+des messages "Arcadia a faim", ou "Phantom et ZiapaT se battent")...
+
+Notes :
+- La suite de GOD sera "GAG" (Gameboy Advanced Gardens)...
+- Faire ensuite une version "Loft Story" ;-)   => bar, piscine, salle CSA, etc.
+
+###
+
+Fonctionnement :
+1) Il y a 2 categories speciales de personnages issues d'un type de base :
+   - les "religieux", qui sont formes dans des monasteres, et qui travaillent dans les eglises et
+     les cimetieres (ainsi que les monasteres evidemment),
+   - les "scientifiques", qui sont formes a l'universite, et peuvent travailler dans les hopitaux et
+     les laboratoires (ainsi que les universites).
+   Les types de bases travaillent principalement dans les batiments primaires (bistrots,
+   restaurants, hotels, casinos).
+2) On definit differents besoins, avec des priorites : se soigner > boire > manger > dormir > se
+   divertir > apprendre > travailler (> defaut=glander).
+3) Chaque personnage a un compteur pour chacun de ces besoins (un nombre sur 8 bits), une vitesse
+   d'accroissement associee (un nombre sur 8 bits egalement), ainsi qu'un seuil limite (nombre sur
+   8 bits...). Ces differents nombres sont initialises plus ou moins aleatoirement lors de la
+   creation de chaque personnage.
+4) A chaque cycle d'animation on met a jour les compteurs en fonction des vitesses d'accroissement ;
+   on evalue ensuite les besoins dans l'ordre, du plus prioritaire (se soigner) au moins prioritaire
+   (travailler) : si un compteur depasse le seuil associe, alors le besoin doit etre satisfait, i.e.
+   le personnage cherche un chemin vers un batiment permettant de repondre a son besoin (utilisation
+   du pathfinder). Le personnage suivra alors ce chemin jusqu'a atteindre le batiment en question, a
+   moins qu'un besoin plus prioritaire ne necessite d'etre egalement satisfait pendant le trajet
+   (= changement de target => changement de chemin). Si le besoin considere ne peut pas etre
+   satisfait (= pas de chemin permettant d'atteindre un batiment adequat) alors on prend en compte
+   le besoin suivant dans la liste. Si aucun des besoins ne peut etre satisfait, alors le personnage
+   "glande", c'est a dire qu'il se deplace aleatoirement sur la carte jusqu'a ce qu'il ait un but
+   (=> creation d'un batiment). Attention : il ne faudra pas que les personnages utilisent trop le
+   pathfinder ; un personnage qui glande ne devra donc pas chercher a satisfaire ses besoins a
+   chaque cycle d'animation ! Il faudra mettre en place une sorte de file d'attente pour le AStar...
+5) Les effets que peuvent avoir un besoin non satisfait sur un personnage dependent du besoin :
+   - mort pour les besoins vitaux (se soigner, boire et dormir) : le personnage decede et son
+     cadavre reste sur place un certain temps,
+   - fatigue pour le manque de sommeil (dormir) : le personnage se deplacera, travaillera et
+     etudiera moins vite,
+   - demotivation pour le manque de divertissement (se divertir) : le personnage travaillera et
+     etudiera moins efficacement.
+6) Lorsqu'un personnage atteint un batiment, son compteur de besoin diminue ; la vitesse a laquelle
+   le besoin se satisfait depend du batiment dans lequel il se trouve. Le personnage quitte le
+   batiment lorsque le compteur de besoin est a 0, ou lorsqu'un besoin plus prioritaire necessite
+   d'etre satisfait.
+7) Les batiments ne "fonctionnent" que lorsqu'un personnage y travaille ; l'efficacite du batiment
+   (= vitesse a laquelle le besoin diminue lorsqu'on s'y trouve) depend de la motivation et de
+   l'experience (= la categorie) du personnage qui y travaille. Les batiments peuvent tous
+   accueillir un certains nombre de personnage a la fois, ce nombre est fonction de la taille des
+   batiments (= 1 personnage par case a l'interieur du batiment).
+8) Certains batiments ont pour vocation de repondre a un des besoins :
+   - se soigner  => hopitaux,
+   - boire       => bistrots,
+   - manger      => restaurants,
+   - dormir      => hotels,
+   - se divertir => casinos,
+   - apprendre   => universites / monasteres.
+9) Lorsque tous les autres besoins sont satisfaits, les personnages travaillent ; ils cherchent
+   alors des batiments dans lesquels personne ne travaille, et y restent jusqu'a ce qu'un autre de
+   leurs besoins les force a partir.
+10) Certains batiments specifiques ne servent qu'a produire des ressources pour le dieu :
+    - eglises      => mana,
+    - laboratoires => argent.
+    Ces ressources sont necessaires a la creation et au maintient en activite des batiments (chaque
+    type de batiment a des caracteristiques propres).
+11) Le cimetiere (la "crypte" ?) est un batiment particulier : c'est la que les personnages sont
+    crees, a un rythme constant ; chaque personnage est associe a une tombe dans le cimetiere. La
+    taille des cimetieres est donc importante puisqu'elle definit la population maximale que peut
+    avoir le dungeon...
+12) Lorsqu'un personnage meurt son cadavre reste sur place un certain temps, temps durant lequel
+    tout autre personnage qui rentrera en contact avec le cadavre tombera malade (= la vitesse
+    d'accroissement du besoin "se soigner" augmente subitement - elle ne sera remise a son niveau
+    normal qu'apres etre passe a l'hopital). Une fois le cadavre disparu, sa tombe dans le cimetiere
+    disparait egalement, permettant a un nouveau personnage d'apparaitre.
+13) Le dieu n'a pas de controle direct sur les personnages, il ne peut que modifier le dungeon en
+    y ajoutant ou supprimant des murs, et creer des batiments (en fonctions des ressources
+    disponibles). Il est a noter que les batiments crees ne peuvent pas etre detruits.
+
+###
+
+Jeu de gestion (Evil Genius / Dungon Keeper / StarTopia / Monopoly Tycoon...)
+=> fantomes ? ...ou simples persos... (! complexite de l'affichage !)
+=> interface minimaliste (= Black & White)
+=> les fantomes apparaissent automatiquement (regulierement) dans la crypte/cimetiere (des tombes
+   sont crees -> elles prennent de la place)
+=> les fantomes se specialisent dans un domaine en travaillant dans ce domaine ; ils peuvent
+   apprendre plus vite en se formant avec des maitres du domaine en question (-> salle de travail =
+   bibliotheque / atelier ?)
+=> systeme de choix des unites = Evil Genius
+=> fantome : besoins primaires vitaux (manger, dormir, se soigner), besoins secondaires (se
+   distraire), travail (priere ?)
+=> possibilite d'incarner un fantome et se deplacer en 3d / Ray Casting (= DK)
+=> aide toujours accessible sous forme d'encyclopedie (= EG)
+=> affichage de statistiques (= MT)

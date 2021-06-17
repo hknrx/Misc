@@ -1,0 +1,17 @@
+##
+## God - Graphics\World\3dIso\Tiles3dIso.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP 256 couleurs.
+
+Contraintes sur la palette :
+
+1) La premiere couleur de la palette (#0) doit etre celle du fond car c'est la couleur utilisee pour
+   la transparence... mais il faut egalement que sa teinte soit le noir car cette couleur est
+   utilisee pour le "back drop" (couleur du fond lorsque la camera affiche une portion hors de la
+   carte).
+
+2) Les 2 dernieres couleurs de la palette sont reservees a l'affichage des textes ("Police.bmp") :
+- #254 = blanc,
+- #255 = noir.

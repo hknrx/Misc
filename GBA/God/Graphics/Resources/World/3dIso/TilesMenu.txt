@@ -1,0 +1,8 @@
+##
+## God - Graphics\World\3dIso\TilesMenu.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP 256 couleurs.
+
+Contrainte sur la palette : la palette doit etre la meme que celle de "Tiles3dIso.bmp".

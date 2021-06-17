@@ -1,0 +1,38 @@
+##
+## Mister Jelly - Sources\Common\Common.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+Racine carree :
+#############
+
+Pour ameliorer les performances, on utilise une Look Up Table (LUT).
+
+Soit x un nombre quelconque, et X sa representation en virgule fixe. On a :
+X = x<<FIXED_POINT_SHIFT
+
+On veut calculer la racine carree de x, dont la representation en virgule fixe SX serait :
+SX = sqrt(x)<<FIXED_POINT_SHIFT
+
+On veut minimiser l'espace sur lequel calculer la racine carree (= minimiser la taille de la
+LUT), on ne travaille donc pas sur X mais sur X>>Q. On obtient :
+sqrt(X>>Q) = sqrt(x<<(FIXED_POINT_SHIFT-Q)) = sqrt(x)<<((FIXED_POINT_SHIFT-Q)/2)
+
+Pour obtenir SX il faut decaler le resultat precedent de P bits :
+SX = sqrt(x>>Q)<<P
+   = (sqrt(x)<<((FIXED_POINT_SHIFT-Q)/2))<<P
+   = sqrt(x)<<(P+(FIXED_POINT_SHIFT-Q)/2)
+
+Il faut donc avoir :
+P+(FIXED_POINT_SHIFT-Q)/2 = FIXED_POINT_SHIFT
+P = (FIXED_POINT_SHIFT+Q)/2
+
+En conclusion, on caclule SX de la facon suivante :
+SX = sqrt(x>>Q)<<((FIXED_POINT_SHIFT+Q)/2)
+
+Puisqu'on calcule la racine carree de la distance au carre, et qu'on imagine que la distance peut
+etre jusqu'a 2 fois la distance au repos (normalement 8), on peut devoir calculer la racine
+carree de x = (8*2)2 = 256, soit celle de 256<<(FIXED_POINT_SHIFT-Q).
+Avec FIXED_POINT_SHIFT=8 et Q=6, il faut memoriser 1024 valeurs. Avec Q=4, il en faut 4096.
+
+Note : on peut stocker les resultats sur 16 bits (pas besoin de 32).

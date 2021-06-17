@@ -1,0 +1,42 @@
+##
+## Mario Balls - LisezMoi\MarioBalls.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Title:   Mario Balls [GBAX2005 edition]
+Author:  Nicolas ROBERT (NRX)
+Contact: MarioBallsGba@hotmail.com
+
+Description:
+The aim of the game is to destroy all the balls that appear on the screen using your Ball Launcher.
+Shoot your ball on the ones that follow the path: touching 2 balls or more of the same color will
+make them disappear; if you miss your target and bump in balls of different colors, yours will be
+added to the others. If the balls reach the end of the path and finally touch the little bomb, all
+of them will be removed and replaced by new ones (you'll even have some more balls to destroy, so
+try your best to avoid that). But if you succeed to destroy all the balls, you'll proceed to the
+next stage... To make things more challenging, a timer is activated as soon as the game starts:
+you'll loose if it reaches 0, so be fast! Hopefully you'll gain some time and eventually finish all
+the 36 levels of the game!
+
+New in this version:
+I submitted a first version of Mario Balls last year (http://www.gbadev.org/index.php?ID=402), but
+it was missing something quite important: there was no sound at all... I've been pushed by several
+people to work on this issue and improve my game; here comes the new (final) version:
+- Misc. bug fixes and optimizations,
+- One new level,
+- A new splash screen "GBAX 2005",
+- And... a lot of sounds & music!
+
+Controls:
+- [left] & [right]: to rotate the Ball Launcher,
+- [left] & [right] + [L] or [R]: to rotate the Ball Launcher slowly (to adjust your shoot),
+- [A]: to shoot the ball which is on the Ball Launcher,
+- [B]: to make the balls on the path go faster,
+- [start]: pause.
+
+I suggest you have a look to the html file "MarioBalls.html" for some tips and more information
+about Mario Balls :-)
+
+Cheers,
+
+Nrx, Hong Kong, 31st of May 2005

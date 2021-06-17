@@ -1,0 +1,91 @@
+##
+## Mister Jelly - ReadMe\ToDo.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+JEU :
+###
+
+Faire un parcours "labyrinthesque", qu'il faut faire le plus vite possible (chrono). Il y aura les
+obstacles "normaux" (un type de tile), et ceux qui font perdre de la vie (autre type de tile) ; on
+mettra egalement des bonus (-> gain de points, temps). La vie est symbolisee par la taille du blob :
+il devient plus petit lorsqu'il rentre en collision avec un "ennemi" (-> il faut une fonction par
+type de blob pour mettre a jour le maillage, i.e. supprimer un element ainsi que les liens et
+triangles qui en dependent + mise a jour du flag "external"). L'ideal serait d'avoir 2 fonctions par
+type de blob : ElementAdd et ElementRemove... Les fonctions de creation de blob utiliseraient ces
+fonctions-ci. Note : il faudra memoriser le type de blob et le nombre max d'elements dans la
+structure...
+
+A FAIRE :
+#######
+
+0) Essayer avec un autre emulateur (No$GBA).
+1) Finir de donner les formules de gestion du blob dans "Blob.txt".
+   Note : verifier le frottement contre le sol : formule physique ? La force ne devrait peut-etre
+   pas etre proportionnelle a la vitesse, mais plutot a la force de reaction/sol (?).
+2) Voir comment fonctionne rellement le GBAccelerometer ; en particulier detecter lorsqu'il n'est
+   pas connecte, et modifier la facon d'agir (rotation sur l'axe Y uniquement pour la gestion de la
+   camera + axe X pour les sauts ?).
+   Note : dans "GBAccelerometerReadAngleXY", voir si on peut utiliser la LUT sqrt plutot que la
+   fonction.
+3) Proposer un blob "stick".
+4) Agrandir la zone visible a droite et a gauche (gestion du scrolling, en modifiant la colonne de
+   tiles qui va bien).
+5) Limiter le mouvement de la camera a la zone visible (pas possible de ne rien voir !).
+6) Ajout de tiles au milieu de l'aire de jeu, et verification des collisions avec ces tiles : garder
+   une tile noire sur le BG du fond (la derniere) pour faire les murs/escaliers...
+   Notes :
+   - On peut imposer que le pourtour soit delimite pour simplifier les calculs de collision
+     (= on ne verifie que les tiles, pas les limites).
+   - Utiliser le mode 2 plutot que le 1, afin de profiter de 2 BG rotatifs : l'un sera utilise pour
+     le fond, l'autre pour les obstacles (BG sur lequel on teste les collisions). On peut imaginer
+     repeter le fond a l'infini, et ne gerer le scrolling que pour le BG qui est devant... (les BG
+     n'ont donc pas forcement la meme taille) On peut faire de l'alpha-blending sur le BG des
+     obstacles, comme pour le blob : les obstacles apparaitront un peu "gelatineux" (et ca
+     expliquera le fait que le blob s'enfonce dans le decor). Pour les affichages (score, chrono,
+     etc.), on utilisera des sprites (simples ou generes a la volee pour en economiser), ou un
+     systeme de split de l'ecran (= GOD).
+7) Modifier la facon dont on gere les sauts ? (il ne faudrait normalement pas modifier la gravite,
+   mais ajouter une force aux elements en contact avec le sol - on leur met cette composante plutot
+   que 0).
+   Note : on pourrait mettre des flux de gaz pour permettre de monter a certains endroits
+   (modification de la force externe en fonction de la tile sur laquelle se trouve l'element - cette
+   tile serait modifiee pour realiser l'animation du flux de gaz).
+8) Mettre un ecran de titre, et eventuellement une intro (bump mapping ?).
+9) Pour le lissage lors de l'affichage, on pourrait utiliser des sprites d'une taille superieure a
+   ceux des noeuds (concretement, diminuer la taille des noeuds).
+   Note : on n'utiliserait les petits sprites pour les noeuds que lorsqu'on fait du lissage, sinon
+   on garderait les autres.
+
+###
+
+0) Verifier les formules pour la collision ; a priori il ne faut agir que sur la vitesse... On
+   pourra donc se passer de la force initiale (donc ne pas initialiser a 0 la force lors de la
+   creation du blob), et simplifier un peu la gestion (pas d'addition au debut).
+1) Ajouter des liens ("www.nrx.free.fr" et sujet sur PA) dans les entetes de fichiers ? Ou ajouter
+   un fichier en plus du "ToDo.txt" pour dire qui je suis et ou me retrouver ?
+2) Typo dans "BlobDisplay" : "Ajout d'elements pour lisser la surface" (manque le "s").
+3) Faire un "BlobInit" plutot que "BlobCreate" ? : la structure Blob serait donnee en entree, avec
+   les parametres deja renseignes (plutot que les passer en tant qu'arguments), la fonction se
+   contente d'allouer la memoire pour les tableaux internes a la structure, mais n'a pas besoin de
+   creer la structure elle meme... On pourra ajouter un "Blob.type" (enumeration bien propre), ce
+   qui permettra a "BlobInit" d'etre generique (une seule fonction pour creer le snail, stick ou
+   balloon). Au final on aura le blob defini par niveau (dans Game.h), il n'y aura plus qu'a faire
+   l'init... Il faudra renommer le "BlobDestroy" en "BlobFree" ?
+4) Pour bien faire, on fera des "fonctions types" pour chaque type de blob (fonctions
+   BlobAllocateMemory, BlobAddElement, BlobRemoveElement) ; avec un tableau de pointeurs sur
+   fonctions il sera facile de faire une fonction generique BlobInit ! Et il sera egalement simple
+   de gerer le blob en cours du jeu (ennemi->BlobRemoveElement / bonus->BlobAddElement)...
+5) Les tiles du decor ne seront pas que de simples carres (bleu = mur normal, noir = "ennemi"), on
+   pourra faire des tiles inclinees ! Pour les collisions, soit on fait des tiles bien particulieres
+   dont on peut ecrire l'equation (e.g. "x<y+8"), et on fait simplement un switch pour executer le
+   bon test en fonction de la tile courante, soit on tolere n'importe quel type de tile, et on test
+   au pixel pres (transparent ou pas - comme dans Bomb Jack).
+6) Pour le decor, soit on ne fait qu'une longue bande horizontale, soit on le decompose en gros
+   blocs de par exemple 256x256 pixels, et on permet de mettre les blocs comme on le veut pour
+   organiser l'ensemble du decor (par exemple : [debut]-droite-droite-bas-droite-haut-haut-droite-
+   bas-droite). Dans ce cas, il faudra definir plusieurs types de background de fond (1 par hauteur,
+   e.g. sous-sol, sol, ciel). Pour ce qui est des collisions, on verifiera d'abord si on est sur un
+   bloc valide (sinon : collision), et ensuite la tile sur laquelle on se trouve ; on ne sera donc
+   pas oblige de faire une bordure autour de l'air de jeu, les blocs definieront par defaut la zone
+   dans laquelle on pourra se deplacer.

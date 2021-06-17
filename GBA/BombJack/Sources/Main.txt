@@ -1,0 +1,45 @@
+##
+## Bomb Jack - Sources\Main.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005 / France 2006
+##
+
+Repartition en memoire video :
+
+1) Chaque map fait 32x20 tiles, soit 1280 octets. Les maps sont necessaire pour :
+   a) L'intro "CPC" (ecran de demarrage du CPC)
+   b) L'ecran titre
+   c) Les ecrans de menus (menu principal avec hi-scores et saisie du nom, bonus)
+      - Le fond colore.
+      - Le masque du menu.
+   d) Le jeu
+      - Les fonds (1 a 5).
+      - Le texte en surimpression durant le jeu.
+      - Le foreground (plateformes + partie de droite).
+
+2) Il est necessaire de mettre les tiles en memoire :
+   a) => Police CPC (7168 octets).
+   b) => Ecran titre (11616 octets).
+   c) => Fond colore (512 octets) + masque (9216 octets*) + police BJ (2304 octets).
+   d) => Fond (8512 octets max) + sprites (9216 octets)
+
+* la taille du masque est donnee par : 32 octets pour une tile * (1+1+26*11 tiles) = 9216
+
+3) Repartition :
+On a reellement besoin de 3 backgrounds en meme temps au maximum (pour le jeu), mais pour simplifier
+on va en reserver 4. On va utiliser le mode 0 avec ses BG0, BG1, BG2 et BG3. Ces 4 BG necessitent de
+reserver 4 screen blocks, soit 8Ko (1 screen block = 2048 octets => ok pour nos maps de 1280
+octets).
+
+    0 -  7167 = BG0/CHAR(0)    - tiles de la police CPC
+    0 - 11615 = BG0/CHAR(0)    - tiles de l'ecran titre
+    0 -  8511 = BG0/CHAR(0)    - tiles des fonds de jeu (8512, 5760, 6720, 3488, 6976)
+16352 - 16383 = BG0/CHAR(0)    - tile de nettoyage du fond de jeu
+16384 - 25599 = BG1/CHAR(1)    - tiles des sprites
+32736 - 32767 = BG1/CHAR(1)    - tile du cache de chargement du titre
+32768 - 41983 = BG2/CHAR(2)    - tiles du masque de menu / tiles pour la surimpression durant le jeu
+41984 - 44287 = [buffer]       - tiles de la police BJ (utilisees pour graver le masque)
+49152 - 49663 = BG3/CHAR(3)    - tiles du fond colore
+57344 - 59391 = BG0/SCREEN(28) - map de l'intro CPC, de l'ecran titre, et des fonds de jeu
+59392 - 61439 = BG1/SCREEN(29) - map du foreground, du cache de chargement du titre
+61440 - 63487 = BG2/SCREEN(30) - map du masque / du texte en surimpression durant le jeu
+63488 - 65535 = BG3/SCREEN(31) - map du fond colore

@@ -1,0 +1,10 @@
+##
+## Mario Balls - LisezMoi\ToDo.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+1) Comprendre pourquoi il faut mettre un des fichiers objet ADPCM (.o) avant les images pour eviter
+   une corruption de toutes les images et de leurs palettes !
+2) Re-verifier la transition de niveaux (il semble qu'il y ait un probleme sous VBA).
+3) Utiliser l'animation "cercle" pour passer du menu au jeu (plutot qu'un simple fading) ?
+4) Faire un "level select" ?

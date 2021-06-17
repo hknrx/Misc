@@ -1,0 +1,38 @@
+##
+## Mario Balls - LisezMoi\HowToCompile.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Instructions to recompile the project:
+-------------------------------------
+
+1) Install VisualHAM (available from http://www.console-dev.de); Mario Balls has been successfully
+   tested with version 2.5.
+
+2) Uncompress the source package somewhere on your hard disk. The archive contains:
+   - The sources (under the directory named "Sources"),
+   - All the graphic resources as bitmap files (under "Graphismes").
+
+3) Load the project into VisualHAM by double-clicking on the file named "MarioBalls.vhw".
+
+4) Compile: press the F6 key.
+
+Notes:
+-----
+
+a) All bitmap files will automatically be converted at compilation time using "gfx2gba"; the
+   generated C files will then be compiled. It is normal these operations take quite a lot of time,
+   so be patient and do not worry if nothing happens during a minute.
+
+b) To avoid regeneration/recompilation of graphic resources every time you compile, modify the
+   makefile:
+   - Line 225: change "gfx_:" in "gfx:",
+   - Line 227: change "gfx:" in "gfx_:".
+
+   And same for the sounds:
+   - Line 279: change "sfx_:" in "sfx:",
+   - Line 281: change "sfx:" in "sfx_:".
+
+c) I recommend updating your version of VHAM to the latest available; in particular you should
+   upgrade to the "v2.5 A Beta" which fixes a problem with absolute/relative paths (thx to Peter
+   for the advice!).

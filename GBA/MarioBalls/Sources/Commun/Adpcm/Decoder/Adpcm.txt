@@ -1,0 +1,151 @@
+##
+## Mario Balls - Sources\Commun\Adpcm\Decoder\Adpcm.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+A) Credits
+   #######
+
+Inspired of Damian Yerrick's decoder (http://www.pineight.com).
+
+B) "How to"
+   ########
+
+   1) Files needed
+      ############
+
+The following files are needed:
+
+a) The decoder, to play the sounds (to be included in your project):
+   - Sources\Commun\Adpcm\Decoder\Adpcm.c
+   - Sources\Commun\Adpcm\Decoder\Adpcm.h
+
+b) The encoder, to convert the wave files on your PC:
+   - Sources\Commun\Adpcm\Encoder\Adpcm.exe
+
+c) And of course some wave files (".wav").
+
+   2) Wave files conversion
+      #####################
+
+Simply use the program named "Adpcm.exe" (which is a Windows executable):
+   Adpcm.exe name inPath outPath [-nocompress]
+
+The first 3 arguments are mandatory:
+- "name" is the name of the wave file (without the extension ".wav"),
+- "inPath" is the path of the directory that contains the wave file to convert,
+- "outPath" is the path of the directory in which shall be created the output ASCII file.
+
+The 4th parameter is optional:
+- If it isn't used then the generated file is compressed (using IMA ADPCM),
+- If it is equal to "-nocompress" then the output file is a pure wave file (i.e. not compressed).
+
+To summarize, the encoder "Adpcm.exe" reads a wave file "something.wav", converts it and create a
+text file "something.s", which is actually an assembler source code that can be included in your
+projects. The only constraint for the wave file is its sampling rate: it must be lower or equal to
+22050Hz if the ADPCM compression is used. The encoder accepts files with 8/16/24/32 bits per sample,
+and any number of channels (it mixes all the channels by computing their average).
+
+For information, the ADPCM compression divides by 2 the size of the wave files... but of course
+there is a loss in quality.
+
+Note: I suggest calling the Adpcm.exe in your makefile; wave files will then be converted at
+compilation time.
+
+   3) Integration in your projects
+      ############################
+
+      a) Initialization
+         ##############
+
+You must include:
+
+   - The decoder:
+     => Add a line "Adpcm.o" to the list of files to be compiled (makefile => "OFILES"),
+     => Do an "#include "Adpcm.h"" in all the C files that will have to use some decoder's
+        functions.
+
+   - Your converted sounds (in the following we assume the wave file was named "something.wav"):
+     => Add a line "something.o" to the list of files to be compiled (makefile => "OFILES"),
+     => Add a declaration "extern const Sound ADPCM_something;" to each C file that will use the
+        sound "something".
+
+Once the decoder and the sounds have been included, you must initialize the library:
+
+   - Call the function "AdpcmInit" once in your code:
+     => unsigned char AdpcmInit(unsigned char numberChannels)
+     You just have to specify the number of channels you want to use (1 or 2 - you can save a bit of
+     memory if you only use 1 channel),
+
+   - Call the function "AdpcmDecodeVbl" in your VBL interrupt handler:
+     => void AdpcmDecodeVbl(unsigned char channel)
+     Note that you must call this function for each channel you use.
+
+Also, you must ensure you have the appropriate settings in your "crt0.s": it must support multiple
+interrupts ("__MultipleInterrupts").
+
+      b) Play a sound
+         ############
+
+To play a sound, simply call the function "AdpcmStart":
+=> unsigned char AdpcmStart(const Sound* sound,signed char repeat,unsigned char channel)
+
+Example: "AdpcmStart(&ADPCM_something,-1,0);"
+- The "-1" means that the sound we be played in a loop (one can put "1" to only play it once, or
+  more generally speaking "x" to play it "x" times),
+- The "0" means the sound will be played on the channel #0.
+
+      c) Other commands
+         ##############
+
+You also have the following 2 functions available:
+
+   - "AdpcmStop", to stop the sound a channel:
+     => unsigned char AdpcmStop(unsigned char channel)
+
+   - "AdpcmStatus", to know how many times the sound will still be played (it returns 0 if the sound
+     is no more playing, and -1 if it is played in a loop):
+     => signed char AdpcmStatus(unsigned char channel)
+
+C) Algorithms
+   ##########
+
+- http://www.code-source.org/showcode.php?id=35   (IMA ADPCM Compression)
+- http://www.code-source.org/showcode.php?id=36   (IMA ADPCM Decompression)
+
+D) Description of the wave file format
+   ###################################
+
+- http://ccrma.stanford.edu/courses/422/projects/WaveFormat/
+- http://www.borg.com/~jglatt/tech/wave.htm
+
+E) Misc. information about the ADPCM
+   #################################
+
+- http://developer.apple.com/technotes/tn/tn1081.html
+The IMA-ADPCM algorithm takes a word (16 bits), and produces a nibble (4 bits), which is then placed
+sequentially into a buffer for later storage. This has several important advantages. For one thing,
+it means that while the uncompressed data is endian dependent (being either big-endian or
+little-endian), the resulting compressed data is endian-independent, which is a big plus when making
+a cross-platform sound standard.
+
+- http://www.xentec.be/products/vox_studio/help/ima_adpcm_format.htm
+ADPCM stands for Adaptive Differential Pulse Code Modulation. ADPCM is a lossy compression
+mechanism. There are various flavors of ADPCM. This particular algorithm was suggested by the
+International Multimedia Association (IMA). IMA ADPCM compresses data recorded at various sampling
+rates. Sound is encoded as a succession of 4-bit or 3-bit data packets. Each data packet represents
+the difference between the current sampled signal value and the previous value.
+
+- http://www.audiocoding.com/modules/wiki/?page=IMA+ADPCM
+The International Multimedia Association (IMA) flavor of ADPCM compresses 16-bit data to
+4-bits/sample (4:1) using a different (faster) method than Microsoft ADPCM, and has different
+distortion characteristics, which can produce either better or worse results, depending on the
+sample being compressed. As with Microsoft ADPCM, it’s best to save to this format from 16-bit
+rather than from 8-bit. This compression scheme can be a good alternative to MPEG; it provides
+reasonably fast decoding of 4:1 compression, and it degrades sample quality only slightly.
+
+- http://www.ateme.com/products/audio_algo.php
+IMA-ADPCM is the most suited codec when CPU resources are already used by video and when audio is
+more an additional than a primary feature. It’s a low cost solution for simple audio compression
+that requires low CPU load. IMA-ADPCM is independent of sound type (not a speech or psychoacoustic
+codec).

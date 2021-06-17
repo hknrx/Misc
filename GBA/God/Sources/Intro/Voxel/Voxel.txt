@@ -1,0 +1,52 @@
+##
+## God - Sources\Intro\Voxel\Voxel.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Pour le voxel spacing on parcourt l'ecran en largeur (xe), et pour chaque verticale de l'ecran on
+parcourt une partie de la carte (z) ; on recupere les hauteurs pour chaque morceau de la carte
+trouve et on en trace une tranche de montagne.
+
+Equations de base de la 3D (dans le repere de la camera) :
+xe = XO + Dcam * x / z
+ye = YO - Dcam * y / z
+
+On connait xe et z, donc on trouve x :
+x = (xe-XO) * z / Dcam
+
+On a x et z, il faut faire le changement de repere (rotation et deplacement de la camera) :
+Vo = (x , z)
+
+       |COS -SIN|
+Mrot = |        |
+       |SIN  COS|
+
+V = Mrot.Vo = (x*COS-z*SIN , x*SIN+z*COS)
+
+Si on simplifie tout ca on trouve :
+x' = xcam+z*((xe-XO)*COS/Dcam-SIN)
+z' = zcam+z*((xe-XO)*SIN/Dcam+COS)
+
+Quand on a x' et z', on connait la hauteur de la montagne grace a la carte ; la hauteur a l'ecran
+est alors :
+ye = YO - Dcam * (hauteur - ycam) / z
+
+Pour aller plus vite on travaille par increments :
+(ici on parle de x, z et dist a la place de x', z' et z)
+
+ddx = COS/Dcam
+dx = -XO*ddx-SIN
+ddz = SIN/Dcam
+dz = -XO*ddz+COS
+Boucle(xe : de 0 a XM)
+   x = xcam+dx*Dmin
+   z = zcam+dz*Dmin
+   Boucle(dist : de Dmin a Dmax)
+      ye=YO-Dcam*(hauteur[x,y]-ycam)/dist
+      // affichage de la tranche de montagne
+      x+ = dx
+      z+ = dz
+   FinBoucle
+   dx+ = ddx
+   dz+ = ddz
+FinBoucle

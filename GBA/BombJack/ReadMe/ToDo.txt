@@ -1,0 +1,13 @@
+##
+## Bomb Jack - ReadMe\ToDo.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005 / France 2006
+##
+
+1) Implementer les effets sonores originaux :
+   - verifier le fonctionnement sur CPC,
+   - voir comment faire sur GBA,
+   => implementation.
+2) Permettre un demarrage en multiboot (= sans cartouche).
+3) En multiboot (qu'il y ait une ou plusieurs cartouches), mettre a jour les tableaux de hi-scores
+   (= les hi-scores sont partages, mis en commun).
+4) Permettre de prendre des MP3 en entree de Music Jack.

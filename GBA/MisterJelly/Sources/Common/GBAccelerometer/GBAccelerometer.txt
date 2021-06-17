@@ -1,0 +1,4 @@
+##
+## Mister Jelly - Sources\Common\GBAccelerometer\GBAccelerometer.txt
+## Nicolas ROBERT [NRX] - France 2006
+##

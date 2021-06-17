@@ -1,0 +1,10 @@
+##
+## God - Graphics\World\3dIso\Sprites3dIso.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP 256 couleurs.
+
+Contrainte sur la palette : la premiere couleur de la palette (#0) doit etre celle du fond car c'est
+la couleur utilisee pour la transparence ; on peut chosir la teinte que l'on veut, par exemple du
+magenta.

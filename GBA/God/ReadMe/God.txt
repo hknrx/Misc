@@ -1,0 +1,35 @@
+##
+## God - ReadMe\God.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Title:   GOD - Gameboy Ordinary Dungeon
+Author:  Nicolas ROBERT (NRX)
+Contact: MarioBallsGba@hotmail.com
+
+Description:
+God isn't yet a game but "only" a tech demo; I focused on the engine development rather than the
+gameplay, the reason being that I wanted to see what are the limits of the GBA (though, I also have
+my own limits ;-). Eventually it will be a real-time strategy / management game, a kind of mix
+between Dungeon Keeper, StarTopia and Monopoly Tycoon.
+
+Done already:
+- Presentation, using bump mapping and voxel spacing,
+- Main 3D graphic engine,
+- Pathfinder (core of the AI),
+- Support for texts and menus,
+- Support for sound and music (PCM & ADPCM).
+
+This tech demo allows the player to move around the map, and dynamically add and remove walls. The
+pathfinder is activated and finds the shortest path from the building in the center of the map to
+any of the 4 targets in the corners (the path is computed and displayed every time the map is
+modified).
+
+To do:
+- To allow construction of different types of building,
+- To add state-driven game agents (= the characters in the game),
+- To implement misc. gameplay features (give objectives, provide statistics panels, etc.).
+
+Cheers,
+
+Nrx, Hong Kong, 12th of September 2005

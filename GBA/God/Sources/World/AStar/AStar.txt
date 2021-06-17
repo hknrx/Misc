@@ -1,0 +1,28 @@
+##
+## God - Sources\World\AStar\AStar.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Contraintes :
+- La largeur de la carte doit etre une puissance de 2 (e.g. largeur = 16, 32, 64, etc.),
+- La carte doit avoir des bords, i.e. etre bordee de murs (car il n'y a pas de verification des
+  limites de la map afin d'accelerer les calculs),
+- Les "mapIdx" passes en parametre (position du point de depart ou des goals) doivent etre valides,
+  i.e. doivent etre situes dans la carte (la encore : on ne verifie pas s'ils sont en dehors).
+
+Specificites :
+- Il peut y avoir plusieurs goals ; le AStar trouvera le plus proche,
+- Les goals peuvent etre dans des murs (c'est relativement penalisant pour les performances, mais
+  sera utile pour God !),
+- Le AStar s'adapte a la taille de la map : il suffit de lui passer cette information lors de
+  l'initialisation (note : il serait plus performant de remplacer les "astar.mapWidthShift" et
+  compagnie par des macros, e.g. "MAP_WIDTH_SHIFT", mais ce serait moins flexible !),
+- Le AStar utilise une fonction externe pour savoir s'il y a un mur (il serait plus rapide de faire
+  le test en interne, mais cela permet de decorreler le AStar de la carte : pas besoin de savoir ce
+  qu'est un mur !).
+
+Notes :
+- L'implementation utilise un "heap" pour les noeuds ouverts, et un "direct address" pour les noeuds
+  fermes,
+- Les goals d'un type donne sont betement sauvegardes dans une sorte de liste chainee,
+- Les chemins sont stockes de maniere relativement optimisee : 2 bits/step.

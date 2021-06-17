@@ -1,0 +1,250 @@
+<!--
+   Bomb Jack - ReadMe\BombJack.html
+   Nicolas ROBERT [NRX] - Hong Kong 2005 / France 2006
+-->
+
+<html>
+<head>
+<title>Bomb Jack - Game Boy Advance conversion of the Amstrad CPC version by Nrx</title>
+<style type="text/css" media="all">
+table#main {border-style:solid; border-width:15; border-color:black; width:98%}
+th#main {text-align:left; background:midnightblue; border-bottom-style:solid; border-bottom-width:15}
+table#history {color:white}
+caption#history {text-align:left; text-decoration:underline; font-weight:bold}
+caption#scoring {font-style:italic}
+br#left {clear:left}
+br#right {clear:right}
+</style>
+</head>
+<body>
+<div align="center">
+<font size="7pt">BOMB JACK</font><br/>
+<font size="4pt">- GBA conversion of the Amstrad CPC version -</font><br/>
+<a href="#Downloads">(downloads)</a><br/>
+<br/>
+<table id="main" cellspacing="0" cellpadding="4">
+<tr>
+<th id="main">
+<table id="history">
+<caption id="history">Revision history</caption>
+<td rowspan="4" valign="top">&#149; v1.3b:</td>
+<td>- Modified the code so that the game can be played on Super Card,</td>
+</tr>
+<tr><td>- Added a demonstration mode for the first 3 levels,</td></tr>
+<tr><td>- Slightly modified the settings of the keys,</td></tr>
+<tr><td>- Put the name of the game in the ROM's signature.</td></tr>
+<tr><td>&#149; v1.3a:</td><td>Fine-tuned the behavior of some of the enemies.</td></tr>
+<tr>
+<td rowspan="4" valign="top">&#149; v1.2:</td>
+<td>- Improved &quot;Music Jack&quot;: it can now manage several tracks,</td>
+</tr>
+<tr><td>- Implemented the control of the background's brightness,</td></tr>
+<tr><td>- Implemented the &quot;game's state saving&quot;,</td></tr>
+<tr><td>- Cleaned up the source code and fixed some (potential) bugs.</td></tr>
+<tr><td>&#149; v1.1:</td><td>Improved the detection of bombs.</td></tr>
+<tr><td>&#149; v1.0:</td><td>First release.</td></tr>
+</table>
+</th>
+</tr>
+<tr>
+<td>
+<img width="340" height="520" src="Screenshots/OriginalCover.jpg" align="left" alt="Original cover"/>
+<strong><u>Story</u></strong><br/>
+Jack is a super powered hero who has dedicated his life to truth, freedom and defusing the bombs
+that are regularly dispatched in his cozy world. Luckily, whoever makes these explosive devices is
+not really skillful: they never ever explode, no matter how long the fuses fizzle... However,
+traveling around the world to dispose of all the bombs isn't an easy task, as some of the planet's
+inhabitants prefer harassing Jack all day long rather than helping him in his quest!<br/>
+<br/>
+<img width="240" height="160" src="Screenshots/Title.png" align="right" alt="Title"/>
+Help Jack jump around the platforms, gather all the explosive devices and get the highest score! Do
+you think you can reach one million points?<br/>
+<br/>
+<strong><u>Start a game</u></strong><br/>
+After the Nintendo's logo is displayed, the Amstrad CPC boot-up screen is shown. The game is
+automatically launched after the command <em>run&quot;bombjack</em> is typed-in. You can bypass this
+intro sequence by pressing [A], [B] or [start] at any time.<br id="right"/>
+<br/>
+<img width="240" height="160" src="Screenshots/Menu.png" align="right" alt="Menu"/>
+The title screen is first loaded, but soon disappears, replaced by the menu. Again, you can bypass
+this phase by pressing the [A], [B] or [start] keys. Note that the mention &quot;Music Edition&quot;
+is displayed on the title screen when using <a href="#MusicJack">Music Jack</a>.<br/>
+<br/>
+To start a single player game, simply press [A] or [start]; to start a 2 players game, press [B]
+instead. Before starting a game, you can choose whether to use the &quot;normal mode&quot; or the
+&quot;turbo mode&quot; by pressing [select] or [up]/[down].<br id="right"/>
+<br/>
+<img width="240" height="160" src="Screenshots/HighScores.png" align="right" alt="High scores"/>
+Note: if you don't start a game, then the menu will cyclically show the high scores table or start a
+demonstration game after a while. Press the [A], [B] or [start] keys to go back to the menu while
+the high scores are displayed or the demo is running.<br id="left"/>
+<br/>
+<strong><u>How to play</u></strong><br/>
+Bombs are collected by traveling over them; when the first bomb on a screen is in the bag, another
+bomb starts fusing. It doesn't really matter in what order the bombs are collected, but if the
+active bombs are diffused in order then you'll be granted a big bonus!<br/>
+<br/>
+<img width="240" height="160" src="Screenshots/In-game01.png" align="left" alt="In-game"/>
+Our little caped crusader can leap into the air and move left and right. Pushing [A] will make Jack
+jump, but keep in mind that the laws of gravity govern him: if our hero can take a bound into the
+air, he also falls down... However, repeated bashings on the [A] button will make him drift down at
+a slower rate while he is in the air, allowing him to fly, collect awkwardly positioned bombs, and
+evade the nasties!<br/>
+<br/>
+Pushing [up] while Jack is springing skyward activates the turbo mode, allowing him to jump much
+higher than usual. You can choose to play with turbo mode activated or deactivated from the menu.
+<img width="240" height="160" src="Screenshots/In-game02.png" align="right" alt="In-game"/>
+<br id="left"/>
+<br/>
+<strong><u>Controls</u></strong><br/>
+- [left] &amp; [right]: move to the left or to the right,<br/>
+- [A]: jump (when on the ground) / stop the fall (when in the air),<br/>
+- [A] + [up]: turbo jump (when on the ground),<br/>
+- [start]: pause and <a href="#GameStateSaving">save the game's state</a>,<br/>
+- [select]: change the <a href="#Brightness">brightness of the game's background</a>.<br/>
+<br/>
+<strong><u>Tips</u></strong><br/>
+To make the game really playable, there is a certain tolerance in the collision of Jack with the
+enemies, bombs and bonus disks: there is contact only when 4 pixels or more overlap. This makes it
+possible to land between 2 bombs without touching any of them, or get really close to a nasty
+without losing a life!<br/>
+<br/>
+Also, it is said a cheat code exists... But that's a secret!<br/>
+<br/>
+<table border="1" bordercolor="black" cellspacing="0" cellpadding="2" align="right">
+<caption id="scoring">During the game</caption>
+<tr><th>Action</th><th>Points</th></tr>
+<tr><td>Jump</td><td>10 points</td></tr>
+<tr><td>Non sparking bomb</td><td>100 points</td></tr>
+<tr><td>Sparking bomb</td><td>200 points</td></tr>
+<tr><td>Bonus disk (B)</td><td>1,000 points - multiply subsequent points by 2, 3, or 4</td></tr>
+<tr><td>Power disk (P)</td><td>2,000 points</td></tr>
+<tr><td>Energy disk (E)</td><td>3,000 points</td></tr>
+<tr><td>Enemy killed</td><td>100 points for the first one, 500 for the fifth one</td></tr>
+</table>
+<strong><u>Bonus &amp; scoring</u></strong><br/>
+Jack has no weapons to kill the nasty creatures trying to stop him... Luckily, a disk bearing the
+letter &quot;P&quot; (Power) will arrive in the playing area every so often, and make the enemies
+vulnerable for a short while if collected: this power pill immobilizes all the nasties on the screen
+and turns them into smiling faces! Leaping through a disabled enemy not only eliminates it, but also
+awards points!<br/>
+<br/>
+A disk emblazoned with &quot;E&quot; (Energy) will give Jack another life if collected, whereas
+another disk showing &quot;B&quot; (Bonus) will increase the value of subsequent bombs gathered up
+on that screen.<br/>
+<br/>
+These disks will regularly appear in the play area, as long as you will collect sparking bombs... So
+try to dispose of the bombs in the right order, it will make Jack's life easier!<br id="right"/>
+<br/>
+<img width="240" height="160" src="Screenshots/Bonus.png" align="left" alt="Bonus"/>
+<table border="1" bordercolor="black" cellspacing="0" cellpadding="2" align="right">
+<caption id="scoring">Once a level has been cleared</caption>
+<tr><th>Sparking bombs collected</th><th>Points</th></tr>
+<tr><td>20 sparking bombs</td><td>10,000 points</td></tr>
+<tr><td>21 sparking bombs</td><td>20,000 points</td></tr>
+<tr><td>22 sparking bombs</td><td>30,000 points</td></tr>
+<tr><td>23 sparking bombs</td><td>50,000 points</td></tr>
+</table>
+Jack can also get a performance bonus, which depends on how many sparking bombs he succeeded to
+dispose. This bonus is granted every time Jack clears a level; if all the bombs were collected in
+the proper order then Jack receives 50,000 points!<br id="left"/>
+<br/>
+<img width="240" height="160" src="Screenshots/EnterYourName.png" align="right" alt="Enter your name"/>
+<strong><u>Enter your name!</u></strong><br/>
+If you're good enough, you will certainly have a chance to record your name into the table of the 8
+best bombers. To enter your name, use the [up] and [down] keys to select the letter you want, then
+press the [A] button to go to the next letter. You can also use the [left] and [right] arrows to
+change any letter that has already been chosen. Once you are happy with your entry, press [start] to
+validate it.<br/>
+<br/>
+Note: the high scores are saved into the cartridge; to reset the list, hold the [A] and [B] buttons
+while switching on your GBA.<br/>
+<br id="right"/>
+<a name="GameStateSaving"><strong><u>Game's state saving</u></strong></a><br/>
+If you switch off your GBA while the game is paused (you can always pause the game by pressing
+[start]), then the game will automatically be restored the next time you'll switch on the handheld,
+allowing you to continue exactly from where you were! So don't worry if you haven't much time to
+play: Bomb Jack will never force you to give up!<br/>
+<br/>
+Note that the game's state is only saved while in pause; if you switch off your GBA without pausing
+first, then your game will be lost.<br/>
+<br/>
+<img width="240" height="160" src="Screenshots/In-game03Bright.png" align="right" alt="In-game"/>
+<img width="240" height="160" src="Screenshots/In-game03Dark.png" align="right" alt="In-game"/>
+<a name="Brightness"><strong><u>Background's brightness</u></strong></a><br/>
+By default, the game's background appears a bit darker than on the original Amstrad version, which
+allows to better see some of the enemies. However, you can choose to change the brightness of the
+background by pressing [select] at any moment during the game, and see how difficult it can be to
+play with the original colors!<br/>
+<br/>
+<a name="MusicJack"><strong><u>Music Jack</u></strong></a><br/>
+Music Jack is a PC (DOS) executable that allows easily adding music to Bomb Jack. It can take any
+wave file that has a sample rate lower or equal to 22050 Hz, and put it into the game.<br/>
+<br/>
+In Windows Explorer, simply drag and drop your wave files onto the program to generate the GBA ROM.
+Alternatively you can open a DOS command box and pass the the wave files names as arguments of
+Music Jack.exe. Note that the program uses the APDCM compression algorithm by default; you can
+specify whether the music shall be compressed or not using the options &quot;-compress&quot; and
+&quot;-nocompress&quot;. You may also run Music Jack without any argument, in which case the GBA ROM
+it will generate won't contain any music (the game will be exactly the same as the original Bomb
+Jack, but the ROM will be a bit bigger because of the ADPCM decoder).<br/>
+<br/>
+The music starts right after the menu is first displayed, and then is played in a loop. You can
+press the [L] and [R] buttons whenever you want to change the track being played (press [L] to play
+the previous track, and [R] to go to the next one).<br/>
+<br/>
+Note that you don't need the original ROM to use Music Jack: it is a standalone program that embeds
+all the game data.<br/>
+<br/>
+<a name="Downloads"><strong><u>Downloads</u></strong></a><br/>
+- Bomb Jack:
+<a href="http://www.artplastique.free.fr/nrx/GBA/Bomb%20Jack/ROMs/Bomb%20Jack.gba">GBA ROM</a> (50 KB),<br/>
+- Music Jack:
+<a href="http://www.artplastique.free.fr/nrx/GBA/Bomb%20Jack/Tools/Music%20Jack.exe">PC executable</a> (61 KB) /
+<a href="http://www.artplastique.free.fr/nrx/GBA/Bomb%20Jack/ROMs/Music%20Jack.zip" title="Contents:
+
+1) A-Ha - Take on me
+2) Captain Sensible's - Wot
+3) Culture Club - Karma chameleon
+4) Imagination - Music & lights
+5) Kajagoogoo - Too shy
+6) Kool & The Gang - Fresh
+7) Madonna - Into the groove
+8) Michael Jackson & Paul McCartney - Say say say
+9) Nik Kershaw - The riddle
+10) Rod Stewart - Baby Jane
+11) Simple Minds - Don't you
+12) Stevie Wonder - Part time lover
+13) Talk Talk - Such a shame
+14) Tears For Fears - Sowing the seeds of love
+15) U2 - Pride
+16) Van Halen - Jump">GBA demonstration ROM</a> (16 MB),<br/>
+- Sources:
+<a href="http://www.artplastique.free.fr/nrx/GBA/Bomb%20Jack/Sources/Bomb%20Jack%20-%20060416.rar">RAR archive</a> (166 KB).<br/>
+<br/>
+<strong><u>Other productions</u></strong><br/>
+- Mario Balls:
+<a href="http://www.artplastique.free.fr/nrx/GBA/MarioBalls/ROMs/MarioBalls.zip">GBA ROM</a> /
+<a href="http://www.artplastique.free.fr/nrx/GBA/MarioBalls/Sources/" target="_blank">sources</a>,<br/>
+- God*:
+<a href="http://www.artplastique.free.fr/nrx/GBA/God/ROMs/God.zip">GBA ROM</a> /
+<a href="http://www.artplastique.free.fr/nrx/GBA/God/Sources/" target="_blank">sources</a>.<br/>
+<br/>
+<em>*Still under development.</em><br/>
+<br/>
+<strong><u>Greetings</u></strong><br/>
+I recommend the following web resources:<br/>
+- <a href="http://www.playeradvance.org" target="_blank">Player Advance</a>,<br/>
+- <a href="http://www.pdroms.de" target="_blank">PDroms</a>,<br/>
+- <a href="http://www.gbadev.org" target="_blank">gbadev.org</a>,<br/>
+- <a href="http://www.console-dev.de" target="_blank">VisualHAM</a>.<br/>
+<br/>
+<strong><u>Contact</u></strong><br/>
+Nicolas ROBERT [NRX]: <a href="mailto:MarioBallsGba@hotmail.com">E-mail</a>.
+</td>
+</tr>
+</table>
+</div>
+<table height="1024"><tr><td></td></tr></table>
+</body>
+</html>

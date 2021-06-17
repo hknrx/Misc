@@ -1,0 +1,425 @@
+##
+## God - Sources\World\3dIso\3dIso.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+A) Sol et plafond
+   ##############
+
+   1) Calculs
+      #######
+
+Pour le sol et le plafond on utilise des backgrounds rotatifs scales.
+
+Matrice de rotation classique :
+      [ COS(Ry) SIN(Ry)]
+ROT = [                ]
+      [-SIN(Ry) COS(Ry)]
+
+Matrice de scale classique :
+        [scaleX   0   ]
+SCALE = [             ]
+        [  0    scaleY]
+
+Mais il faut se placer dans le repere de la GBA, et donc inverser les matrices :
+          [COS(Ry) -SIN(Ry)]
+INV_ROT = [                ]
+          [SIN(Ry)  COS(Ry)]
+
+            [1/scaleX     0   ]
+INV_SCALE = [                 ]
+            [    0    1/scaleY]
+
+Si on multiplie les matrices (INV_ROT x INV_SCALE) on obtient :
+    [COS(Ry)/scaleX -SIN(Ry)/scaleY]
+M = [                              ]
+    [SIN(Ry)/scaleX  COS(Ry)/scaleY]
+
+Dans le cadre de la representation 3D isometrique, on a :
+scaleX = 1/zoom
+scaleY = h/zoom avec h=SIN(Rx)
+
+On obtient donc :
+PA =  zoom*COS(Ry)
+PB = -zoom*SIN(Ry)/SIN(Rx)
+PC =  zoom*SIN(Ry)
+PD =  zoom*COS(Ry)/SIN(Rx)
+
+Il faut egalement deplacer le plafond par rapport au sol :
+Yplafond=Ysol+(HAUTEUR*COS(Rx)/zoom)
+
+Note : en pratique on ne deplace pas seulement le plafond mais aussi le sol ; on les decale d'une
+"demi hauteur" chacun pour que le centre du repere soit entre les deux.
+
+   2) Memory mapping
+      ##############
+
+Tiles pour le sol et le plafond :
+- 0         = vide : utilise pour la map du plafond lorsqu'il n'y a pas de mur, et par celle du sol
+              pour le bord,
+- 1 a (n-1) = tiles du plafond,
+- n a (max) = tiles du sol.
+
+   3) Divers
+      ######
+
+      a) Mode graphique
+         ##############
+
+On utilise normalement le mode 2 (2 BG rotatifs), mais cela nous prive d'un BG classique pour
+l'affichage des menus... Une solution envisagee a ete de passer en mode 1 (1 BG rotatif + 2 BG
+classiques), et d'utiliser l'un des BG classique pour faire la rotation en "soft"... mais cette
+solution demande qu'on reserve enormemement de tiles (600) et degrade les performances ! Une
+solution alternative est d'utiliser les modes 0 et 2 en meme temps, en separant l'ecran en 2 zones
+distinctes (changement du mode par interruption HBL).
+
+      b) Calcul des inverses
+         ###################
+
+On remarque que :
+|SIN(x)| <= 1
+|COS(x)| <= 1
+
+Donc :
+|1/SIN(x)| >= 1
+|1/COS(x)| >= 1
+
+=> Il est preferable de faire a*(b/c) plutot que (a*b)/c !
+=> Il n'y a pas de perte lorsqu'on stocke l'inverse d'une de ces valeurs dans une variable (on peut
+   donc precalculer leurs inverses).
+
+      c) Approximations et corrections
+         #############################
+
+Les approximations faites lors des differents calculs (particulierement lors de la deformation et du
+positionnement des sprites) font qu'il y a des espaces entre les backgrounds (sol et plafond) et les
+murs.
+
+Afin de limiter ces espaces on peut :
+- soit corriger les sprites (modification des coefficients PC et PD),
+- soit rapprocher les backgrounds pour qu'ils "collent" aux sprites.
+
+La seconde solution est celle implementee ; on fait une correction de la hauteur juste avant le
+positionnement du sol et du plafond :
+
+height = height * (1 - 1/WALL_HEIGHT)
+
+B) Murs
+   ####
+
+   1) Calculs
+      #######
+
+      a) Simple (methode de calcul 1)
+         ############################
+
+Pour les murs on utilise des sprites deformes. On envisage le sprite deforme dans le repere ecran ;
+on cree 2 vecteurs U et V dans le repere du sprite pour retrouver la deformation a appliquer.
+
+Typiquement on a :
+Ux =  COS(Ry)
+Uy = -SIN(Ry)*SIN(Rx)
+Vx =  0
+Vy =  COS(Rx)
+
+On a :
+xecran = xsprite*Ux
+yecran = ysprite*Vy+Uy*xsprite
+
+Soit encore :
+xsprite =  (1/Ux)*xecran
+ysprite = -(Uy/(Ux*Vy))*xecran+(1/Vy)*yecran
+
+Il ne manque plus qu'a zoomer le tout, et on obtient finalement (pour les sprites sur l'axe x) :
+PA = zoom/COS(Ry)
+PB = 0
+PC = zoom*TAN(Ry)*TAN(Rx)
+PD = zoom/COS(Rx)
+
+      b) Validation (methode de calcul 2)
+         ################################
+
+Matrice de "shear" classique :
+        [  1    shearX]
+SHEAR = [             ]
+        [shearY   1   ]
+
+La matrice inverse est :
+            [   1/(1-shearX*shearY)    -shearX/(1-shearX*shearY)]
+INV_SHEAR = [                                                   ]
+            [-shearY/(1-shearX*shearY)    1/(1-shearX*shearY)   ]
+
+Si on multiplie les matrices (INV_SCALE x INV_SHEAR) on obtient :
+    [   1/((1-shearX*shearY)*scaleX)    -shearX/((1-shearX*shearY)*scaleX)]
+M = [                                                                     ]
+    [-shearY/((1-shearX*shearY)*scaleY)    1/((1-shearX*shearY)*scaleY)   ]
+
+Dans le cadre de la representation 3D isometrique, on a :
+scaleX =  COS(Ry)/zoom
+scaleY =  COS(Rx)/zoom
+shearX =  0
+shearY = -TAN(Ry)*SIN(Rx)
+
+On obtient donc les parametres suivants (pour les sprites sur l'axe x) :
+PA = zoom/COS(Ry)
+PB = 0
+PC = zoom*TAN(Ry)*TAN(Rx)
+PD = zoom/COS(Rx)
+
+      c) Calculs, approximations et corrections
+         ######################################
+
+On a :
+PA = zoom / cosRy
+PC = zoom * (sinRy / cosRy) * (sinRx / cosRx)
+PD = zoom / cosRx
+
+Des imprecisions dans les calculs font que les valeurs sont trop grandes, et donc les sprites trop
+petits => il y a des espaces entre les murs pour certains angles et niveaux de zoom. A priori
+l'imprecision est due aux divisions par les cosinus (si le cosinus est arrondi a la valeur
+inferieure, alors son inverse est plus grand).
+
+         - Correction a priori de COS(Ry) (non implementee)
+           ##############################
+
+Il semble que cosRy est celui qui merite le plus d'attention (car Ry peut etre pres de PI/2 => cosRy
+pres de 0, ce n'est pas aussi souvent le cas pour Rx qui reste en general constant). Une correction
+proposee est :
+
+PA = zoom / (cosRy + CORRECTION)   avec CORRECTION = une constante
+
+On note que cela correspond en fait a une modification du zoom :
+PA = zoomCorrige / cosRy   =>   zoomCorrige = cosRy / (cosRy + CORRECTION)
+
+Si on trace la courbe "zoomCorrige(Ry)" sur l'interval [0, PI/2], alors on voit qu'il n y a
+quasiment pas de correction pour les petites valeurs (zoomCorrige tres proche de 1) ; la correction
+n'intervient reellement que lorsque Ry se rapproche de PI/2 (=> zoomCorrige diminue soudainement
+pour atteindre 0 a PI/2).
+
+Pour que le sprite soit bien proportionne il faut effectuer la meme correction sur les coefficients
+PC et PD, c'est a dire appliquer le meme "zoomCorrige". Comme PC depend de PA, c'est automatiquement
+le cas, mais pour PD il faut faire attention :
+PD = zoom / cosRx = PA * cosRy / cosRx
+
+On peut ecrire :
+PA = zoom / (cosRy + CORRECTION)
+PD = PA / cosRx
+PC = PD * sinRx * sinRy
+PD = PD * cosRy
+
+Attention toutefois : le zoomCorrige est infini (= 0) pour PI/2, ce qui n'est pas acceptable ! Il
+faut donc limiter la correction lorsque cosRy est petit...
+
+         - Correction a posteriori de PA (implementee)
+           #############################
+
+On peut egalement envisager de faire les calculs normalement et de n'effectuer une correction que
+sur le resultat obtenu.
+
+Note preliminaire : on preferera garder l'ecriture originale des coefficients PA, PC et PD afin
+d'eviter les debordements lors des calculs :
+PA = zoom / cosRy
+PD = 1 / cosRx
+PC = (sinRy * PA) * (sinRx * PD)
+PD = zoom * PD
+
+Les espaces entre murs sont dus a un PA trop eleve (= des sprites trop etroits), l'idee est donc de
+corriger PA...
+
+Rappel :
+xsprite = xecran * PA
+
+Donc :
+WALL_WIDTH = WIDTH * PA
+
+...on veut augmenter legerement WIDTH en utilisant un nouveau PA :
+WALL_WIDTH = (WIDTH + N) * newPA
+
+=> newPA = WALL_WIDTH / (N + WALL_WIDTH / PA)
+=> newPA = PA / (1 + PA * N / WALL_WIDTH)
+
+La valeur retenue pour N est 0.5 (i.e. agrandissement d'un demi-pixel).
+
+Note : comme pour la correction de cosRy, il faut faire attention aux cas limites... En l'occurence
+il ne faut pas appliquer cette formule lorsque PA est trop grand, car la correction serait alors
+trop forte.
+
+   2) Sprites
+      #######
+
+      a) Reflexion preliminaire
+         ######################
+
+Quelques calculs (xs&ys sont les coordonnees dans le repere du sprite, xe&ye dans le repere ecran) :
+xs = PA*xe+PB*ye
+ys = PC*xe+PD*ye
+
+avec :
+PA=zoom/cosRy
+PB=0
+PC=zoom*sinRx*sinRy/(cosRx*cosRy)
+PD=zoom/cosRx
+
+...on veut xe tel que xs=L et ye tel que ys=H (et on note que H=L)
+=> xe=L/PA
+=> ye=(H-PC*L/PA)/PD=L*(PA-PC)/(PA*PD)
+
+On retrouve donc :
+deformationL=cosRy
+deformationH= [simplification] = cosRx-sinRx*sinRy
+
+Il reste le probleme du signe...
+deformationL=|cosRy|
+deformationH=|sinRy|*sinRx+cosRx
+
+On a aussi :
+_defL = zoom/deformationL = |PA|
+_defH = zoom/deformationH = |(PA*PD)/(PA-PC)|
+
+Sprites dispo pour l'affichage : en se limitant a des sprites de 32x32 pixels au maximum, on peut
+aller d'un bloc de 64x64 a 8x8 pixels (avec l'utilisation du "double").
+
+Il faut remarquer qu'avec une texture carree on peut avoir au maximum une hauteur deformee de :
+sqrt(2)*hauteur normale. => Si la texture originale fait 32x32, on peut tolerer un zoom de sqrt(2)/2
+(en gros 0.7) avec l'utilisation du "double", au dela le sprite ne sera pas afficher correctement
+(depassement sur la hauteur => texture tronquee). A moins d'avoir egalement un sprite 32x64, auquel
+cas on peut aller jusqu'a un zoom de 1/2 (limite par la largeur).
+
+Note sur l'utilisation du "double" : on devrait toujours etre en double pour simplifier l'affichage,
+sauf peut etre lorsque la deformation sur la largeur ne necessite pas plus de 8 pixels, auquel cas
+on peut avoir un sprite "single"... Il faudra par contre avoir une hauteur suffisante pour faire la
+deformation verticale (un sprite 8x16 ou 8x32 avec une texture de 8x8 au milieu).
+
+Remarque : on pourrait peut etre se passer des sprites rectangulaires en jouant sur le zoom : 32x32
+=> 16x16 a condition que le zoom soit tel que la deformation verticale "tienne" dans 32 pixels (32 =
+16*2 car on est en double). Le probleme est que souvent la deformation est assez importante en
+vertical alors qu'elle est tres faible en largeur : il serait dommage d'imposer un sprite de 64
+pixels de large (32*2) alors que c'est inutile ; il vaut mieux utiliser des sprites 16x32 et 8x32.
+
+Resume :
+sqrt(2)/2 <= _defL < 1   => 32x en double
+        1 <= _defL < 2   => 16x en double
+        2 <= _defL < 4   =>  8x en double
+        4 <= _defL < ... =>  8x en single
+
+sqrt(2)/2 <= _defH < 1   => x32
+        1 <= _defH < 2   => x16 en double / x32 en single
+        2 <= _defH < 4   =>  x8 en double / x16 en single
+        4 <= _defH < ... =>  x8 en single
+
+*note : on ne considere pas le cas "x64 en single" puisque le seul single admis sera un 8x et qu'il
+n'y a pas de 8x64)
+
+=> On choisit d'abord la largeur, on en deduit la hauteur...
+
+      b) En pratique
+         ###########
+
+         - Choix de la taille
+           ##################
+
+On peut avoir des sprites de largeur et hauteur variables pour les murs; les mesures possibles sont
+8, 16 et 32 pixels. Toutes les combinaisons ne sont pas interessantes, il semble notamment inutile
+d'avoir des sprites de 8 pixels de haut (la rotation Ry entraine souvent une elongation du sprite en
+hauteur, quelque soit le Rx). Les valeurs retenues sont :
+   32x32 32x16
+   16x32 16x16
+    8x32  8x16
+
+On peut maintenant considerer 2 types d'affichage :
+- l'affichage rapproche : tous les types de sprites sont necessaires,
+- l'affichage eloigne : on peut se contenter des types les plus petits (16x16 et 8x16).
+
+Il es possible de faire un seul moteur de 3D isometrique qui gere les deux cas, le zoom fera la
+difference (pour etre dans le second cas il faudra s'assurer que la valeur du zoom est au moins 2x
+plus grande que la valeur minimum du premier cas : zoom>=ZOOM_MIN<<1). Il faut par contre disposer
+les sprites de maniere intelligente en memoire pour tout gerer avec un seul moteur :
+   8x16 - 16x16 - 32x16
+   8x32 - 16x32 - 32x32
+Ici on remarque que le pave en haut a gauche correspond au 2nd cas (8x16 et 16x16)... c'est un sous
+ensemble du 1er cas. Le probleme restant est l'acces au bon sprite : on prend normalement l'id
+trouvee dans la map et on multiplie par un facteur fixe pour retrouver le sprite ; il faudra
+desormais faire une distinction entre les sprites de type 1 et ceux de type 2 (par exemple on peut
+mettre les gros sprites au debut du buffer, on les reperes grace a leur petite id).
+
+         - Memory mapping
+           ##############
+
+Sprites de type 1 (8x16, 16x16, 32x16, 8x32, 16x32, 32x32) :
+   a|bb|cccc
+   a|bb|cccc
+   -+--+----
+   d|ee|ffff
+   d|ee|ffff
+   d|ee|ffff
+   d|ee|ffff
+=> Chaque mur de type 1 occupe un bloc de 7x6 tiles (56x48 pixels)
+
+Sprites de type 2 (8x16, 16x16) :
+   a|bb
+   a|bb
+=> Chaque mur de type 2 occupe un bloc de 3x2 tiles (24x16 pixels)
+
+Positionnement en memoire video :
+- On utilise le mode "2D" pour plus de simplicite (qui permet 16 tiles en largeur),
+- On stocke les murs par type : les sprites pour les murs de type 1 en haut, ceux pour les murs de
+  type 2 en bas,
+- On essaie de remplir au mieux l'espace memoire (i.e. d'eviter les pertes).
+
+Proposition :
+- Murs de type 1 => 2 blocs en largeur (il reste 2 tiles sur la droite),
+- Murs de type 2 => 5 blocs en largeur (il reste 1 tile sur la droite).
+
+Exemple avec 4 murs de type 1 puis 10 murs de type 2 :
+00000001111111..
+00000001111111..
+00000001111111..
+00000001111111..
+00000001111111..
+00000001111111..
+22222223333333..
+22222223333333..
+22222223333333..
+22222223333333..
+22222223333333..
+22222223333333..
+444555666777888.
+444555666777888.
+999AAABBBCCCDDD.
+999AAABBBCCCDDD.
+
+Attention, l'espace memoire est limite (32 tiles en hauteur ?), il faut donc ne pas avoir trop de
+murs, surtout qu'il faut quelques sprites pour les personnages et eventuellement les icones de
+menus...
+
+Note : on pourra utiliser l'espace libre a droite pour stocker les sprites du pointeur ecran par
+exemple (a priori des sprites de 16x16 pixels).
+
+Sprites pour le pointeur :
+- Fleche simple,
+- Translations,
+- Rotation Ry & zoom,
+- Rotation Rx & rotation Ry,
+- Fleches pour translations lorsqu'on est sur le bord de l'ecran ? (x4, ou x2 avec effet miroir),
+- Fleche avec petite croix (action interdite),
+- Fleche avec "prendre",
+- Fleche avec "poser",
+- ... (a voir).
+
+C) OAM
+   ###
+
+Mapping de la memoire video :
+- BG rotatif pour le sol = 128x128 tiles = 16Ko (1 octet par tile),
+- BG rotatif pour le plafond = 128x128 tiles = 16Ko (1 octet par tile),
+- BG texte pour le menu = 32x32 tiles = 2Ko (2 octets par tiles),
+- Tiles pour le sol & le plafond = 256 tiles = 16Ko,
+- Tiles pour le menu = le reste ;-).
+
+=> Proposition :
+    0 - 16383 : BG2/SCREEN(0)   - map du sol (128x128 tiles / 1024x1024 pixels)
+16384 - 32767 : BG3/SCREEN(8)   - map du plafond (128x128 tiles / 1024x1024 pixels)
+32768 - 49151 : BG2&BG3/CHAR(2) - tiles du sol & du plafond (256 tiles max)
+49152 - 61439 : BG0&BG1/CHAR(3) - tiles du menu (192 tiles max)
+61440 - 63487 : BG0/SCREEN(30)  - map du fond du menu (32x32 tiles / 256x256 pixels)
+63488 - 65535 : BG1/SCREEN(31)  - map du texte du menu (32x32 tiles / 256x256 pixels)

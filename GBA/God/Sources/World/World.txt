@@ -1,0 +1,88 @@
+##
+## God - Sources\World\World.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+A) Contraintes
+   ###########
+Attention : Il faut que la carte soit toujours plus large que haute, i.e. MAP_WIDTH>=MAP_HEIGHT
+(soit encore : MAP_WIDTH_SHIFT>=MAP_HEIGHT_SHIFT).
+
+B) Cercle de fermeture
+   ###################
+
+Pour la sequence de fermeture de World on affiche un cercle qui se retrecit ; on utilise le systeme
+de fenetrage de la GBA, en modifiant la largeur de la fenetre a chaque ligne par interruption.
+
+   1) Calcul de la largeur de la fenetre
+      ##################################
+
+Pour le calcul a proprement parle de la largeur de la fenetre on effectue d'abord un changement de
+repere : on deplace l'origine du repere au centre de l'ecran (XO,YO). Ensuite il y a 2 solutions...
+
+      a) Racine carree
+         #############
+
+Une equation de base du cercle est : x2 + y2 = r2
+On cherche x, on en deduit que : x=SQRT(r*r-y*y)
+
+Le programme suivant est une implementation de cette methode (calcul de la racine carree par
+approximations successives) :
+
+   // Equation de base du cercle : x2 + y2 = r2
+   // On obtient donc x : x=SQRT(r*r-y*y)
+   x2=r*r-y*y;
+
+   // Calcul de la racine carree (algorithme de Heron d'Alexandrie)
+   x=x2;
+   do
+   {
+      precision=x;
+      x=(x+x2/x)>>1; // Note : on n'utilise pas INVERSE_TABLE[x] car x peut etre superieur a INVNB...
+      precision-=x;
+   }
+   while(precision>1);
+
+      b) Arcsinus
+         ########
+
+Il existe d'autres equations pour le cercle :
+x=r*COS(angle)
+y=r*SIN(angle)
+
+On cherche toujours x ; on trouve : x=r*COS(ARCSIN(y/r))
+
+Le programme suivant est une implementation de cette methode (recherche de "arcsinus" par
+dichotomie) :
+
+   // Equations de base du cercle : x=r*COS(angle) et y=r*SIN(angle)
+   // On obtient donc x : x=r*COS(ARCSIN(y/r))
+   sin=((unsigned long)y*INVERSE_TABLE[world.closeCounter])>>(FIXED_POINT_INV_SHIFT-FIXED_POINT_SHIFT);
+
+   // Recherche dichotomique de ARCSIN en utilisant le tableau SINE_TABLE
+   min=0;
+   arcsin=SINNB/8;
+   max=SINNB/4;
+   do
+   {
+      if(SINE_TABLE[arcsin]>=sin)
+         max=arcsin;
+      else
+         min=arcsin;
+      arcsin=(min+max)>>1;
+   }
+   while(arcsin!=min);
+   x=(world.closeCounter*COS(arcsin))>>FIXED_POINT_SHIFT;
+
+   2) Timing pour la modification de "REG_WIN0H"
+      ##########################################
+
+Attention : il ne faut modifier le parametre "REG_WIN0H" que durant le HBLANK, surtout pas pendant
+l'affichage car sinon la GBA trace une ligne noire ! Il faudrait donc que les calculs soient
+toujours faits en moins de 16.212 micro secondes...
+
+Pour s'assurer que la modification du registre est faite a temps on calcule les coordonnees une
+ligne a l'avance et on change le registre des la reception de l'interruption.
+
+=> Lorsqu'on effectue le changement de repere on se deplace de YO-2 en hauteur au lieu de simplement
+   YO.

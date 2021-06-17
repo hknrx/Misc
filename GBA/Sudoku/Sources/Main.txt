@@ -1,0 +1,9 @@
+##
+## Sudoku - Sources\Main.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+Repartition en memoire video :
+
+    0 -  7167 = BG0/CHAR(0)    - tiles de la police CPC
+57344 - 59391 = BG0/SCREEN(28) - map du jeu

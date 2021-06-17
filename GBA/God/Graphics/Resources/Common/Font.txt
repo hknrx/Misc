@@ -1,0 +1,13 @@
+##
+## God - Graphics\Common\Font.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP 256 couleurs ; seules les 2 dernieres couleurs sont utilisees :
+- #254 = blanc,
+- #255 = noir.
+
+La toute premiere couleur de la palette (#0) doit etre utilisee pour le fond (transparence).
+
+Attention, l'ordre des caracteres ne doit pas etre modifie sous peine de devoir egalement modifier
+le code source...

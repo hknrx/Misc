@@ -1,0 +1,18 @@
+##
+## Mario Balls - Sources\Commun\Commun.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Note au sujet du choix de SINNB par rapport a la precision donnee par VIRGULE :
+
+On a choisi :
+- VIRGULE_=13 (soit 8192 valeurs pour la partie decimale d'un nombre),
+- SINNB_=11 (soit 2048 increments pour un tour complet de cercle).
+
+Avec ces constantes on a moins d'une dizaine de valeurs identiques pour SINUS (on a des doublons
+lorsque l'angle s'approche de PI/2 : le delta entre 2 sinus est alors trop faible pour etre
+represente avec notre VIRGULE). Notons qu'avec VIRGULE_=10 on aurait une cinquantaine de valeurs
+identiques...
+
+On peut donc dire que ces valeurs de SINNB_ et VIRGULE_ sont plutot adequates ; il est inutile de
+mettre une VIRGULE plus precise a moins d'augmenter SINNB, ce qui ne semble pas necessaire.

@@ -1,0 +1,6 @@
+##
+## God - Graphics\Intro\Bump\Nrx.txt
+## Nicolas ROBERT [NRX] - Hong Kong 2005
+##
+
+Il faut une image BMP en 256 niveaux de gris.

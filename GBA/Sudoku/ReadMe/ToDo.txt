@@ -1,0 +1,7 @@
+##
+## Sudoku - ReadMe\ToDo.txt
+## Nicolas ROBERT [NRX] - France 2006
+##
+
+Calculer la complexite...
+...tant pour la resolution de la grille pour la creation (et il faut obtenir les meme resultats).
