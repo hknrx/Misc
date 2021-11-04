@@ -172,7 +172,7 @@ Error SearchArray(Array* array, Square* square) {
                         cell->columnHeight = 1;
 
                         // Check whether it is neither the first row nor the
-                        // first column (so, we can check neigbor cells on the
+                        // first column (so, we can check neighbor cells on the
                         // left and on the top of the current cell).
                         // Note: we could update rowLength when on the first
                         // row, and we could update columnHeight when on the
