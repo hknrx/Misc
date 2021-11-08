@@ -288,7 +288,7 @@ int main(int argc, char** argv) {
             }
         }
 
-        // Display the array (we do not care about errors here).
+        // Destroy the array (we do not care about errors here).
         DestroyArray(&array);
     }
 
