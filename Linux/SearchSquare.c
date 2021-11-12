@@ -6,7 +6,7 @@
 
 // Include header files of various C libraries used by this program.
 #include <stdio.h>  // printf(), putchar(), puts()
-#include <stdlib.h> // srand(), rand(), malloc(), calloc(), free(), atoi()
+#include <stdlib.h> // srand(), rand(), malloc(), free(), atoi()
 #include <stdint.h> // uint8_t, uint16_t
 #include <time.h>   // time()
 
@@ -27,7 +27,7 @@ typedef struct {
 // Define the Cell structure type, in which the SearchArray() function will
 // store information about each cell.
 typedef struct {
-    uint8_t sizeSquare;
+    uint8_t squareSize;
     uint8_t rowLength;
     uint8_t columnHeight;
 } Cell;
@@ -147,9 +147,11 @@ Error SearchArray(Array* array, Square* square) {
     // Make sure we do have an array structure, blocks, and a square structure.
     if (array != NULL && array->blocks != NULL && square != NULL) {
 
-        // Allocate enough memory to store all the needed cells.
-        // Note: use calloc() to initialize all the cells to 0.
-        Cell* cells = calloc(array->size * array->size, sizeof(Cell));
+        // Allocate enough memory to store all the needed cells. As a matter of
+        // fact, we only need to record (1 row + 1) cells, as this is sufficient
+        // to keep track of cells on the left and on the top of the current
+        // cell.
+        Cell* cells = malloc((array->size + 1) * sizeof(Cell));
         if (cells != NULL) {
 
             // No square has been found yet.
@@ -157,19 +159,35 @@ Error SearchArray(Array* array, Square* square) {
 
             // Go through the whole array, from top to bottom and from left to
             // right...
-            uint16_t xy = 0;
+            uint16_t blockId = 0;
+            uint8_t cellId = 0;
+            uint8_t cellIdPrevious = array->size;
             for (uint8_t y = 0; y < array->size; ++y) {
                 for (uint8_t x = 0; x < array->size; ++x) {
 
+                    // Define the next cell ID (which is also the ID of the cell
+                    // on the top of the current cell).
+                    // Note: similarly, the previous cell ID is also the ID of
+                    // the cell on the left of the current cell... and the
+                    // current cell ID is also the ID of the cell in its upper-
+                    // left corner!
+                    uint8_t cellIdNext = cellId < array->size ? cellId + 1 : 0;
+
                     // Check whether there is a block here.
-                    if (array->blocks[xy]) {
+                    Cell cell;
+                    if (!array->blocks[blockId]) {
+
+                        // No block!
+                        cell.squareSize = 0;
+                        cell.rowLength = 0;
+                        cell.columnHeight = 0;
+                    } else {
 
                         // All fields of the corresponding cell can be
                         // initialized to 1.
-                        Cell* cell = &cells[xy];
-                        cell->sizeSquare = 1;
-                        cell->rowLength = 1;
-                        cell->columnHeight = 1;
+                        cell.squareSize = 1;
+                        cell.rowLength = 1;
+                        cell.columnHeight = 1;
 
                         // Check whether it is neither the first row nor the
                         // first column (so, we can check neighbor cells on the
@@ -183,33 +201,39 @@ Error SearchArray(Array* array, Square* square) {
                             // neighbor cells (size of the square in the
                             // upper-left corner, length of the row on the left,
                             // and height of the column on the top).
-                            cell->sizeSquare += cells[xy - 1 - array->size].sizeSquare;
-                            cell->rowLength += cells[xy - 1].rowLength;
-                            cell->columnHeight += cells[xy - array->size].columnHeight;
+                            cell.squareSize += cells[cellId].squareSize;
+                            cell.rowLength += cells[cellIdPrevious].rowLength;
+                            cell.columnHeight += cells[cellIdNext].columnHeight;
 
                             // The actual square size here is limited by the row
                             // length and column height, of course.
-                            if (cell->sizeSquare > cell->rowLength) {
-                                cell->sizeSquare = cell->rowLength;
+                            if (cell.squareSize > cell.rowLength) {
+                                cell.squareSize = cell.rowLength;
                             }
-                            if (cell->sizeSquare > cell->columnHeight) {
-                                cell->sizeSquare = cell->columnHeight;
+                            if (cell.squareSize > cell.columnHeight) {
+                                cell.squareSize = cell.columnHeight;
                             }
                         }
 
                         // Check whether this square is the largest found so
                         // far.
-                        if (cell->sizeSquare > square->size) {
+                        if (cell.squareSize > square->size) {
 
                             // Take note of this square.
-                            square->size = cell->sizeSquare;
+                            square->size = cell.squareSize;
                             square->bottomRightX = x;
                             square->bottomRightY = y;
                         }
                     }
 
+                    // Record the cell data (to allow update neighbor cells in
+                    // the future).
+                    cells[cellId] = cell;
+
                     // Next block / next cell...
-                    ++xy;
+                    ++blockId;
+                    cellIdPrevious = cellId;
+                    cellId = cellIdNext;
                 }
             }
 
@@ -285,6 +309,15 @@ int main(int argc, char** argv) {
                         square.bottomRightY + 1 - square.size);
             } else {
                 puts("\n(No block at all!)");
+            }
+
+            // If there was no argument on the command line, then display the
+            // usage.
+            if (argc == 1) {
+                printf("\nUsage: %s [array_size [percentage_of_blocks]]\n"
+                        "Example: %s 10 90\n",
+                        argv[0],
+                        argv[0]);
             }
         }
 
